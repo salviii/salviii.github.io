@@ -3,6 +3,15 @@
   padding: 0;
 }
 
+#video-show {
+  border-style: solid;
+  border-radius: 10px;
+  border-color: #fcba03;
+  border-width: 10px;
+  background-color: #fcba03;
+  color: black;
+}
+
 ::selection {
   /* #c889e8   #d5f4f5*/
   background:  #d5f4f5;
@@ -72,7 +81,7 @@ p {
 }
 
 .section-two {
-  background-color: #e74c3c;
+  background-color: #acb398;
 }
 
 .section-three {
@@ -122,6 +131,13 @@ audio {
   text-align: center;
   z-index: 0;
   width: 100vw;
+  background-color: #a5b7e8;
+
+}
+
+audio::-webkit-media-controls-panel, video::-webkit-media-controls-panel {
+                background-color: #ffff00;
+                
 }
 
 .button {
