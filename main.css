@@ -24,6 +24,7 @@ iframe.yt-embed {
 
 body {
   overflow-y: hidden;
+  background-color: #acb398;
 }
 
 @font-face {
@@ -33,7 +34,7 @@ src: url(assets/goudy.ttf);
 h1 {
 font-family: classy;
 color: black;
-font-size: 10vh;
+font-size: 8vh;
 }
 
 @font-face {
@@ -52,7 +53,7 @@ p {
 
 /* Container */
 .container {
-  width: 100vw;
+  width: 110vw;
   height: 90vh;
 }
 
@@ -64,7 +65,7 @@ p {
 
 /* Sections */
 .section {
-  width: 100vw;
+  width: 110vw;
   height: 100vh;
   display: inline-block;
   position: relative;
@@ -81,7 +82,7 @@ p {
 
 /* Coloring */
 .section-one {
-  background-color: white;
+  background-color: #e3deca;
 }
 
 .section-two {
