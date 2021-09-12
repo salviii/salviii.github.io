@@ -12,6 +12,10 @@
   color: black;
 }
 
+iframe.yt-embed {
+  width: auto !important;
+  height: auto !important;
+}
 ::selection {
   /* #c889e8   #d5f4f5*/
   background:  #d5f4f5;
@@ -137,7 +141,7 @@ audio {
 
 audio::-webkit-media-controls-panel, video::-webkit-media-controls-panel {
                 background-color: #ffff00;
-                
+
 }
 
 .button {
