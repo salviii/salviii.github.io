@@ -66,7 +66,7 @@ p {
 /* Sections */
 .section {
   width: 110vw;
-  height: 100vh;
+  height: 90vh;
   display: inline-block;
   position: relative;
 }
