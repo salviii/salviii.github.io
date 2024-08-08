@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
         <title>Salva's Website</title>
@@ -16,6 +16,7 @@
                 background-color: rgb(255, 254, 245);
                 color: rgba(0, 0, 0, 0.75);
                 height: 100%;
+                margin-bottom: 10%;
             }
             a:hover {
                 background-color: gold;
@@ -32,11 +33,6 @@
                 padding: 0;
             }
 
-            @media only screen and (max-width: 520px) {
-                .mainmodel {
-                    height: 50vh;
-                }
-            }
             .container {
                 padding: 2%;
             }
@@ -46,42 +42,45 @@
                 border-radius: 5%;
                 height: 20vh;
             }
+            .home-nav {
+                font-size: 140%;
+            }
             .nav-1 {
                 position: absolute;
-                top: 2%;
-                left: 2%;
+                top: 4%;
+                left: 8%;
             }
             .nav-2 {
                 position: absolute;
-                top: 2%;
-                right: 2%;
+                top: 4%;
+                right: 8%;
             }
             .nav-3 {
                 position: absolute;
-                left: 2%;
+                left: 8%;
             }
             .nav-4 {
                 position: absolute;
-                right: 2%;
+                right: 8%;
             }
             .tiles {
-                padding-top: 30px;
                 display: flex;
                 flex-wrap: wrap;
-                gap: 8px;
             }
             .tile {
-                flex: 1 0 30%;
-                background-color: gold;
-                padding: 20px;
+                flex: 1 1 40%;
+                width: 50%;
+                background-color:;
+                padding: 4px 4px 0px 4px;
                 border-radius: 10px;
                 transition: transform 0.2s ease-in-out;
             }
-            
+
             .tile:hover {
                 transform: scale(1.02);
+                background-color: gold;
             }
-            
+
             .footer {
                 text-align: center;
                 font-size: 15px;
@@ -91,6 +90,21 @@
                 width: 100%;
                 color: #eceae9;
                 background-color: #262525;
+                height: 4%;
+            }
+
+            .tile-img {
+                width: 100%;
+                border-radius: 5px;
+            }
+
+            @media only screen and (max-width: 720px) {
+                .mainmodel {
+                    height: 50vh;
+                }
+                .tile {
+                    flex: 1 0 100%;
+                }
             }
         </style>
     </head>
@@ -116,55 +130,53 @@
 
             <div class="home-nav">
                 <div class="nav-1">
-                    <a href="index.html">home &#9737;</a>
+                    <a href="index.html"><b>Home &#9737;</b></a>
                 </div>
 
                 <div class="nav-2">
-                    <a href="#">contact</a>
+                    <a href="#"><b>Contact</b></a>
                 </div>
 
                 <div class="nav-3">
-                    <a href="#">info &#10010;</a>
+                    <a href="#"><b>info &#10010;</b></a>
                 </div>
 
                 <div class="nav-4">
-                    <a href="#">@liquiidmetal</a>
+                    <a href="#"><b>@liquiidmetal</b></a>
                 </div>
             </div>
-            <br>
-           <div class="tiles">
-               
-               <div class="tile">
-               One
-               <br>
-               <div class="tile" style="background-color: white;">
-               <p>test descriptioon here</p>
-               </div>
-                   </div>
-                    
-               <div class="tile">
-               Two
-               </div>
+            <br />
+<br>
+            <div class="tiles">
                 <div class="tile">
-               One
-               </div>
-                    
-               <div class="tile">
-               Two
-               </div>
-               
-           </div>
-           
-           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam autem aperiam minus quae enim perferendis quia neque a magnam rerum, dolor laudantium inventore assumenda exercitationem dolorem culpa sint voluptate facilis.</p>
-           
-           <div class="footer">
-               
-               <p><b>Copyright © 2001 -  ∞
-Salvador Iglesias (@liquiidmetal)
-                   salvi.works @ gmail.com</b></p>
-               
-           </div>
-           
+                    <img class="tile-img" src="assets/sodacan-cover.png" alt="" />
+                </div>
+
+                <div class="tile"><img class="tile-img" src="assets/art.png" alt="" /></div>
+                <div class="tile"><img class="tile-img" src="assets/cgi-cover.png" alt="" /></div>
+                <div class="tile"><img class="tile-img" src="assets/hoko-hazy-salvi(1).gif" alt="" /></div>
+            
+                <div class="tile"><img class="tile-img" src="assets/gggarment%20design.png" alt="" /></div>
+            </div>
+            <h3><marquee>test</marquee></h3>
+            <div class="tiles">
+                <div class="tile">
+                    <img class="tile-img" src="assets/fulton.png" alt="" />
+                </div>
+
+                <div class="tile"><img class="tile-img" src="assets/syd-cover.png" alt="" /></div>
+
+                <div class="tile"><img class="tile-img" src="assets/gggarment%20design.png" alt="" /></div>
+            </div>
+
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam autem aperiam minus quae enim perferendis
+                quia neque a magnam rerum, dolor laudantium inventore assumenda exercitationem dolorem culpa sint
+                voluptate facilis.
+            </p>
+        </div>
+        <div class="footer">
+            <p><b>Copyright © 2001 - ∞ Salvador Iglesias (@liquiidmetal) salvi.works @ gmail.com</b></p>
         </div>
     </body>
 </html>
