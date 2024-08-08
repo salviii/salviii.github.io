@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Salva's Website</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script
+            type="module"
+            src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                font-size: 90%;
+                font-family: "Trebuchet MS", sans-serif;
+                background-color: rgb(255, 254, 245);
+                color: rgba(0, 0, 0, 0.75);
+            }
+            a:hover {
+                background-color: gold;
+            }
+            a {
+                color: rgba(0, 0, 0, 0.75);
+            }
+            .mainmodel {
+                width: 90vw;
+                height: 80vh;
+                margin: 0 auto;
+                border-color: transparent;
+                outline: none;
+                padding: 0;
+            }
+
+            @media only screen and (max-width: 520px) {
+                .mainmodel {
+                    height: 50vh;
+                }
+            }
+            .container {
+                padding: 2%;
+            }
+            .box {
+                background-color: antiquewhite;
+                width: 45vw;
+                border-radius: 5%;
+                height: 20vh;
+            }
+            .nav-1 {
+                position: absolute;
+                top: 2%;
+                left: 2%;
+            }
+            .nav-2 {
+                position: absolute;
+                top: 2%;
+                right: 2%;
+            }
+            .nav-3 {
+                position: absolute;
+                left: 2%;
+            }
+            .nav-4 {
+                position: absolute;
+                right: 2%;
+            }
+            .tiles {
+                padding-top: 30px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            .tile {
+                flex: 1 0 300px;
+                background-color: gold;
+                padding: 20px;
+                border-radius: 10px;
+                transition: transform 0.3s ease-in-out;
+            }
+            
+            .tile:hover {
+                transform: scale(1.03);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <model-viewer
+                class="mainmodel"
+                poster=""
+                id="reveal"
+                loading="eager"
+                shadow-intensity="1.0"
+                auto-rotate=""
+                src="assets/salviworld6.glb"
+                alt="Salvi"
+                disable-zoom=""
+                autoplay=""
+                camera-orbit="-0.7869deg 86.02deg auto"
+                camera-controls=""
+                ar=""
+                ar-modes="webxr scene-viewer quick-look"
+                exposure="1.15"
+                ar-status="not-presenting"></model-viewer>
+
+            <div class="home-nav">
+                <div class="nav-1">
+                    <a href="index.html">home &#9737;</a>
+                </div>
+
+                <div class="nav-2">
+                    <a href="#">contact</a>
+                </div>
+
+                <div class="nav-3">
+                    <a href="#">info &#10010;</a>
+                </div>
+
+                <div class="nav-4">
+                    <a href="#">@liquiidmetal</a>
+                </div>
+            </div>
+            <br>
+           <div class="tiles">
+               
+               <div class="tile">
+               One
+               </div>
+                    
+               <div class="tile">
+               Two
+               </div>
+                <div class="tile">
+               One
+               </div>
+                    
+               <div class="tile">
+               Two
+               </div>
+               
+           </div>
+        </div>
+    </body>
+</html>
