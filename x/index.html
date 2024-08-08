@@ -7,106 +7,7 @@
         <script
             type="module"
             src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-        <style>
-            body {
-                margin: 0;
-                padding: 0;
-                font-size: 110%;
-                font-family: "Trebuchet MS", sans-serif;
-                background-color: rgb(255, 254, 245);
-                color: rgba(0, 0, 0, 0.75);
-                height: 100%;
-                margin-bottom: 10%;
-            }
-            a:hover {
-                background-color: gold;
-            }
-            a {
-                color: rgba(0, 0, 0, 0.75);
-            }
-            .mainmodel {
-                width: 90vw;
-                height: 80vh;
-                margin: 0 auto;
-                border-color: transparent;
-                outline: none;
-                padding: 0;
-            }
-
-            .container {
-                padding: 2%;
-            }
-            .box {
-                background-color: antiquewhite;
-                width: 45vw;
-                border-radius: 5%;
-                height: 20vh;
-            }
-            .home-nav {
-                font-size: 140%;
-            }
-            .nav-1 {
-                position: absolute;
-                top: 4%;
-                left: 8%;
-            }
-            .nav-2 {
-                position: absolute;
-                top: 4%;
-                right: 8%;
-            }
-            .nav-3 {
-                position: absolute;
-                left: 8%;
-            }
-            .nav-4 {
-                position: absolute;
-                right: 8%;
-            }
-            .tiles {
-                display: flex;
-                flex-wrap: wrap;
-            }
-            .tile {
-                flex: 1 1 40%;
-                width: 50%;
-                background-color:;
-                padding: 4px 4px 0px 4px;
-                border-radius: 10px;
-                transition: transform 0.2s ease-in-out;
-            }
-
-            .tile:hover {
-                transform: scale(1.02);
-                background-color: gold;
-            }
-
-            .footer {
-                text-align: center;
-                font-size: 15px;
-                position: fixed;
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                color: #eceae9;
-                background-color: #262525;
-                height: 4%;
-            }
-
-            .tile-img {
-                width: 100%;
-                border-radius: 5px;
-            }
-
-            @media only screen and (max-width: 720px) {
-                .mainmodel {
-                    height: 50vh;
-                }
-                .tile {
-                    flex: 1 0 100%;
-                }
-            }
-        </style>
+       <link rel="stylesheet" href="styles.css">
     </head>
     <body>
         <div class="container">
@@ -146,7 +47,6 @@
                 </div>
             </div>
             <br />
-<br>
             <div class="tiles">
                 <div class="tile">
                     <img class="tile-img" src="assets/sodacan-cover.png" alt="" />
@@ -155,7 +55,7 @@
                 <div class="tile"><img class="tile-img" src="assets/art.png" alt="" /></div>
                 <div class="tile"><img class="tile-img" src="assets/cgi-cover.png" alt="" /></div>
                 <div class="tile"><img class="tile-img" src="assets/hoko-hazy-salvi(1).gif" alt="" /></div>
-            
+
                 <div class="tile"><img class="tile-img" src="assets/gggarment%20design.png" alt="" /></div>
             </div>
             <h3><marquee>test</marquee></h3>
