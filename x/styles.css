@@ -1,104 +1,114 @@
    body {
-                margin: 0;
-                padding: 0;
-                font-size: 110%;
-                font-family: "Trebuchet MS", sans-serif;
-                background-color: rgb(255, 254, 245);
-                color: rgba(0, 0, 0, 0.75);
-                height: 100%;
-                margin-bottom: 10%;
-            }
-            a {
-                
-                color: rgba(0, 0, 0, 0.75);
-            }
-            a:hover {
-                background-color: gold;
-            }
+       margin: 0;
+       padding: 0;
+       font-size: 110%;
+       font-family: "Trebuchet MS", sans-serif;
+       background-color: rgb(255, 254, 245);
+       color: rgba(0, 0, 0, 0.75);
+       height: 100%;
+   }
 
-            .mainmodel {
-                width: 90vw;
-                height: 80vh;
-                margin: 0 auto;
-                border-color: transparent;
-                outline: none;
-                padding: 0;
-            }
+   a {
 
-            .container {
-                padding: 5%;
-            }
-            .box {
-                background-color: antiquewhite;
-                width: 45vw;
-                border-radius: 5%;
-                height: 20vh;
-            }
-            .home-nav {
-                font-size: 140%;
-                padding-bottom: 3vh;
-            }
-            .nav-1 {
-                position: absolute;
-                top: 4%;
-                left: 8%;
-            }
-            .nav-2 {
-                position: absolute;
-                top: 4%;
-                right: 8%;
-            }
-            .nav-3 {
-                position: absolute;
-                left: 8%;
-            }
-            .nav-4 {
-                position: absolute;
-                right: 8%;
-            }
-            .tiles {
-                display: flex;
-                flex-wrap: wrap;
-            }
-            .tile {
-                flex: 1 1 40%;
-                width: 50%;
-                background-color:;
-                padding: 4px 4px 0px 4px;
-    border-radius: 10px;
-                border: 2px;
-    
-                transition: transform 0.2s ease-in-out;
-            }
+       color: rgba(0, 0, 0, 0.75);
+   }
 
-            .tile:hover {
-                transform: scale(1.02);
-                background-color: gold;
-                border-style: double;
-            }
+   a:hover {
+       background-color: gold;
+   }
 
-            .footer {
-                text-align: center;
-                font-size: 15px;
-                position: fixed;
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                color: #eceae9;
-                background-color: #262525;
-                height: 4%;
-            }
+   .mainmodel {
+       width: 90vw;
+       height: 80vh;
+       margin: 0 auto;
+       border-color: transparent;
+       outline: none;
+       padding: 0;
+   }
 
-            .tile-img {
-                width: 100%;
-                border-radius: 10px;
-            }
+   .container {}
 
-            @media only screen and (max-width: 720px) {
-                .mainmodel {
-                    height: 50vh;
-                }
-                .tile {
-                    flex: 1 0 100%;
-                }
-            }
+   }
+
+   .home-nav {
+       font-size: 140%;
+       padding-bottom: 3vh;
+   }
+
+   .nav-1 {
+       position: absolute;
+       top: 4%;
+       left: 8%;
+   }
+
+   .nav-2 {
+       position: absolute;
+       top: 4%;
+       right: 8%;
+   }
+
+   .nav-3 {
+       position: absolute;
+       left: 8%;
+   }
+
+   .nav-4 {
+       position: absolute;
+       right: 8%;
+   }
+
+   .tiles {
+       display: flex;
+       flex-wrap: wrap;
+       padding: 20px;
+   }
+
+   .tile {
+       flex: 1 1 40%;
+       width: 50%;
+       padding: 4px 4px 0 4px;
+
+   }
+
+   .tile:hover {
+       transform: scale(1.02);
+       transition: transform 0.2s ease-in-out;
+
+
+   }
+
+   .footer {
+       text-align: center;
+       font-size: 15px;
+       position: fixed;
+       left: 0;
+       bottom: 0;
+       width: 100%;
+       color: #eceae9;
+       background-color: #262525;
+       height: 4%;
+   }
+
+   .bottom {
+       color: #eceae9;
+       padding: 20px;
+   
+       background-color: #262525;
+       height: 100%;
+
+   }
+
+   .tile-img {
+       width: 100%;
+       border-radius: 10px;
+   }
+
+   @media only screen and (max-width: 720px) {
+       .mainmodel {
+           height: 50vh;
+       }
+
+       .tile {
+           flex: 1 0 100%;
+       }
+   }
