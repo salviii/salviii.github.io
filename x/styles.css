@@ -7,7 +7,9 @@
        color: rgba(0, 0, 0, 0.75);
        height: 100%;
    }
-
+::selection {
+  background: gold;
+}
    a {
 
        color: rgba(0, 0, 0, 0.75);
@@ -64,14 +66,14 @@
    }
 
    .tile {
-       flex: 1 1 40%;
+       flex: 1 1 35%;
        width: 50%;
-       padding: 4px 4px 0 4px;
+       padding: 4px 4px 4px 4px;
 
    }
 
-   .tile:hover {
-       transform: scale(1.02);
+   .tile-image:hover {
+       transform: scale(1.04);
        transition: transform 0.2s ease-in-out;
 
 
@@ -92,14 +94,14 @@
    .bottom {
        color: #eceae9;
        padding: 20px;
-   
+       text-align: center;
        background-color: #262525;
        height: 100%;
 
    }
 
    .tile-img {
-       width: 100%;
+       width: 98%;
        border-radius: 10px;
    }
 
@@ -112,3 +114,7 @@
            flex: 1 0 100%;
        }
    }
+.fluid2 {
+    background-color: orangered;
+    color: beige;
+}
