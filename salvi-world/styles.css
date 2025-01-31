@@ -4,6 +4,9 @@
 a {
   color: inherit;
 }
+.title {
+  color: #4286f4;
+}
 a:hover {
   background-color: gold;
   color: #1f1e1e;
@@ -12,7 +15,7 @@ a:hover {
   display: flex;
   flex-flow: column nowrap;
   gap: 0;
-  padding: 10px;
+  padding: 40px;
   padding-top: 0;
 }
 body {
@@ -21,7 +24,7 @@ body {
   margin: 0;
   gap: 20px;
   height: 100vh;
-  width: 99vw;
+  width: 100vw;
   color: #000;
   font-size: 18px;
   letter-spacing: 0.03em;
@@ -149,10 +152,17 @@ p {
   bottom: 0;
   color: #eceae9;
   background-color: #262525;
-height: auto;
+  height: auto;
+  width: 98vw;
 
 }
 #clock {
+  border: 2px solid #ffffff;
+    border-radius: 5px;
+margin-left: 10%;
+  
+}
+#clock2 {
   border: 2px solid #ffffff;
     border-radius: 5px;
 margin-left: 10%;
@@ -183,10 +193,9 @@ margin-left: 10%;
 }
 
 .button-press {
-   border: 2px solid #ffffff;
-    border-radius: 5px;
-  margin-left: 31%;
-  margin-right: 39%;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+
   text-decoration-line: blink; 
   
 }
