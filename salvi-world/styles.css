@@ -15,8 +15,9 @@ a:hover {
   display: flex;
   flex-flow: column nowrap;
   gap: 0;
-  padding: 40px;
+  padding: 10px;
   padding-top: 0;
+  margin-right: 1%;
 }
 body {
   display: flex;
@@ -60,6 +61,18 @@ marquee {
 .grid-1 {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  height: calc(50vw);
+  gap: 20px;
+}
+.grid-2n1 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  height: calc(33vw);
+  gap: 20px;
+}
+.grid-1n2 {
+   display: grid;
+  grid-template-columns: 1fr 2fr;
   height: calc(33vw);
   gap: 20px;
 }
@@ -71,9 +84,10 @@ marquee {
 }
 
 #orange:hover {
-  background-color: orangered;
+  background-color: #4b794b;
   color: antiquewhite;
   border-color: antiquewhite;
+   font-size: 200%;
 }
 .box {
   padding: 10px;
@@ -185,6 +199,7 @@ margin-left: 10%;
   #orange {
     background-color: orangered;
     color: antiquewhite;
+    font-size: 200%;
   }
 
   .mainmodel {
@@ -206,3 +221,29 @@ margin-left: 10%;
 .button-press a:hover {
     background-color: #faf9f4;
 }
+
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc; 
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+
+
