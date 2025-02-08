@@ -9,7 +9,7 @@
         <script src="clock2.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="images/favicon.png" type="image/x-icon" />
-
+  <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
         <script
             type="module"
             src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
@@ -20,15 +20,16 @@
             <p>home</p>
             <p class="button-press"><a href="index.html">salvi.world</a></p>
             <p>(client work)</p>
-            <p><script type="module">
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+           
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+
+ <script type="module">
+  // Import Firebase modules
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+  import { getDatabase, ref, onValue, set, increment } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js";
+
+  // Your Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyAxx13m1co_zyo79rb8_6LfbWUKU8e6Bw8",
   authDomain: "salvi-world.firebaseapp.com",
@@ -40,11 +41,12 @@ const firebaseConfig = {
   measurementId: "G-0ZW1ETQYMG"
 };
 
+  // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
   const viewersRef = ref(db, "activeViewers");
 
-  // Update count when user visits
+  // Increase count when a user visits
   set(viewersRef, increment(1));
 
   // Listen for changes and update UI
@@ -57,9 +59,7 @@ const firebaseConfig = {
     set(viewersRef, increment(-1));
   });
 </script>
-
-<div>Live Viewers: <span id="live-viewers">0</span></div>
-</p>
+       <div>Live Viewers: <span id="live-viewers">0</span></div>
         </div>
         <div class="container">
             <div class="grid-3">
