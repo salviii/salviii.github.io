@@ -15,7 +15,7 @@
 body[a="dark"] { @include dark-appearance; }
 
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   body[a="auto"] { @include dark-appearance; }
 }
 // -------------------------------------------- //
