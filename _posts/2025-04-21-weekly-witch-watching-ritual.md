@@ -2,7 +2,7 @@
 layout: post
 title: weekly witch watching ritual
 category: creative
-date: 2025-04-21
+date: 2025-04-21 11:00:00
 ---
 
 weekly witch watching ritual, still one of my favorite things i have ever made? put together? digitally collaged. a mini sound frankenstein monster
