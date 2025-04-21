@@ -1,5 +1,6 @@
 ---
 layout: post
+title: weekly witch watching ritual
 category: creative
 ---
 
