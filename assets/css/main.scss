@@ -2,3 +2,13 @@
 ---
 
 @import "no-style-please";
+
+a {
+    color: coral;
+    background-color: aliceblue;
+}
+
+a:hover {
+    color: black;
+    background-color: gold;
+}
