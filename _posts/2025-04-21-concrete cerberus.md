@@ -3,6 +3,8 @@ layout: post
 category: creative
 ---
 
+wrote a while back, i guess i should upload these onto here. 
+
 2001 jeep cherokee xj trail rig  
 flood lights, electric-solar powered  
 concrete cerberus on a leash  
