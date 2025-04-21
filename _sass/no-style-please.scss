@@ -96,3 +96,12 @@ img {
   display: block;
   margin: 0 auto;
 }
+
+a {
+  color: coral;
+}
+
+a:hover {
+  color: black;
+  background-color: gold;
+}
