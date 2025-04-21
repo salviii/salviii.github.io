@@ -3,8 +3,7 @@ author: Salva  # name of site's author
 email: salviglesias@gmail.com # email of site's author
 url: https://salviii.github.io# root address of the site
 baseurl: "" # subpath of the site, e.g. "/blog" (leave it blank "" if you're site shouldn't use a subpath)
-description: > # description of the site (multiple lines allowed)
-  my journal :)
+description:   my journal :) # description of the site (multiple lines allowed)
 
 permalink: /:slug.html
 
@@ -16,7 +15,7 @@ remote_theme: riggraz/no-style-please # if you are using GitHub Pages, change it
 theme_config:
   appearance: "auto" # can be "light", "dark" or "auto"
   back_home_text: ".." # customize text for homepage link in post layout
-  date_format: "%Y-%m-%d" # customize how date is formatted
+  date_format: "%Y-%m-%d, at %I:%M %p" # customize how date is formatted
   show_description: false # show blog description in home page
   lowercase_titles: true # show titles in lowercase in lists
 
