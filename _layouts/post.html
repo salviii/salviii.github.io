@@ -7,7 +7,9 @@ layout: default
 <article>
   <p class="post-meta">
     <time datetime="{{ page.date }}">{{ page.date | date: site.theme_config.date_format }}</time>
-
+{% if page.location %}
+  <small>📍 {{ page.location }}</small>
+{% endif %}
   </p>
   
   <h1>{{ page.title }}</h1>
