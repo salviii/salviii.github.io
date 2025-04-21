@@ -113,5 +113,9 @@ body {
 h1 {
   color: black;
 }
-
+@media only screen and (max-width: 600px) {
+  ul {
+    padding-left: 0.1rem;
+  }
+}
 
