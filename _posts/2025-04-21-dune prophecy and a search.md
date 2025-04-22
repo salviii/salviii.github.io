@@ -1,8 +1,9 @@
 ---
+layout: post
 title: "dune prophecy"
 category: "journal"
 location: Orlando, Florida
-date: 2025-04-21 08:49:00 -0400
+date: 2025-04-21 16:49:00 -0400
 ---
 
 i love dune. still believe first book by frank herbert is one of the best things ever written by a human being.
