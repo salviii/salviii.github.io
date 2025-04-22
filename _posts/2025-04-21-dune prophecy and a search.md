@@ -27,7 +27,7 @@ summoning something transcendtal becoming a conduit a vessle for the energy
 i miss that level of passion
 what do i need? to be bored more often. to act on it? as i am writing this taking the ideas and thoughtws seriously maybe here is a thread that will unravel the fabric of reality so i can bend it to my will.
 
-![flowers](assets/IMG_0996.jpg)
+![flowers](../assets/IMG_0996.jpg)
 
 do i need to be more present? meditate be healthy remove some veils from my interactions with the reality
 smoke less. connect more with the way
