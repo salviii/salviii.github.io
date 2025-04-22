@@ -10,3 +10,6 @@ gem "base64"
 gem "logger"
 
 gemspec
+gem "tzinfo", "~> 2.0"
+
+gem "tzinfo-data", "~> 1.2025"
