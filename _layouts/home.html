@@ -15,6 +15,22 @@ layout: default
 {{ content }}
 
 <br>
+{% assign post_dates = site.posts | map: "date" | sort: "last" | reverse %}
+{% assign streak = 0 %}
+{% assign today = 'now' | date: '%Y-%m-%d' %}
+{% assign current_date = today %}
+
+{% for post_date in post_dates %}
+  {% assign formatted = post_date | date: '%Y-%m-%d' %}
+  {% if formatted == current_date %}
+    {% assign streak = streak | plus: 1 %}
+    {% assign current_date = current_date | date: "%s" | minus: 86400 | date: "%Y-%m-%d" %}
+  {% else %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+<p>daily writing streak: 🔥 {{ streak }} days!</p>
 <p style="color: darkkhaki"
 >
 Last updated on {{ site.time | date: "%B %d, %Y at %I:%M %p"}}
