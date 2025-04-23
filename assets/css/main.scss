@@ -3,6 +3,10 @@
 
 @import "no-style-please";
 
+::selection {
+    background-color: gold;
+}
+
 a {
     color: #787cf4;
     background-color: rgb(235, 235, 229);
