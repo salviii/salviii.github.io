@@ -6,10 +6,11 @@ location: Orlando, Florida
 date: 2025-04-25 21:53:00 -0400
 ---
 
-go to song recently like past 2 days has been ESP by N.E.R.D. 
+go-to song recently like past 2 days has been ESP by N.E.R.D. 
 today we went to small local gallery / statue garden and ate some food and painted pottery
 i had missed making something physical 
 i want to paint more
+![painting](../assets/IMG_1128.jpg)
 i have a lot of ideas and i want to write more \
 these weight i carry seems to be a lot from not giving into my creative nature as much as i used to. 
 i have no set creative habit, well i guess writing these is one i am building
