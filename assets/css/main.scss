@@ -30,3 +30,25 @@ h1 {
         padding-left: 0.6rem;
     }
 }
+
+#password-bar {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#password-input {
+  padding: 8px;
+  font-size: 1em;
+}
+
+button {
+  padding: 8px 16px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.glitched-content {
+  white-space: pre-wrap;
+}

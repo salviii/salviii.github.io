@@ -5,15 +5,61 @@ layout: default
 {%-include back_link.html-%}
 
 <article>
+
+
+  <div id="password-bar">
+    <input type="password" id="password-input" placeholder="Enter password..." />
+    <button onclick="checkPassword()">decrypt.oO</button>
+  </div>
+
   <p class="post-meta">
     <time datetime="{{ page.date }}">{{ page.date | date: site.theme_config.date_format }}</time>
-    <br>
-{% if page.location %}
-🌎 {{ page.location }}
-{% endif %}
+    <br />
+    {% if page.location %} 🌎 {{ page.location }} {% endif %}
   </p>
-  
+
   <h1>{{ page.title }}</h1>
 
-  {{ content }}
+  <div class="glitched-content">{{ content }}</div>
+  <script type="text/javascript">
+  
+    const PASSWORD = "spoon"; // <-- Set your password here
+const glitchedContent = document.querySelector('.glitched-content');
+let intervalId;
+
+function scrambleText(originalText) {
+  const characters = '(.--+[Ooi])(.)Oo-\./Oo))o//iiO)(-(.)iiOo(.--o_x_))';
+  return originalText.split('').map(c => {
+    if (c === ' ' || c === '\n') return c;
+    return characters.charAt(Math.floor(Math.random() * characters.length));
+  }).join('');
+}
+
+function startGlitch() {
+  if (glitchedContent) {
+    glitchedContent.dataset.original = glitchedContent.innerText;
+    intervalId = setInterval(() => {
+      glitchedContent.innerText = scrambleText(glitchedContent.dataset.original);
+    }, 50); // every 50ms
+  }
+}
+
+function checkPassword() {
+  const input = document.getElementById('password-input').value;
+  if (input === PASSWORD) {
+    clearInterval(intervalId);
+    if (glitchedContent && glitchedContent.dataset.original) {
+      glitchedContent.innerText = glitchedContent.dataset.original;
+    }
+    // Optionally hide the password bar after unlocking
+    document.getElementById('password-bar').style.display = 'none';
+  } else {
+    alert('Incorrect password.');
+  }
+}
+
+window.onload = startGlitch;
+
+    
+  </script>
 </article>
