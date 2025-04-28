@@ -43,7 +43,7 @@ function startGlitch() {
     glitchedContent.dataset.original = glitchedContent.innerText;
     intervalId = setInterval(() => {
       glitchedContent.innerText = scrambleText(glitchedContent.dataset.original);
-    }, 150); // every 50ms
+    }, 200); // every 50ms
   }
 }
 
