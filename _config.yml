@@ -13,6 +13,7 @@ goat_counter: "salva" # put your GoatCounter name if you want to use GoatCounter
 
 remote_theme: riggraz/no-style-please # if you are using GitHub Pages, change it to remote_theme: riggraz/no-style-please
 
+
 theme_config:
   appearance: "auto" # can be "light", "dark" or "auto"
   back_home_text: "<<" # customize text for homepage link in post layout
@@ -27,6 +28,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jektex
+  - jekyll-remote-theme
 
 jektex:
   cache_dir: ".jektex-cache"
