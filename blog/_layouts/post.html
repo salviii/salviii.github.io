@@ -24,45 +24,5 @@ layout: default
     <input type="password" id="password-input" placeholder="oO.o..eNter cOde..Oo.-.." />
     <button onclick="checkPassword()">decrypt.oO</button>
   </div>
-  <script type="text/javascript">
-  
-    const PASSWORD = "spoon"; // <-- Set your password here
-const glitchedContent = document.querySelector('.glitched-content');
-let intervalId;
 
-function scrambleText(originalText) {
-  const characters = '(.--+[Ooii)(.)Oo<<^^-\./Oo)o//iiO)(-(.)ii]0o.--o_x_';
-  return originalText.split('').map(c => {
-    if (c === ' ' || c === '\n') return c;
-    return characters.charAt(Math.floor(Math.random() * characters.length));
-  }).join('');
-}
-
-function startGlitch() {
-  if (glitchedContent) {
-    glitchedContent.dataset.original = glitchedContent.innerText;
-    intervalId = setInterval(() => {
-      glitchedContent.innerText = scrambleText(glitchedContent.dataset.original);
-    }, 200); // every 50ms
-  }
-}
-
-function checkPassword() {
-  const input = document.getElementById('password-input').value;
-  if (input === PASSWORD) {
-    clearInterval(intervalId);
-    if (glitchedContent && glitchedContent.dataset.original) {
-      glitchedContent.innerText = glitchedContent.dataset.original;
-    }
-    // Optionally hide the password bar after unlocking
-    document.getElementById('password-bar').style.display = 'none';
-  } else {
-    alert('Incorrect password.');
-  }
-}
-
-window.onload = startGlitch;
-
-    
-  </script>
 </article>
