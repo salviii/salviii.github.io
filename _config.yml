@@ -37,3 +37,8 @@ jektex:
   macros:
     - ["\\Q", "\\mathbb{Q}"]
     - ["\\C", "\\mathbb{C}"]
+
+collections:
+  blog:
+    output: true
+    permalink: /blog/:title/
