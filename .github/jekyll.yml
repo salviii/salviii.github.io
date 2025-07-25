@@ -1,23 +1,20 @@
-name: Build and Deploy Jekyll site from /blog
+name: Build and Deploy Jekyll Blog
 
 on:
   push:
-    branches:
-      - main # or your default branch
+    branches: [main]
 
 jobs:
-  build-deploy:
+  jekyll:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v3
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1'
-          bundler-cache: true
+          ruby-version: 3.1
 
       - name: Install dependencies
         working-directory: ./blog
@@ -25,11 +22,10 @@ jobs:
 
       - name: Build site
         working-directory: ./blog
-        run: bundle exec jekyll build
+        run: bundle exec jekyll build -d ../_site
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./blog/_site
-
+          publish_dir: ./_site
