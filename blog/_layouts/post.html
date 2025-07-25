@@ -5,21 +5,15 @@ layout: default
 {%-include back_link.html-%}
 
 <article>
-
-
-  
-
   <p class="post-meta">
     <time datetime="{{ page.date }}">{{ page.date | date: site.theme_config.date_format }}</time>
-    <br />
-    {% if page.location %} 🌎 {{ page.location }} {% endif %}
+    <br>
+{% if page.location %}
+🌎 {{ page.location }}
+{% endif %}
   </p>
-
+  
   <h1>{{ page.title }}</h1>
 
-  <div class="glitched-content">{{ content }}</div>
-  <br>
-  <br>
-  
-
+  {{ content }}
 </article>

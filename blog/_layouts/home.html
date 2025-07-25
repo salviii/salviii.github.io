@@ -15,7 +15,7 @@ layout: default
 {{ content }}
 
 <br>
-{% assign sorted_posts = site.blog | sort: "date" | reverse %}
+{% assign sorted_posts = site.posts | sort: "date" | reverse %}
 {% assign streak = 0 %}
 {% assign current_date = 'now' | date: "%Y-%m-%d" %}
 
@@ -30,7 +30,7 @@ layout: default
 {% endfor %}
 
 <p>daily writing streak: 🔥 {{ streak }} days!</p>
-<p style="color: rgb(189, 183, 107)"
+<p style="color: darkkhaki"
 >
 Last updated on {{ site.time | date: "%B %d, %Y at %I:%M %p"}}
 </p>
