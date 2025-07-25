@@ -10,14 +10,14 @@ entries:
       show_more_text: See archive...
       show_more_url: archive.html
 
-  - title: posts by category, creative writing
+  - title: creative writing
     post_list:
       category: creative
       show_more: true
       show_more_text: See more posts...
       show_more_url: creative-archive.html
       
-  - title: posts by category, journal
+  - title: journal
     post_list:
       category: journal
       show_more: true
