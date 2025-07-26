@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Salva's Contact Page</title>
+
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 0;
+        }
+        ::selection {
+            background-color: gold;
+        }
+        a {
+            color: lightsalmon;
+        }
+        body {
+            background-color: rgb(254, 251, 247);
+            color: rgb(22, 22, 23);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 130%;
+        }
+        .container {
+            padding: 10%;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 100%;
+        }
+        #top {
+
+        }
+        .navBar {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        .bottom {
+            position: fixed;
+            top: 90%;
+            background-color: aliceblue;
+            width: 100vw;
+            height: 100vh;
+            padding: 2%;
+            margin: 0 auto;
+        }
+    .current {
+        border-bottom: 2px solid lightsalmon;
+    }
+    .current a {
+        color: black;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="top">salva's world</h1>
+        <br>
+        <ul class="navBar">
+            <li><a href="index.html">home</a></li>
+            <li class="current">about</li>
+            <li><a href="contact.html">contact</a></li>
+            
+        </ul>
+        <br>
+
+        <p>human</p>
+
+
+    </div>
+    <div class="bottom">
+        <p>@salva</p>
+            <p><a href="#top">back to top ^</a></p>
+        </div>
+</body>
+</html>

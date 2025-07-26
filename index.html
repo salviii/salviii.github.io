@@ -11,6 +11,12 @@
             margin: 0 auto;
             padding: 0;
         }
+        ::selection {
+            background-color: gold;
+        }
+        a {
+            color: lightsalmon;
+        }
         body {
             background-color: rgb(254, 251, 247);
             color: rgb(22, 22, 23);
@@ -21,16 +27,93 @@
             padding: 10%;
             margin: 0 auto;
         }
+        h1 {
+            font-size: 100%;
+        }
+        #top {
+
+        }
+        .navBar {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        .bottom {
+            position: fixed;
+            top: 90%;
+            background-color: aliceblue;
+            width: 100vw;
+            height: 100vh;
+            padding: 2%;
+            margin: 0 auto;
+        }
+    .current {
+        border-bottom: 2px solid lightsalmon;
+    }
+    .current a {
+        color: black;
+    }
+
+.journal-entry {
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.journal-entry-footer {
+    padding-left: 40px;
+    font-size: 90%;
+}
+.journal-image {
+    width: 50vw;
+    border-radius: 10px;
+    margin: 0 auto;
+
+}
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>salva's world</h1>
+        <h1 id="top">salva's world</h1>
+        <br>
+        <ul class="navBar">
+            <li class="current">home</li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="contact.html">contact</a></li>
+        </ul>
+        <br>
+
+        <div class="journal-entry">
+            <p>julii 25th, 2025</p>
+            <br>
+            <h3>incipio</h3>
+            <br>
+            <img class="journal-image" src="blog/assets/bamboo.png" alt="some vines along the bamboo forest july 25 2025">
+            <br>
+            <p>another node in the net. this one is mine. a seed, from a different dimension. i breathe life into you. a folder- a root filesystem a directory cyberSoul catach all. human OS interacting with the digital. 3D printed syllables as i express my soul on liquiid keyboards. from one arragnements of atoms to an arragemnet of pixels. a beginning. a breathe a step. </p>
+            <p>today i did mushrooms and walked through nature. i feel very alone. i thought of steve jobs. i saw the braiding in my hair, i saw the interlaced braiding of the roots and branches, of the waters flow patterns coming together into infinite fractal vertices. </p>
+            <p>a chief without a tribe, i thought about websites and the psychedlic rogue nature of the internet. our attempts at a wood wide web. we have interlinked ourselves through lithium and silicon. our next wars are meant to be fought over these. file tree, root directory, stream some music, branch out, synchronize. green glow and the sound of cicadas </p>
+            <br>
+            <p>lots of thoughts. low energy. do more was the lesson. be an active participant in your own life. do more. do more for others. be useful. first prinicples fundamental understadning and use it to be useful to help others</p>
+            <br>
+
+            <span class="journal-entry-footer">
+                <ul>
+                    <li>from my apt, somewhere near atlanta</li>
+                    <li>10:02pm est time</li>
+                    <li>update: today i made this site. it's super basic html i just wanted to build something today. slowly build on it. i doubt i'll buy a house anytime soon but this can be my digital home where i can constantly rennovate and rearragne and destory and rebuild as i please. this is my empty white void which all other one of my creations will spawn from and into. digital sketchbook</li>
+                </ul>
+            </span>
+        </div>
+        <br>
+        <br>
         <br>
         
-        <p>link to blog <a href="blog/">here</a></p>
-    <iframe src="blog/" frameborder="0"></iframe>
+        
 
     </div>
+    <div class="bottom">
+        <p>@salva</p>
+            <p><a href="#top">back to top ^</a></p>
+        </div>
 </body>
 </html>
