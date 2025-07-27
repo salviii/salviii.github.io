@@ -18,19 +18,21 @@
             color: lightsalmon;
         }
         a:hover {
-            color: greenyellow;
-            background-color: rgb(233, 212, 187);
+            color: rgb(32, 32, 32);
+            background-color: gold;
         }
 
         body {
             background-color: rgb(254, 251, 247);
             color: rgb(22, 22, 23);
             font-family: 'Courier New', Courier, monospace;
-            font-size: 130%;
+            font-size: 100%;
         }
         .container {
             padding: 10%;
             margin: 0 auto;
+            width: 60vw;
+            max-width: 700px;
         }
         h1 {
             font-size: 100%;
@@ -50,6 +52,9 @@
             height: 100vh;
             padding: 2%;
             margin: 0 auto;
+            border-top: 2px solid rgb(112, 109, 109);
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
         }
     .current {
         border-bottom: 2px solid lightsalmon;
@@ -71,15 +76,40 @@
     font-size: 90%;
 }
 .journal-image {
-    width: 50vw;
-    border-radius: 10px;
+    width: 20vw;
+    border-radius: 20px;
     margin: 0 auto;
-    padding-left: 15%;
+    float: left;
+    padding: 10px;
+}
+
+.floating-art-1 {
+    width: 30vw;
+    z-index: 2;
+    position: fixed;
+    left: 72%;
+    top: 0%;
+
+}
+
+@media only screen and (max-width:800px) {
+    .container {
+        width: 80vw;
+    }
+    .journal-image {
+        margin: 0;
+        border-radius: 10px;
+        width: 80%;
+    }
+    .floating-art-1 {
+        left: 78%;
+    }
 }
     </style>
 </head>
 <body>
     <div class="container">
+        <img class="floating-art-1" src="assets/third eye.gif" alt="">
         <h1 id="top">salva's world</h1>
         <br>
         <ul class="navBar">
@@ -107,6 +137,8 @@ to be a human sourceeee
 
 “once you understand the way broadly enough, you see it in all things”
 </p>
+
+<p>
 reference also sun & steel
 search henry rollins “the iron”? essay
 
