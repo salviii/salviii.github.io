@@ -6,119 +6,63 @@
     
     <title>Salva's Homepage</title>
 
-    <style>
-        * {
-            margin: 0 auto;
-            padding: 0;
-        }
-        ::selection {
-            background-color: gold;
-        }
-        a {
-            color: lightsalmon;
-        }
-        a:hover {
-            color: rgb(32, 32, 32);
-            background-color: gold;
-        }
+    <script type="module" src="scripts/model-viewer.min.js"></script>
 
-        body {
-            background-color: rgb(254, 251, 247);
-            color: rgb(22, 22, 23);
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 100%;
-        }
-        .container {
-            padding: 10%;
-            margin: 0 auto;
-            width: 60vw;
-            max-width: 700px;
-        }
-        h1 {
-            font-size: 100%;
-        }
-        #top {
-
-        }
-        .navBar {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-        }
-        .bottom {
-            position: fixed;
-            top: 90%;
-            background-color: rgb(229, 231, 191);
-            width: 100vw;
-            height: 100vh;
-            padding: 2%;
-            margin: 0 auto;
-            border-top: 2px solid rgb(112, 109, 109);
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-        }
-    .current {
-        border-bottom: 2px solid lightsalmon;
-    }
-    .current a {
-        color: black;
-    }
-
-.journal-entry {
-    border: 1px solid rgb(213, 211, 158);
-    padding: 10px;
-    border-radius: 10px;
-}
-.journal-entry p { 
-    padding: 10px;
-}
-.journal-entry-footer {
-    padding-left: 40px;
-    font-size: 90%;
-}
-.journal-image {
-    width: 20vw;
-    border-radius: 20px;
-    margin: 0 auto;
-    float: left;
-    padding: 10px;
-}
-
-.floating-art-1 {
-    width: 30vw;
-    z-index: 2;
-    position: fixed;
-    left: 72%;
-    top: 0%;
-
-}
-
-@media only screen and (max-width:800px) {
-    .container {
-        width: 80vw;
-    }
-    .journal-image {
-        margin: 0;
-        border-radius: 10px;
-        width: 80%;
-    }
-    .floating-art-1 {
-        left: 78%;
-    }
-}
-    </style>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="assets/salva logo.png" type="image/x-icon" />
+     
+    <script></script>
 </head>
 <body>
     <div class="container">
         <img class="floating-art-1" src="assets/third eye.gif" alt="">
-        <h1 id="top">salva's world</h1>
-        <br>
-        <ul class="navBar">
-            <li class="current">home</li>
-            <li><a href="about.html">about</a></li>
-            <li><a href="contact.html">contact</a></li>
-        </ul>
-        <br>
 
+       <model-viewer
+            class="mainmodel"
+            poster=""
+            id="reveal"
+            loading="eager"
+            shadow-intensity="0.8"
+            auto-rotate=""
+            src="assets/salva-character-idle-empty--with-shoes-.glb"
+            alt="Salvi"
+            disable-zoom=""
+             min-field-of-view='50deg'
+            autoplay=""
+            camera-orbit="0.7869deg 36deg auto"
+            camera-controls=""
+            ar=""
+            ar-modes="webxr scene-viewer quick-look"
+            exposure="1"
+            ar-status="not-presenting"></model-viewer>
+            <br>
+              <marquee behavior="" direction="" loop="-1">
+            <span style="color: #e7820a">rust </span>, across the line / the free state of florida / the mantra / never
+            forget the mantra / and it loops / rust / sweat link fence / across the face / high bpm / gear shift /
+            always loops / across the line / free person / in the free state of florida / causing a
+            <span style="color: #a378f4"> superblooom </span> / each step
+            <span style="color: #9cd640"> ((( superblooom ))) </span> / metal face / heartfelt sonic boom / never forget
+            the mantra / and it loops and it loops and it loops / mantra / free person / mantra / water / mantra /
+            spiral / mantra / sun steel cats / mantra...
+        </marquee>
+        <br>
+        <div class="titleBar">
+        <h1 id="top">salva's world</h1>
+
+        <br>
+        
+
+        <div class="navBar">
+                
+            <p class="current">💽 home</p>
+            <p><a href="about.html">🃏 about</a></p>
+             <p><img src="assets/sun dark.png" class="floating-art-3"></p>
+            <p><a href="#">writing 📝</a></p>
+            <p class="contact"><a href="contact.html">contact 🌎</a></p>
+        </ul>
+        
+        </div>
+        </div>
         <div class="journal-entry">
             <p>julii 25th, 2025</p>
             <br>
@@ -207,6 +151,7 @@ i streamed consciousness through a human body
     </div>
     <div class="bottom">
         <p>@salva</p>
+    <span><img src="assets/salva logo.png" alt="" class="floating-art-2"></span>
             <p><a href="#top">back to top ^</a></p>
         </div>
 </body>
