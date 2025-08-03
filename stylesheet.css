@@ -34,7 +34,7 @@
         }
 
         .container {
-
+            overflow: hidden;
             padding: 5%;
             margin: 0 auto;
             width: 60vw;
@@ -189,5 +189,11 @@ padding: 10px;
     .floating-art-1 {
         left: 85%;
         width: 20%;
+    }
+    #sun-symbol {
+        display: none;
+    }
+    .navBar {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
