@@ -16,6 +16,9 @@
         a {
             color: lightsalmon;
         }
+        p {
+            padding: 10px 0px 10px 0px;
+        }
 
         a:hover {
 
@@ -196,4 +199,18 @@ padding: 10px;
     .navBar {
         grid-template-columns: repeat(4, 1fr);
     }
+}
+
+.s-box {
+    border: solid #dce0d3 2px;
+    padding: 10px;
+    border-radius: 10px;
+  
+}
+
+ul {
+    padding-left: 30px;
+}
+small {
+    color: #4fc19b;
 }
