@@ -86,6 +86,55 @@
 <br>
 <br>
     </div>
+    <style>
+        .hud {
+            position: fixed;
+            top: 82%;
+            left: 84%;
+            width: auto;
+            float: right;
+            text-align: right;
+        }
+        
+    </style>
+   
+    <div class="hud s-box">
+        
+        <span class="site-map">
+            [---x---]
+        </span>
+        <br>
+        <span class="day-mode-toggle">day / night</span>
+        <br>
+        <span class="date"></span>
+        <span id="time"> </span>
+    </div>
+ <script>
+
+    function getTime() {
+        var today = new Date();
+        var hour = today.getHours();
+        var minutes = today.getMinutes();
+        var seconds = today.getSeconds();
+        var meridian = "AM";
+
+        if (hour > 12) {
+            hour = hour - 12;
+            meridian = "PM";
+        } 
+        
+        var displayTime = hour + ":" + String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0") + " " + meridian;
+        
+        document.getElementById("time").innerHTML = displayTime;
+        
+        
+
+    }
+
+    getTime();
+    setInterval(getTime, 1000);
+
+    </script>
     <div class="bottom">
         <p>@salva</p>
     <span><img src="assets/salva logo.png" alt="" class="floating-art-2"></span>
