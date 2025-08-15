@@ -68,20 +68,70 @@
                 width: 100%;
                 border: 2px solid var(--border);
                 border-radius: 10px;
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
+               
             }
             .project-list img {
-                max-width: 50%;
-                padding: 10px;
-                border-radius: 10px;
+                max-width: 80%;
+                margin: 10px;
+                border-radius: 5px;
             }
+
+            .project {
+                 display: grid;
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .project p {
+                margin: 0 auto;
+                float: center;
+            }
+            h4 {
+                padding: 2%;
+                float: center;
+            }
+            #category {
+                color: #e7820a;
+            }
+
+          
         </style>
         <div class="project-list">
+            <h4>select projects / general musings</h3>
+                <div class="project">
+                    <p> date </p>
+                    <p> 📦 </p>
+                    <p>title</p>
+                    <p>category</p>
+                </div>
+                <hr>
+                <br>
+            <div class="project">
+<p>04/10/2023</p>
             <img src="assets/sodacan-cover.png" alt="">
+            <p>sodacan.otf<br> ok</p>
+            <p id="category">typography</p>
+            </div>
+             <div class="project">
+                <p>00/00/0000</p>
             <img src="assets/syd-cover.png" alt="">
+            <p>syd <br> broken hearts club</p>
+            <p id="category">art & design</p>
+            </div>
+            <div class="project">
+                <p>03/03/2024</p>
             <img src="assets/cgi-cover.png" alt="">
+            <p>cgi videogame cover <br> and packaging</p>
+            <p id="category">3D design <br>& packaging</p>
+            </div>
+            <div class="project">
+                <p>0/0/0</p>
+                <img src="assets/eternal whispers.png" alt="">
+                <p>personal digital art</p>
+                <p id="category">art</p>
+            </div>
         </div>
+        <br>
+        <p> copyright (c) 2001 - 2025 Salva </p>
         
 <br>
 <br>

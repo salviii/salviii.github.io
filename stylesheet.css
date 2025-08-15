@@ -34,14 +34,17 @@
             font-family: 'Courier New', Courier, monospace;
             font-size: 100%;
 
+
         }
+
+        
 
         .container {
             overflow: hidden;
             padding: 5%;
             margin: 0 auto;
-            width: 60vw;
-            max-width: 700px;
+            width: 80vw;
+            max-width: 900px;
         }
 
         model-viewer {
@@ -182,7 +185,7 @@ padding: 10px;
 
 @media only screen and (max-width:800px) {
     .container {
-        width: 80vw;
+        width: 90vw;
     }
     .journal-image {
         margin: 0;
