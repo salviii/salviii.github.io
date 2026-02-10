@@ -14,7 +14,7 @@
         }
 
         a {
-            color: lightsalmon;
+            color: rgb(94, 86, 207);
         }
         p {
             padding: 10px 0px 10px 0px;
@@ -31,20 +31,26 @@
 
             background-color: #fffef9;
             color: rgb(22, 22, 23);
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 120%;
+            line-height: 1.6;
 
 
         }
 
-        
+        .light-text a {
+
+            border-radius: 5%;
+            padding: 2px;
+            background-color: #ffef9b;
+        }
 
         .container {
             overflow: hidden;
             padding: 5%;
             margin: 0 auto;
             width: 80vw;
-            max-width: 900px;
+            max-width: 1000px;
         }
 
         model-viewer {
@@ -52,7 +58,7 @@
             margin: 0 auto;
   width: 100%;
   height: 60vh;
-  border: solid #dce0d3 2px;
+  border: solid #dce0d3 4px;
   border-radius: 8px;
   padding: 1%;
   background-color: rgb(255, 254, 245);
@@ -72,10 +78,12 @@
         }
 
         .navBar a {
+            border-radius: 5%;
+            font-size: 130%;
              padding: 4px;
   text-decoration: none;
   color: #9a9391;
-  border: solid #dce0d3 2px;
+  border: solid #dce0d3 4px;
    display: inline-block;
   text-decoration: none;
   color: #676be5;
@@ -84,8 +92,8 @@
         }
 
         .navBar a:hover {
-            
-  border: solid #676be5 2px;
+    
+  border: solid #676be5 4px;
   background-color: #ffef9b;
 }
         .contact, .contact a {
@@ -109,18 +117,19 @@
             padding-top: 1.5vh;
             padding-bottom: 1.5vh;
             margin: 0 auto;
-            border: solid #dce0d3 2px;
+            border: solid #dce0d3 4px;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             
 
         }
 
     .current {
+        font-size: 130%;
 padding: 10px;
-        border-top: 2px solid var(--border);
-        border-left: 2px solid var(--border);
-        border-right: 2px solid var(--border);
+        border-top: 4px solid var(--border);
+        border-left: 4px solid var(--border);
+        border-right: 4px solid var(--border);
 
     }
 
@@ -132,7 +141,7 @@ padding: 10px;
 
 .journal-entry {
 
-    border: solid #dce0d3 2px;
+    border: solid #dce0d3 4px;
     padding: 10px;
     border-radius: 10px;
 
@@ -145,7 +154,7 @@ padding: 10px;
 .journal-entry-footer {
 
     padding-left: 40px;
-    font-size: 90%;
+    font-size: 110%;
 
 }
 .journal-image {
@@ -162,14 +171,29 @@ padding: 10px;
     width: 10%;
     z-index: 2;
     position: fixed;
-    left: 70%;
+    left: 80%;
     top: 0%;
 
 }
-
-
-.titleBar {
-    padding: 10px;
+           
+            #category {
+                color: #e7820a;
+            }
+            .gallery {
+                display: grid;
+                gap: 10px;
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .g-item {
+                width: 92%;
+            }
+@media only screen and (max-width:800px) {
+   
+  .gallery {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+    
 }
 
 .floating-art-2 {
@@ -199,13 +223,30 @@ padding: 10px;
     #sun-symbol {
         display: none;
     }
+    .hud2 {
+        display: none;
+           display: inline-block;
+    }
     .navBar {
         grid-template-columns: repeat(4, 1fr);
     }
+   
+}
+
+@media only screen and (max-width:1000px) {
+    .hud {
+        display: none;
+     
+    }
+    .hud2 {
+        display: none;
+    }
+  
+    
 }
 
 .s-box {
-    border: solid #dce0d3 2px;
+    border: solid #dce0d3 4px;
     padding: 10px;
     border-radius: 10px;
   
@@ -217,3 +258,21 @@ ul {
 small {
     color: #4fc19b;
 }
+
+         .Hotspot {
+                font-size: 105%;
+                padding: 4px;
+  text-decoration: none;
+  color: #9a9391;
+  border: solid #dce0d3 2px;
+   display: inline-block;
+  text-decoration: none;
+  color: #676be5;
+  background-color: rgb(255, 254, 245);
+            }
+               .Hotspot:hover {
+            
+  border: solid #676be5 2px;
+  background-color: #ffef9b;
+}
+

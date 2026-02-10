@@ -31,10 +31,51 @@
     </div>
 
 
+    
+    <br>
+        <p> copyright (c) 2001 - 2026 Salva </p>
+        <p>ghost cursor effect script by <a href="https://github.com/tholman/cursor-effects">tholman</a></p>
+        <br>
+        <br>
     </div>
-    <div class="bottom">
+     <div class="bottom">
         <p>@salva</p>
-            <p><a href="#top">back to top ^</a></p>
+    <span><img src="assets/salva logo.png" alt="" class="floating-art-2"></span>
+       <p class="light"><a href="#top">back to top ^</a></p>
+         <span id="time"> </span>
+           
         </div>
+</div>
+         <script>
+
+    function getTime() {
+        var today = new Date();
+        var hour = today.getHours();
+        var minutes = today.getMinutes();
+        var seconds = today.getSeconds();
+        var meridian = "AM";
+
+        if (hour > 12) {
+            hour = hour - 12;
+            meridian = "PM";
+        } 
+        
+        var displayTime = hour + ":" + String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0") + " " + meridian;
+        
+        document.getElementById("time").innerHTML = displayTime;
+        
+        
+
+    }
+
+    getTime();
+    setInterval(getTime, 1000);
+
+    </script>
+        <script type="module">
+  import { ghostCursor } from "https://unpkg.com/cursor-effects@latest/dist/esm.js";
+
+  new ghostCursor();
+</script>
 </body>
 </html>

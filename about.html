@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Salva's Contact Page</title>
+    <title>Salva's Info</title>
 
 <link rel="stylesheet" href="stylesheet.css">
 </head>
@@ -16,48 +16,117 @@
        <div class="navBar">
                 
             <p> <a href="index.html">💽 home</a></p>
-            <p class="current">🃏 about</p>
+            <p><a href="art.html">art 🏛</a></p>
              <p id="sun-symbol"><img src="assets/sun dark.png" class="floating-art-3"></p>
-            <p><a href="journal.html">writing 📝</a></p>
+           
+             <p class="current">🃏 info</p>
             <p class="contact"><a href="contact.html">contact 🌎</a></p>
 
         
         </div>
-        <br>
+    
   <div class="s-box">
-    <h4>about me (salva)</h4>
+    <div class="gallery">
+    <span>
+    <h4>Personal info</h4>
     <br>
-        <p>my name is salva</p>
+        <p>my name is salva
+        </p>
+        <small>(they/them)</small>
         <p>human</p>
-        <br>
-        <p>designer, scientist, writer, artist, linguist, anthropologist, athlete</p>
-    </div>
+        <p>designer, scientist, writer, artist, linguist, anthropologist, athlete, reader, & overwatch player</p>
+
+        <p>I grew up in the Dominican Republic before immigrating to the United States with my family. Currently based in Atlanta, GA. Most of my work time is dedicated to making art, studying biology, lifting weights, freelance, and my part time digital marketing job.</p>
+        <p><a href="mailto:salvi.works@gmail.com">salvi.works@gmail.com</a></p>
+
+        <p>💾 <a href="https://docs.google.com/document/d/1YdZAgr7Tcrp3RQkLTgkAzeGLbQc_3vypEqnAGDUBcKY/edit?usp=sharing"> Link to Resume</a></p>
+    
+</span>
+<span>
+    <img width="80%" src="assets/me.jpg" alt="me">
+            @liquiidmetal
+</span>
+</div>
+</div>
 <br>
     <div class="s-box">
-        <h4>about this website</h4>
-        <br>
-        <p>human made approach to the internet. this is pure html/css and the 3D model on main page uses the google model viewer framework. view my source code let me know if u find anything weird or something that could be done better :) i treat this as my little digital garden / sketchbook / laboratory of ideas</p>
-
-        <p>the page is constantly changing, all versions i keep stored via github</p>
-<br>
-        <p>things to do:</p>
-        <small>last update to list, Sunday August 3, 2025</small>
-        <br>
-        <br>
+     <h4>Work info</h4>
+<div class="gallery">
+        <b>Services</b>
         <ul>
-            <li>create drop down list for main page project list to include my most important projects</li>
-            <li>create a page to be purely a work portfolio- maybe just a simple gird with titles and tags of what kind of project it is with an option to filter at the top (animation, graphic design, marketing consulting)</li>
-            <li>add a dark/light mode button, night and day- maybe even link it to the current time</li>
-            <li>add clock to website- need to learn the javascript for it</li>
-            <li>add a zelda breathe of the wild type hud to right corner desktop version with a sitemap and audio player attach clock and day/night toggle to it</li>
+            <li>Graphic Design</li>
+            <li>2D / 3D Animation</li>
+            <li>Typeface Design</li>
+            <li>Spatial Design</li>
+            <li>Digital Marketing Consulting</li>
+            <li>Social Media Management</li>
+            <li>Web Design / Development</li>
+            <li>Merch Design</li>
         </ul>
-    </div>
-<br>
-<br>
-    </div>
-    <div class="bottom">
-        <p>@salva</p>
-            <p><a href="#top">back to top ^</a></p>
         </div>
+        <br>
+        <div class="gallery">
+<b>Clients</b>
+        <ul>
+            <li>Universal Music Group</li>
+            <li>Fulton County Arts & Culture</li>
+            <li>Columbia Records</li>
+            <li>Flighthouse Media</li>
+            <li>Republic Records</li>
+            <li>J Balvin</li>
+            <li>Atlanta United</li>
+            <li>Cam Kirk Studios</li>
+        </ul>
+
+      </div>
+<br>
+      I have been experimenting with different art forms and design disciplines for over a decade. If you would like to work together or discuss any ideas, please reach out via <a href="mailto:salvi.works@gmail.com">email (salvi.works@gmail.com)</a> or the <a href="contact.html">contact page</a>. 
+    </div>
+
+<br>
+        <p> copyright (c) 2001 - 2026 Salva </p>
+        <p>ghost cursor effect script by <a href="https://github.com/tholman/cursor-effects">tholman</a></p>
+        <br>
+        <br>
+    </div>
+     <div class="bottom">
+        <p>@salva</p>
+    <span><img src="assets/salva logo.png" alt="" class="floating-art-2"></span>
+       <p class="light"><a href="#top">back to top ^</a></p>
+         <span id="time"> </span>
+           
+        </div>
+
+         <script>
+
+    function getTime() {
+        var today = new Date();
+        var hour = today.getHours();
+        var minutes = today.getMinutes();
+        var seconds = today.getSeconds();
+        var meridian = "AM";
+
+        if (hour > 12) {
+            hour = hour - 12;
+            meridian = "PM";
+        } 
+        
+        var displayTime = hour + ":" + String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0") + " " + meridian;
+        
+        document.getElementById("time").innerHTML = displayTime;
+        
+        
+
+    }
+
+    getTime();
+    setInterval(getTime, 1000);
+
+    </script>
+        <script type="module">
+  import { ghostCursor } from "https://unpkg.com/cursor-effects@latest/dist/esm.js";
+
+  new ghostCursor();
+</script>
 </body>
 </html>
