@@ -3,106 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Salva's Art Page</title>
-
-<link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="/style/main.css">
+    <style>
+      @media only screen and (min-width: 601px) {
+        .clock-widget,
+        .color-widget {
+          display: flex !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .clock-widget,
+        .color-widget {
+          display: none !important;
+        }
+      }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <img class="floating-art-1" src="assets/free" alt="">
-        <h1 id="top">salva's world</h1>
-     
-       <div class="navBar">
-                
-            <p> <a href="index.html">💽 home</a></p>
-               <p class="current">🏛 art</p>
-             <p id="sun-symbol"><img src="assets/sun dark.png" class="floating-art-3"></p>
 
-             <p> <a href="about.html">🃏 about </a></p>
-            <p class="contact"><a href="contact.html">contact 🌎</a></p>
+    <div class="accent-strip">
+      <div class="accent-marquee"><span>episode — my blonde hair — la boca del lobo — cut away — perceived identity — genome shotgun sequencing — the smarter the mind the better the traps — a door ajar — twisted and slipped into a 5th dimension — scattered — fell asleep there — in between words — reductio ad absurdum — episode — my blonde hair — la boca del lobo — cut away — perceived identity — genome shotgun sequencing — the smarter the mind the better the traps — a door ajar — twisted and slipped into a 5th dimension — scattered — fell asleep there — in between words — reductio ad absurdum — </span></div>
+    </div>
 
-        
-        </div>
-       
-  <div class="s-box">
-    <h4>my art work</h4>
-    <br>
+    <div class="navBar-new">
+      <ul class="nav-main">
+        <li>👽 <b>salva</b></li>
+        <li class="nav-menu-trigger"><span class="highlight" onclick="this.closest('.navBar-new').classList.toggle('open')">≡</span>
+          <div class="nav-dropdown">
+            <a href="art.html">🎨 art</a>
+            <a href="slash.html">✍️ slash</a>
+            <a href="journal.html">📝 journal</a>
+            <a href="https://instagram.com/liquiidmetal" target="_blank">@liquiidmetal</a>
+            <span class="theme-toggle" onclick="document.body.classList.toggle('night'); localStorage.setItem('night', document.body.classList.contains('night'))">day / night</span>
+          </div>
+        </li>
+        <li><a href="index.html">home</a></li>
+        <li><a href="work.html">work</a></li>
+        <li><a href="contact.html">contact</a></li>
+        <li><a href="info.html">info</a></li>
+        <li class="active"><a href="art.html">art</a></li>
+        <li><a href="journal.html">journal</a></li>
+      </ul>
+    </div>
+
+    <div class="color-widget" style="left:3%;top:12%;right:auto;">
+      <div class="color-swatch" id="colorSwatch">
+        <input type="color" id="accentPicker" class="color-input" value="#CCFF00">
+      </div>
+      <label class="color-label" for="accentPicker">color picker</label>
+    </div>
+
+    <div class="clock-widget" style="right:3%;bottom:8%;left:auto;top:auto;">
+      <span class="clock-display" id="clockDisplay"></span>
+    </div>
+
+    <div class="about-wrapper">
+      <div class="about-section">
         <p>art i make for myself, started making these in 2020 mid pandemic and it continues to be my most personal medium of artistic expression. many stages of my life and development as a person are chronicled through these pieces.</p>
         <p>everything is made with blender (3D modeling and sculpting program) which i use to make a sort of "digital still life" and scenes, then i composite different pieces of my 3D scenes in photoshop (image editing), and then i use procreate (digital drawing and painting) to paint and sketch over each image.</p>
-            <p>(⚠️) <b>no artificial intelligence </b> or image generation programs were used for any of these works, ai has its uses but definetly not when it comes to human expression.</p>
+        <p><b>no artificial intelligence</b> or image generation programs were used for any of these works, ai has its uses but definetly not when it comes to human expression.</p>
+      </div>
+
+      <div class="about-section" style="padding: 0;">
+        <img style="width: 100%; border-radius: 4px; margin-bottom: 12px;" src="assets/00POSTluci.jpg" alt="art">
+        <img style="width: 100%; border-radius: 4px; margin-bottom: 12px;" src="assets/free the ruler.png" alt="art">
+        <img style="width: 100%; border-radius: 4px; margin-bottom: 12px;" src="assets/eternal whispers.png" alt="art">
+        <img style="width: 100%; border-radius: 4px; margin-bottom: 12px;" src="assets/king of hearts.png" alt="art">
+        <img style="width: 100%; border-radius: 4px; margin-bottom: 12px;" src="assets/imgi_33_ezgif.com-gif-maker-2.gif" alt="art">
+        <img style="width: 100%; border-radius: 4px;" src="assets/we who wrestle (FINAL).PNG" alt="art">
+      </div>
     </div>
-<br>
-   <div class="gallery s-box">
-    
-            <img style="width: 100%; margin: 0 auto; border-radius: 2%;" src="assets/00POSTluci.jpg" alt="art i made with slash the writing system i created for myself">
 
-            <img style="width: 100%; margin: 0 auto; border-radius: 2%;" src="assets/free the ruler.png" alt="art i made with slash the writing system i created for myself">
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">salva / liquiidmetal</div>
+        <nav class="footer-links">
+          <a href="index.html">home</a>
+          <a href="work.html">work</a>
+          <a href="art.html">art</a>
+          <a href="contact.html">contact</a>
+          <a href="info.html">info</a>
+          <a href="https://instagram.com/liquiidmetal" target="_blank">@liquiidmetal</a>
+        </nav>
+        <div class="footer-copy">&copy; 2026 salva. all rights reserved.</div>
+      </div>
+    </footer>
 
-             <img style="width: 100%; margin: 0 auto; border-radius: 2%;" src="assets/eternal whispers.png" alt="art i made with slash the writing system i created for myself">
+    <script>
+  if (localStorage.getItem('night') === 'true') document.body.classList.add('night');
 
-              <img style="width: 100%; margin: 0 auto; border-radius: 2%;" src="assets/king of hearts.png" alt="art i made with slash the writing system i created for myself">
+  function updateClock() {
+    const now = new Date();
+    let h = now.getHours();
+    const ampm = h >= 12 ? 'PM' : 'AM';
+    h = h % 12 || 12;
+    const m = now.getMinutes().toString().padStart(2, '0');
+    const s = now.getSeconds().toString().padStart(2, '0');
+    document.getElementById('clockDisplay').textContent = h + ':' + m + ':' + s + ' ' + ampm;
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
 
-              <img style="width: 100%; margin: 0 auto; border-radius: 2%;" src="assets/imgi_33_ezgif.com-gif-maker-2.gif" alt="art i made with slash the writing system i created for myself">
-
- <img style="width: 100%; margin: 0 auto; border-radius: 2%;" src="assets/we who wrestle (FINAL).PNG" alt="art i made with slash the writing system i created for myself">
-    
-   </div>
-<br>
-<br>
-    </div>
-    <br>
-        <p> copyright (c) 2001 - 2026 Salva </p>
-        <p>ghost cursor effect script by <a href="https://github.com/tholman/cursor-effects">tholman</a></p>
-        
-<br>
-<br>
-<br>
-<br>
-<br>
-    </div>
-   </div>
-   
-
-      
-
-    <div class="bottom">
-        <p>@salva</p>
-    <span><img src="assets/salva logo.png" alt="" class="floating-art-2"></span>
-        <p class="light"><a href="#top">back to top ^</a></p>
-         <span id="time"> </span>
-           
-        </div>
-
-         <script>
-
-    function getTime() {
-        var today = new Date();
-        var hour = today.getHours();
-        var minutes = today.getMinutes();
-        var seconds = today.getSeconds();
-        var meridian = "AM";
-
-        if (hour > 12) {
-            hour = hour - 12;
-            meridian = "PM";
-        } 
-        
-        var displayTime = hour + ":" + String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0") + " " + meridian;
-        
-        document.getElementById("time").innerHTML = displayTime;
-        
-        
-
+  function makeDraggable(el) {
+    if (!el) return;
+    let offsetX, offsetY, startX, startY;
+    el.addEventListener('mousedown', function(e) {
+      startX = e.clientX; startY = e.clientY;
+      const rect = el.getBoundingClientRect();
+      offsetX = e.clientX - rect.left;
+      offsetY = e.clientY - rect.top;
+      document.addEventListener('mousemove', onMove);
+      document.addEventListener('mouseup', onUp);
+    });
+    function onMove(e) {
+      if (Math.abs(e.clientX - startX) > 3 || Math.abs(e.clientY - startY) > 3) {
+        el.style.left = (e.clientX - offsetX) + 'px';
+        el.style.top = (e.clientY - offsetY) + 'px';
+        el.style.right = 'auto';
+      }
     }
+    function onUp() {
+      document.removeEventListener('mousemove', onMove);
+      document.removeEventListener('mouseup', onUp);
+    }
+  }
+  makeDraggable(document.querySelector('.clock-widget'));
+  makeDraggable(document.querySelector('.color-widget'));
 
-    getTime();
-    setInterval(getTime, 1000);
+  const picker = document.getElementById('accentPicker');
+  const swatch = document.getElementById('colorSwatch');
+  const saved = localStorage.getItem('accent');
+  if (saved) { applyAccent(saved); picker.value = saved; }
 
-    </script>
-        <script type="module">
+  picker.addEventListener('input', (e) => { applyAccent(e.target.value); localStorage.setItem('accent', e.target.value); });
+  picker.addEventListener('change', (e) => { applyAccent(e.target.value); localStorage.setItem('accent', e.target.value); });
+
+  function applyAccent(color) {
+    swatch.style.backgroundColor = color;
+    document.documentElement.style.setProperty('--accent', color);
+    const r = parseInt(color.slice(1,3),16), g = parseInt(color.slice(3,5),16), b = parseInt(color.slice(5,7),16);
+    const lum = (r*299 + g*587 + b*114) / 1000;
+    const textColor = lum < 128 ? '#ffffff' : '#1a1a1a';
+    document.querySelectorAll('.highlight').forEach(el => { el.style.backgroundColor = color; el.style.color = textColor; });
+    document.querySelectorAll('.active').forEach(el => { el.style.backgroundColor = color + '40'; });
+    const footer = document.querySelector('.site-footer');
+    if (footer) { footer.style.backgroundColor = color; footer.querySelectorAll('.footer-brand, .footer-copy, .footer-links a').forEach(el => { el.style.color = textColor; }); }
+    const strip = document.querySelector('.accent-strip');
+    if (strip) { strip.style.backgroundColor = color; strip.querySelector('.accent-marquee').style.color = textColor; }
+    document.documentElement.style.setProperty('--accent-text', textColor);
+  }
+
+  let sunCount = 0;
+  const sunCounter = document.createElement('div');
+  sunCounter.textContent = 'suns: 0';
+  sunCounter.style.cssText = 'position:absolute;top:32px;left:12px;z-index:10000;font-size:12px;font-family:monospace;color:var(--accent, #CCFF00);pointer-events:none;';
+  document.body.appendChild(sunCounter);
+  const lastUpdated = document.createElement('div');
+  lastUpdated.textContent = 'last updated: 04.01.2026';
+  lastUpdated.style.cssText = 'position:absolute;top:32px;right:12px;z-index:10000;font-size:12px;font-family:monospace;color:var(--accent, #CCFF00);pointer-events:none;';
+  document.body.appendChild(lastUpdated);
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('.navBar-new, .clock-widget, .color-widget, .accent-strip, .site-footer, a, button, input, .win-dot')) return;
+    const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#CCFF00';
+    const sun = document.createElement('div');
+    sun.style.cssText = 'position:fixed;width:88px;height:88px;pointer-events:none;z-index:9999;left:' + (e.clientX - 29) + 'px;top:' + (e.clientY - 29) + 'px;background-color:' + accent + ';-webkit-mask:url(/assets/sun.png) center/contain no-repeat;mask:url(/assets/sun.png) center/contain no-repeat;filter:drop-shadow(0 0 2px #000) drop-shadow(0 0 1px #fff);';
+    document.body.appendChild(sun);
+    sunCount++;
+    sunCounter.textContent = 'suns: ' + sunCount;
+  });
+</script>
+    <script type="module">
   import { ghostCursor } from "https://unpkg.com/cursor-effects@latest/dist/esm.js";
-
   new ghostCursor();
 </script>
 </body>

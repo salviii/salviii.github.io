@@ -29,26 +29,32 @@
         :root {
             --light: rgb(255, 254, 245);
             --dark: rgb(32, 32, 32);
-            --border: #e8e9d8;
+            --border: ;
             --accent: #CCFF00;
         }
 
         ::selection {
-            background-color: gold;
+            background-color: var(--accent, #CCFF00);
+            color: var(--dark);
+        }
+
+        body.night ::selection {
+            background-color: #3300FF;
+            color: #e0e0e0;
         }
 
         a {
-            color: rgb(94, 86, 207);
+            color: var(--accent, #CCFF00);
+            text-decoration: none;
         }
         p {
             padding: 10px 0px 10px 0px;
         }
 
         a:hover {
-
-            color: rgb(32, 32, 32);
-            background-color: gold;
-
+            color: var(--accent, #CCFF00);
+            background-color: transparent;
+            text-decoration: underline dotted;
         }
 
         body {
@@ -57,6 +63,8 @@ height: 100%;
             color: rgb(22, 22, 23);
             font-family: Arial, Helvetica, sans-serif;
             font-size: 120%;
+            font-weight: normal;
+            letter-spacing: 0.03em;
             line-height: 1.6;
             text-align: justify;
             width: 100%;
@@ -64,12 +72,6 @@ height: 100%;
 
         }
 
-        .light-text a {
-
-            border-radius: 5%;
-            padding: 2px;
-            background-color: #ffef9b;
-        }
 
         .container {
             overflow: hidden;
@@ -685,6 +687,7 @@ body.night .text-widget {
   padding: 8px 14px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.06);
   cursor: grab;
+  height: fit-content;
 }
 
 .color-widget:active {
@@ -850,6 +853,12 @@ body.night a {
   color: #9b9ff0;
 }
 
+body.night a:hover {
+  color: var(--accent, #CCFF00);
+  background-color: transparent;
+  text-decoration: underline dotted;
+}
+
 body.night .mosaic-title,
 body.night .mosaic-type {
   color: #e0e0e0;
@@ -894,33 +903,32 @@ body.night .bg {
 
 /* Editorial Mosaic */
 .mosaic-wrapper {
-  padding-top: 5%;
-  padding-right: 5%;
-  padding-bottom: 10%;
+  padding: 5% 5% 10%;
   margin: 0 auto;
+  max-width: 1200px;
+  box-sizing: border-box;
 }
 
 .mosaic {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 8px;
-  max-width: 1600px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
   margin: 0 auto;
 }
 
+/* Blank slots — hidden by default, uncomment in HTML to use */
 .mosaic-blank {
-  aspect-ratio: 1;
+  aspect-ratio: 4 / 3;
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: scale(0.85);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   color: #999;
   text-align: center;
   padding: 10px;
   line-height: 1.5;
-  border-radius: 4%;
+  border-radius: 8px;
   box-sizing: border-box;
   transition: background-color 0.3s, color 0.3s;
   cursor: default;
@@ -933,26 +941,6 @@ body.night .bg {
 
 body.night .mosaic-blank {
   color: #444;
-}
-
-.mosaic-item .mosaic-img {
-  position: relative;
-}
-
-.mosaic-item .mosaic-img::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-color: var(--accent, #CCFF00);
-  opacity: 0;
-  mix-blend-mode: color;
-  transition: opacity 0.3s;
-  pointer-events: none;
-  border-radius: inherit;
-}
-
-.mosaic-item:hover .mosaic-img::after {
-  opacity: 0.7;
 }
 
 .mosaic-item {
@@ -972,9 +960,24 @@ body.night .mosaic-blank {
 }
 
 .mosaic-item .mosaic-img {
-  aspect-ratio: 1;
+  position: relative;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
-  border-radius: 6px;
+  border-radius: 8px;
+}
+
+.mosaic-item .mosaic-img {
+  border: 3px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.mosaic-item:hover .mosaic-img {
+  border-color: var(--accent, #CCFF00);
+}
+
+.mosaic-item:hover .mosaic-meta .mosaic-title,
+.mosaic-item:hover .mosaic-meta .mosaic-type {
+  font-weight: bold;
 }
 
 .mosaic-item img {
@@ -982,17 +985,18 @@ body.night .mosaic-blank {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.3s;
 }
 
 .mosaic-item:hover img {
   transform: scale(1.03);
+  filter: saturate(2);
 }
 
 .mosaic-meta {
   display: flex;
   justify-content: space-between;
-  padding: 4px 0;
+  padding: 6px 2px 0;
 }
 
 .mosaic-type,
@@ -1006,6 +1010,11 @@ body.night .mosaic-blank {
 }
 
 
+@media only screen and (max-width: 900px) {
+  .mosaic { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .mosaic-wrapper { padding: 4vh 4% 10vh 4%; }
+}
+
 @media only screen and (max-width: 800px) {
   html, body { overscroll-behavior: none; }
   .container { width: 95vw; }
@@ -1017,9 +1026,12 @@ body.night .mosaic-blank {
   .clock-widget { right: 2%; top: 38%; padding: 8px 12px; }
   .music-widget { width: 220px; left: 2%; top: 8%; }
   .gallery-widget { width: 220px; right: 2%; top: 8%; }
-  .mosaic-wrapper { padding: 4vh 4% 10vh 4%; }
-  .mosaic { grid-template-columns: repeat(3, 1fr); gap: 4px; }
-  .mosaic-blank { font-size: 8px; padding: 4px; }
+  .mosaic-blank { font-size: 10px; padding: 6px; }
+}
+
+@media only screen and (max-width: 500px) {
+  .mosaic { grid-template-columns: 1fr; gap: 16px; }
+  .mosaic-wrapper { padding: 3vh 5% 10vh 5%; }
 }
 
 .site-footer {
@@ -1030,10 +1042,9 @@ body.night .mosaic-blank {
   justify-content: center;
   text-align: center;
   padding: 24px;
-  font-family: monospace;
   font-size: 11px;
-  font-weight: normal;
-  letter-spacing: 1px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
   color: #1a1a1a;
 }
 
@@ -1082,4 +1093,172 @@ body.night .mosaic-blank {
   .floating-art-left {
     display: none !important;
   }
+}
+
+/* About Page */
+.about-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 8% 5% 4%;
+}
+
+.about-section {
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.about-section h4 {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.about-work-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 16px;
+  align-items: start;
+}
+
+.about-work-col ul {
+  margin-top: 8px;
+}
+
+.about-text p {
+  padding: 2px 0;
+}
+
+.about-pronouns {
+  color: var(--accent, #CCFF00);
+}
+
+.about-label {
+  font-weight: 700;
+  font-size: 12px;
+  padding-top: 2px;
+}
+
+.about-section ul {
+  list-style: circle;
+  padding-left: 18px;
+  margin: 0;
+}
+
+.about-section li {
+  padding: 1px 0;
+}
+
+.about-cta {
+  padding-top: 12px;
+  margin-top: 8px;
+}
+
+/* About Personal Row — two columns: text + photo */
+.about-personal-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.about-photo-widget {
+  background-color: white;
+  border: solid rgb(210, 206, 206) 4px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  cursor: grab;
+}
+
+.about-photo-widget:active {
+  cursor: grabbing;
+}
+
+.about-photo-body {
+  padding: 8px;
+}
+
+.about-photo-body img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+}
+
+.about-photo-caption {
+  text-align: center;
+  font-size: 11px;
+  color: #999;
+  padding: 4px 0 10px;
+}
+
+body.night .about-photo-widget {
+  background-color: #2a2a2a;
+  border-color: #444;
+}
+
+@media only screen and (max-width: 600px) {
+  .about-personal-row,
+  .about-work-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Journal / Blog */
+.journal-post {
+  margin-bottom: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid #eee;
+}
+
+.journal-post:last-child {
+  border-bottom: none;
+}
+
+.journal-date {
+  font-size: 11px;
+  color: #999;
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  margin-bottom: 4px;
+}
+
+.journal-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.journal-body p {
+  padding: 4px 0;
+  text-align: left;
+}
+
+.journal-img {
+  width: 100%;
+  border-radius: 6px;
+  margin: 12px 0;
+}
+
+.journal-footer-note {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px dotted #ccc;
+  font-size: 11px;
+  color: #999;
+}
+
+.journal-footer-note p {
+  padding: 1px 0;
+}
+
+body.night .journal-post {
+  border-bottom-color: #333;
+}
+
+body.night .journal-footer-note {
+  border-top-color: #444;
+  color: #666;
 }

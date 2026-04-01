@@ -146,7 +146,7 @@
             </div>
           </div>
           <div class="img-widget-body">
-            <img src="/assets/metal.PNG" alt="Metal" style="cursor:pointer" onclick="document.querySelector('#lightbox .lightbox-body img').src=this.src;document.getElementById('lightbox').classList.add('active')">
+            <img src="/assets/art-grid.PNG" alt="Metal" style="cursor:pointer" onclick="document.querySelector('#lightbox .lightbox-body img').src=this.src;document.getElementById('lightbox').classList.add('active')">
             <div class="img-widget-meta">
               <span>latest artwork...</span>
               <a href="art.html">view more</a>
@@ -217,8 +217,11 @@
         <div class="navBar-new">
         <ul class="nav-main">
           <li>👽 <b>salva</b></li>
-          <li class="nav-menu-trigger"><span class="highlight" onclick="this.closest('.navBar-new').classList.toggle('open')">≡</span>
+          <li class="nav-menu-trigger"><span class="highlight" onclick="this.closest('.navBar-new').classList.toggle('open')">more ≡</span>
             <div class="nav-dropdown">
+              <a href="art.html">🎨 art</a>
+              <a href="slash.html">✍️ slash</a>
+              <a href="journal.html">📝 journal</a>
               <a href="https://instagram.com/liquiidmetal" target="_blank">@liquiidmetal</a>
               <span class="theme-toggle" onclick="document.body.classList.toggle('night'); localStorage.setItem('night', document.body.classList.contains('night'))">day / night</span>
             </div>
@@ -227,6 +230,8 @@
           <li><a href="work.html">work</a></li>
           <li><a href="contact.html">contact</a></li>
           <li><a href="info.html">info</a></li>
+          <li><a href="art.html">art</a></li>
+          <li><a href="journal.html">journal</a></li>
         </ul>
         </div>
 
@@ -236,84 +241,29 @@
         <div class="mosaic-wrapper">
         <div class="mosaic">
 
-          <!-- row 1: items at 2,4 — centered -->
-          <div class="mosaic-blank">creative direction and visual identity</div>
           <div class="mosaic-item">
-            <a href="projects/luci.html">
-              <div class="mosaic-img"><img src="/assets/00POSTluci.jpg" alt="Luci"></div>
+            <a href="slash.html">
+              <div class="mosaic-img"><img src="/assets/art-grid.PNG" alt="Art"></div>
               <div class="mosaic-meta">
-                <span class="mosaic-type">Art Direction</span>
-                <span class="mosaic-title">Luci</span>
+                <span class="mosaic-type">Digital Art</span>
+                <span class="mosaic-title">Art</span>
               </div>
             </a>
           </div>
-          <div class="mosaic-blank">digital worlds rendered in light</div>
-          <div class="mosaic-item">
-            <a href="projects/cgi.html">
-              <div class="mosaic-img"><img src="/assets/cgi-cover.png" alt="CGI Cover"></div>
-              <div class="mosaic-meta">
-                <span class="mosaic-type">3D / CGI</span>
-                <span class="mosaic-title">CGI Explorations</span>
-              </div>
-            </a>
-          </div>
-          <div class="mosaic-blank">form follows feeling</div>
 
-          <!-- row 2: items at 1,3,5 — evenly spaced -->
           <div class="mosaic-item">
-            <a href="projects/sodacan.html">
-              <div class="mosaic-img"><img src="/assets/sodacan-cover.png" alt="Soda Can"></div>
+            <a href="#">
+              <div class="mosaic-img"><img src="/assets/sodacan-grid.png" alt="Soda Can"></div>
               <div class="mosaic-meta">
                 <span class="mosaic-type">Product Design</span>
                 <span class="mosaic-title">Soda Can</span>
               </div>
             </a>
           </div>
-          <div class="mosaic-blank">somewhere between chaos and clarity</div>
-          <div class="mosaic-item">
-            <a href="projects/syd.html">
-              <div class="mosaic-img"><img src="/assets/syd-cover.png" alt="Syd"></div>
-              <div class="mosaic-meta">
-                <span class="mosaic-type">Graphic Design</span>
-                <span class="mosaic-title">Syd</span>
-              </div>
-            </a>
-          </div>
-          <div class="mosaic-blank">pixels as prayer</div>
-          <div class="mosaic-item">
-            <a href="projects/eternal-whispers.html">
-              <div class="mosaic-img"><img src="/assets/eternal whispers.png" alt="Eternal Whispers"></div>
-              <div class="mosaic-meta">
-                <span class="mosaic-type">Digital Art</span>
-                <span class="mosaic-title">Eternal Whispers</span>
-              </div>
-            </a>
-          </div>
 
-          <!-- row 3: items at 1,3,5 — evenly spaced -->
           <div class="mosaic-item">
-            <a href="projects/king-of-hearts.html">
-              <div class="mosaic-img"><img src="/assets/king of hearts.png" alt="King of Hearts"></div>
-              <div class="mosaic-meta">
-                <span class="mosaic-type">Illustration</span>
-                <span class="mosaic-title">King of Hearts</span>
-              </div>
-            </a>
-          </div>
-          <div class="mosaic-blank">the hand draws what the mind conceals</div>
-          <div class="mosaic-item">
-            <a href="projects/garment.html">
-              <div class="mosaic-img"><img src="/assets/gggarment design.png" alt="Garment Design"></div>
-              <div class="mosaic-meta">
-                <span class="mosaic-type">Fashion</span>
-                <span class="mosaic-title">Garment Design</span>
-              </div>
-            </a>
-          </div>
-          <div class="mosaic-blank">fabric as language</div>
-          <div class="mosaic-item">
-            <a href="projects/fulton.html">
-              <div class="mosaic-img"><img src="/assets/fulton.png" alt="Fulton"></div>
+            <a href="#">
+              <div class="mosaic-img"><img src="/assets/fulton-grid.png" alt="Fulton"></div>
               <div class="mosaic-meta">
                 <span class="mosaic-type">Branding</span>
                 <span class="mosaic-title">Fulton</span>
@@ -321,51 +271,49 @@
             </a>
           </div>
 
-          <!-- row 4: items at 2,4 — centered -->
-          <div class="mosaic-blank">nothing is ordinary up close</div>
           <div class="mosaic-item">
-            <a href="projects/free-the-ruler.html">
-              <div class="mosaic-img"><img src="/assets/free the ruler.png" alt="Free the Ruler"></div>
+            <a href="#">
+              <div class="mosaic-img"><img src="/assets/garment-grid.png" alt="Garment Design"></div>
               <div class="mosaic-meta">
-                <span class="mosaic-type">Art</span>
-                <span class="mosaic-title">Free the Ruler</span>
+                <span class="mosaic-type">Fashion</span>
+                <span class="mosaic-title">Garment Design</span>
               </div>
             </a>
           </div>
-          <div class="mosaic-blank">art is the wound turned inside out</div>
-          <div class="mosaic-item">
-            <a href="projects/bamboo.html">
-              <div class="mosaic-img"><img src="/assets/bamboo.png" alt="Bamboo"></div>
-              <div class="mosaic-meta">
-                <span class="mosaic-type">Experiment</span>
-                <span class="mosaic-title">Bamboo</span>
-              </div>
-            </a>
-          </div>
-          <div class="mosaic-blank">bend before you break</div>
 
-          <!-- row 5: items at 2,4 — centered -->
-          <div class="mosaic-blank">cut and reassemble</div>
           <div class="mosaic-item">
-            <a href="projects/slash-art.html">
-              <div class="mosaic-img"><img src="/assets/slash-art.jpg" alt="Slash Art"></div>
+            <a href="#">
+              <div class="mosaic-img"><img src="/assets/overpower-grid.png" alt="Overpower"></div>
               <div class="mosaic-meta">
-                <span class="mosaic-type">Mixed Media</span>
-                <span class="mosaic-title">Slash Art</span>
+                <span class="mosaic-type">Visual Design</span>
+                <span class="mosaic-title">Overpower</span>
               </div>
             </a>
           </div>
-          <div class="mosaic-blank">every copy is an original</div>
+
           <div class="mosaic-item">
-            <a href="projects/xerox.html">
-              <div class="mosaic-img"><img src="/assets/xerox.jpg" alt="Xerox"></div>
+            <a href="#">
+              <div class="mosaic-img"><img src="/assets/animation-grid.gif" alt="Animation"></div>
               <div class="mosaic-meta">
-                <span class="mosaic-type">Print</span>
-                <span class="mosaic-title">Xerox</span>
+                <span class="mosaic-type">Motion</span>
+                <span class="mosaic-title">Animation</span>
               </div>
             </a>
           </div>
-          <div class="mosaic-blank">more coming soon</div>
+
+          <div class="mosaic-item">
+            <a href="#">
+              <div class="mosaic-img"><img src="/assets/bookgarden-grid.png" alt="Book Garden"></div>
+              <div class="mosaic-meta">
+                <span class="mosaic-type">Editorial</span>
+                <span class="mosaic-title">Book Garden</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- blank slots (hidden by default, uncomment to use)
+          <div class="mosaic-blank">creative direction and visual identity</div>
+          -->
 
         </div>
         </div>
