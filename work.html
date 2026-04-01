@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salva's Contact Page</title>
+    <title>Salva's Work</title>
     <link rel="stylesheet" href="/style/main.css">
     <style>
       @media only screen and (min-width: 601px) {
@@ -39,8 +39,8 @@
           </div>
         </li>
         <li><a href="index.html">home</a></li>
-        <li><a href="work.html">work</a></li>
-        <li class="active">contact</li>
+        <li class="active">work</li>
+        <li><a href="contact.html">contact</a></li>
         <li><a href="info.html">info</a></li>
       </ul>
     </div>
@@ -56,13 +56,79 @@
       <span class="clock-display" id="clockDisplay"></span>
     </div>
 
-    <div class="about-wrapper">
-      <div class="about-section" style="text-align:center;">
-        <p>if you need to get in contact, send me an email at <a href="mailto:salvi.works@gmail.com">salvi.works@gmail.com</a></p>
-        <p>or fill out the form below ↓</p>
-      </div>
-      <div class="about-section">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeOBB_uYC3aZ7CLxqqPRGRWjv2VggBm2UzRewGmtmUp-wcNLg/viewform?embedded=true" width="100%" height="861" frameborder="0" marginheight="0" marginwidth="0" style="border:none;border-radius:8px;">Loading…</iframe>
+    <div class="mosaic-wrapper">
+      <div class="mosaic">
+
+        <div class="mosaic-item">
+          <a href="slash.html">
+            <div class="mosaic-img"><img src="/assets/art-grid.PNG" alt="Art"></div>
+            <div class="mosaic-meta">
+              <span class="mosaic-type">Digital Art</span>
+              <span class="mosaic-title">Art</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="mosaic-item">
+          <a href="#">
+            <div class="mosaic-img"><img src="/assets/sodacan-grid.png" alt="Soda Can"></div>
+            <div class="mosaic-meta">
+              <span class="mosaic-type">Product Design</span>
+              <span class="mosaic-title">Soda Can</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="mosaic-item">
+          <a href="#">
+            <div class="mosaic-img"><img src="/assets/fulton-grid.png" alt="Fulton"></div>
+            <div class="mosaic-meta">
+              <span class="mosaic-type">Branding</span>
+              <span class="mosaic-title">Fulton</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="mosaic-item">
+          <a href="#">
+            <div class="mosaic-img"><img src="/assets/garment-grid.png" alt="Garment Design"></div>
+            <div class="mosaic-meta">
+              <span class="mosaic-type">Fashion</span>
+              <span class="mosaic-title">Garment Design</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="mosaic-item">
+          <a href="#">
+            <div class="mosaic-img"><img src="/assets/overpower-grid.png" alt="Overpower"></div>
+            <div class="mosaic-meta">
+              <span class="mosaic-type">Visual Design</span>
+              <span class="mosaic-title">Overpower</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="mosaic-item">
+          <a href="#">
+            <div class="mosaic-img"><img src="/assets/animation-grid.gif" alt="Animation"></div>
+            <div class="mosaic-meta">
+              <span class="mosaic-type">Motion</span>
+              <span class="mosaic-title">Animation</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="mosaic-item">
+          <a href="#">
+            <div class="mosaic-img"><img src="/assets/bookgarden-grid.png" alt="Book Garden"></div>
+            <div class="mosaic-meta">
+              <span class="mosaic-type">Editorial</span>
+              <span class="mosaic-title">Book Garden</span>
+            </div>
+          </a>
+        </div>
+
       </div>
     </div>
 
@@ -155,7 +221,7 @@
   lastUpdated.style.cssText = 'position:absolute;top:32px;right:12px;z-index:10000;font-size:12px;font-family:monospace;color:var(--accent, #CCFF00);pointer-events:none;';
   document.body.appendChild(lastUpdated);
   document.addEventListener('click', (e) => {
-    if (e.target.closest('.navBar-new, .clock-widget, .color-widget, .accent-strip, .site-footer, a, button, input, .win-dot')) return;
+    if (e.target.closest('.navBar-new, .clock-widget, .color-widget, .accent-strip, .site-footer, .mosaic, a, button, input, .win-dot')) return;
     const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#CCFF00';
     const sun = document.createElement('div');
     sun.style.cssText = 'position:fixed;width:88px;height:88px;pointer-events:none;z-index:9999;left:' + (e.clientX - 29) + 'px;top:' + (e.clientY - 29) + 'px;background-color:' + accent + ';-webkit-mask:url(/assets/sun.png) center/contain no-repeat;mask:url(/assets/sun.png) center/contain no-repeat;filter:drop-shadow(0 0 2px #000) drop-shadow(0 0 1px #fff);';
