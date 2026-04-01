@@ -23,7 +23,7 @@
     </div>
     <div class="bg"></div>
     <div class="container">
-        <img class="floating-art-1" src="/assets/third eye.gif" alt="">
+        <!-- <img class="floating-art-1" src="/assets/third eye.gif" alt=""> -->
         <img class="floating-art-left" src="/assets/spawn.png" alt="">
 
         <div class="music-widget">
@@ -63,9 +63,9 @@
           </div>
           <div class="gallery-header" onclick="this.closest('.gallery-widget').classList.toggle('open')">
             <div class="gallery-preview">
-              <img loading="lazy" src="/foto work/IMG_01.jpg" alt="">
-              <img loading="lazy" src="/foto work/IMG_294.jpg" alt="">
-              <img loading="lazy" src="/foto work/IMG_4198.jpg" alt="">
+              <img loading="lazy" src="/foto work/IMG_0209.JPG" alt="">
+              <img loading="lazy" src="/foto work/IMG_0255.JPG" alt="">
+              <img loading="lazy" src="/foto work/IMG_2196.PNG" alt="">
             </div>
             <span class="gallery-label">photos</span>
             <span class="gallery-viewall">view all +</span>
@@ -156,7 +156,7 @@
 
         <div class="text-widget">
           <div class="win-titlebar">
-            <span class="win-title">salvi.world/wall</span>
+            <span class="win-title">salvi.world/text</span>
             <div class="win-dots">
               <span class="win-dot win-close" onclick="this.closest('.text-widget').style.display='none'">✕</span>
               <span class="win-dot win-min" onclick="this.closest('.text-widget').classList.toggle('minimized')">−</span>
@@ -169,9 +169,10 @@
         </div>
 
         <div class="color-widget">
-          <div class="color-swatch" id="colorSwatch" onclick="document.getElementById('accentPicker').click()"></div>
-          <span class="color-label" onclick="document.getElementById('accentPicker').click()">color picker ✏️</span>
-          <input type="color" id="accentPicker" class="color-input" value="#CCFF00">
+          <div class="color-swatch" id="colorSwatch">
+            <input type="color" id="accentPicker" class="color-input" value="#CCFF00">
+          </div>
+          <label class="color-label" for="accentPicker">color picker ✏️</label>
         </div>
 
         <div class="lightbox" id="lightbox">
@@ -229,144 +230,160 @@
         </ul>
         </div>
 
+        </div>
+    </div>
+
+        <div class="mosaic-wrapper">
         <div class="mosaic">
 
+          <!-- row 1: items at 2,4 — centered -->
+          <div class="mosaic-blank">creative direction and visual identity</div>
           <div class="mosaic-item">
             <a href="projects/luci.html">
-              <img src="/assets/00POSTluci.jpg" alt="Luci">
+              <div class="mosaic-img"><img src="/assets/00POSTluci.jpg" alt="Luci"></div>
               <div class="mosaic-meta">
-                <span class="mosaic-date">SAL-001</span>
-                <span class="mosaic-duration">Art Direction</span>
+                <span class="mosaic-type">Art Direction</span>
                 <span class="mosaic-title">Luci</span>
               </div>
             </a>
           </div>
-
+          <div class="mosaic-blank">digital worlds rendered in light</div>
           <div class="mosaic-item">
             <a href="projects/cgi.html">
-              <img src="/assets/cgi-cover.png" alt="CGI Cover">
+              <div class="mosaic-img"><img src="/assets/cgi-cover.png" alt="CGI Cover"></div>
               <div class="mosaic-meta">
-                <span class="mosaic-date">SAL-002</span>
-                <span class="mosaic-duration">3D / CGI</span>
+                <span class="mosaic-type">3D / CGI</span>
                 <span class="mosaic-title">CGI Explorations</span>
               </div>
             </a>
           </div>
+          <div class="mosaic-blank">form follows feeling</div>
 
+          <!-- row 2: items at 1,3,5 — evenly spaced -->
           <div class="mosaic-item">
             <a href="projects/sodacan.html">
-              <img src="/assets/sodacan-cover.png" alt="Soda Can">
+              <div class="mosaic-img"><img src="/assets/sodacan-cover.png" alt="Soda Can"></div>
               <div class="mosaic-meta">
-                <span class="mosaic-date">SAL-003</span>
-                <span class="mosaic-duration">Product Design</span>
+                <span class="mosaic-type">Product Design</span>
                 <span class="mosaic-title">Soda Can</span>
               </div>
             </a>
           </div>
-
+          <div class="mosaic-blank">somewhere between chaos and clarity</div>
           <div class="mosaic-item">
             <a href="projects/syd.html">
-              <img src="/assets/syd-cover.png" alt="Syd">
+              <div class="mosaic-img"><img src="/assets/syd-cover.png" alt="Syd"></div>
               <div class="mosaic-meta">
-                <span class="mosaic-date">SAL-004</span>
-                <span class="mosaic-duration">Graphic Design</span>
+                <span class="mosaic-type">Graphic Design</span>
                 <span class="mosaic-title">Syd</span>
               </div>
             </a>
           </div>
-
+          <div class="mosaic-blank">pixels as prayer</div>
           <div class="mosaic-item">
             <a href="projects/eternal-whispers.html">
-              <img src="/assets/eternal whispers.png" alt="Eternal Whispers">
+              <div class="mosaic-img"><img src="/assets/eternal whispers.png" alt="Eternal Whispers"></div>
               <div class="mosaic-meta">
-                <span class="mosaic-date">SAL-005</span>
-                <span class="mosaic-duration">Digital Art</span>
+                <span class="mosaic-type">Digital Art</span>
                 <span class="mosaic-title">Eternal Whispers</span>
               </div>
             </a>
           </div>
 
+          <!-- row 3: items at 1,3,5 — evenly spaced -->
           <div class="mosaic-item">
             <a href="projects/king-of-hearts.html">
-              <img src="/assets/king of hearts.png" alt="King of Hearts">
+              <div class="mosaic-img"><img src="/assets/king of hearts.png" alt="King of Hearts"></div>
               <div class="mosaic-meta">
-                <span class="mosaic-date">SAL-006</span>
-                <span class="mosaic-duration">Illustration</span>
+                <span class="mosaic-type">Illustration</span>
                 <span class="mosaic-title">King of Hearts</span>
               </div>
             </a>
           </div>
-
+          <div class="mosaic-blank">the hand draws what the mind conceals</div>
           <div class="mosaic-item">
             <a href="projects/garment.html">
-              <img src="/assets/gggarment design.png" alt="Garment Design">
+              <div class="mosaic-img"><img src="/assets/gggarment design.png" alt="Garment Design"></div>
               <div class="mosaic-meta">
-                <span class="mosaic-date">SAL-007</span>
-                <span class="mosaic-duration">Fashion</span>
+                <span class="mosaic-type">Fashion</span>
                 <span class="mosaic-title">Garment Design</span>
               </div>
             </a>
           </div>
-
+          <div class="mosaic-blank">fabric as language</div>
           <div class="mosaic-item">
             <a href="projects/fulton.html">
-              <img src="/assets/fulton.png" alt="Fulton">
+              <div class="mosaic-img"><img src="/assets/fulton.png" alt="Fulton"></div>
               <div class="mosaic-meta">
-                <span class="mosaic-date">SAL-008</span>
-                <span class="mosaic-duration">Branding</span>
+                <span class="mosaic-type">Branding</span>
                 <span class="mosaic-title">Fulton</span>
               </div>
             </a>
           </div>
 
+          <!-- row 4: items at 2,4 — centered -->
+          <div class="mosaic-blank">nothing is ordinary up close</div>
           <div class="mosaic-item">
             <a href="projects/free-the-ruler.html">
-              <img src="/assets/free the ruler.png" alt="Free the Ruler">
+              <div class="mosaic-img"><img src="/assets/free the ruler.png" alt="Free the Ruler"></div>
               <div class="mosaic-meta">
-                <span class="mosaic-date">SAL-009</span>
-                <span class="mosaic-duration">Art</span>
+                <span class="mosaic-type">Art</span>
                 <span class="mosaic-title">Free the Ruler</span>
               </div>
             </a>
           </div>
-
+          <div class="mosaic-blank">art is the wound turned inside out</div>
           <div class="mosaic-item">
             <a href="projects/bamboo.html">
-              <img src="/assets/bamboo.png" alt="Bamboo">
+              <div class="mosaic-img"><img src="/assets/bamboo.png" alt="Bamboo"></div>
               <div class="mosaic-meta">
-                <span class="mosaic-date">SAL-010</span>
-                <span class="mosaic-duration">Experiment</span>
+                <span class="mosaic-type">Experiment</span>
                 <span class="mosaic-title">Bamboo</span>
               </div>
             </a>
           </div>
+          <div class="mosaic-blank">bend before you break</div>
 
+          <!-- row 5: items at 2,4 — centered -->
+          <div class="mosaic-blank">cut and reassemble</div>
           <div class="mosaic-item">
             <a href="projects/slash-art.html">
-              <img src="/assets/slash-art.jpg" alt="Slash Art">
+              <div class="mosaic-img"><img src="/assets/slash-art.jpg" alt="Slash Art"></div>
               <div class="mosaic-meta">
-                <span class="mosaic-date">SAL-011</span>
-                <span class="mosaic-duration">Mixed Media</span>
+                <span class="mosaic-type">Mixed Media</span>
                 <span class="mosaic-title">Slash Art</span>
               </div>
             </a>
           </div>
-
+          <div class="mosaic-blank">every copy is an original</div>
           <div class="mosaic-item">
             <a href="projects/xerox.html">
-              <img src="/assets/xerox.jpg" alt="Xerox">
+              <div class="mosaic-img"><img src="/assets/xerox.jpg" alt="Xerox"></div>
               <div class="mosaic-meta">
-                <span class="mosaic-date">SAL-012</span>
-                <span class="mosaic-duration">Print</span>
+                <span class="mosaic-type">Print</span>
                 <span class="mosaic-title">Xerox</span>
               </div>
             </a>
           </div>
+          <div class="mosaic-blank">more coming soon</div>
 
         </div>
-
         </div>
-    </div>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">salva / liquiidmetal</div>
+        <nav class="footer-links">
+          <a href="index.html">home</a>
+          <a href="work.html">work</a>
+          <a href="art.html">art</a>
+          <a href="contact.html">contact</a>
+          <a href="info.html">info</a>
+          <a href="https://instagram.com/liquiidmetal" target="_blank">@liquiidmetal</a>
+        </nav>
+        <div class="footer-copy">&copy; 2026 salva. all rights reserved.</div>
+      </div>
+    </footer>
 
         <script>
   // Change shirt material to match pants (black)
@@ -502,15 +519,18 @@
 
   // Hide widgets when scrolled to project grid
   makeDraggable(document.querySelector('.img-widget'));
-  const widgets = document.querySelectorAll('.music-widget, .gallery-widget, .color-widget, .clock-widget, .img-widget, .text-widget, .lightbox');
+  const widgets = document.querySelectorAll('.music-widget, .gallery-widget, .color-widget, .clock-widget, .img-widget, .text-widget, .lightbox, .floating-art-left');
   const mosaicEl = document.querySelector('.mosaic');
 
   window.addEventListener('scroll', () => {
     const mosaicTop = mosaicEl.getBoundingClientRect().top;
-    const hide = mosaicTop < window.innerHeight * 0.3;
+    const fadeStart = window.innerHeight * 0.95;
+    const fadeEnd = window.innerHeight * 0.6;
+    const t = Math.max(0, Math.min(1, (mosaicTop - fadeEnd) / (fadeStart - fadeEnd)));
     widgets.forEach(w => {
-      w.style.opacity = hide ? '0' : '1';
-      w.style.pointerEvents = hide ? 'none' : 'auto';
+      w.style.opacity = t;
+      w.style.transition = 'opacity 0.3s';
+      w.style.pointerEvents = t < 0.1 ? 'none' : 'auto';
     });
   });
 
@@ -521,6 +541,10 @@
   if (saved) { applyAccent(saved); picker.value = saved; }
 
   picker.addEventListener('input', (e) => {
+    applyAccent(e.target.value);
+    localStorage.setItem('accent', e.target.value);
+  });
+  picker.addEventListener('change', (e) => {
     applyAccent(e.target.value);
     localStorage.setItem('accent', e.target.value);
   });
@@ -552,12 +576,44 @@
       strip.style.backgroundColor = color;
       strip.querySelector('.accent-marquee').style.color = textColor;
     }
+
+    const footer = document.querySelector('.site-footer');
+    if (footer) {
+      footer.style.backgroundColor = color;
+      footer.querySelectorAll('.footer-brand, .footer-copy, .footer-links a').forEach(el => {
+        el.style.color = textColor;
+      });
+    }
+
+    document.documentElement.style.setProperty('--accent-text', textColor);
   }
 </script>
         <script type="module">
   import { ghostCursor } from "https://unpkg.com/cursor-effects@latest/dist/esm.js";
 
   new ghostCursor();
+</script>
+<script>
+  let sunCount = 0;
+  const sunCounter = document.createElement('div');
+  sunCounter.textContent = 'suns: 0';
+  sunCounter.style.cssText = 'position:absolute;top:32px;left:12px;z-index:10000;font-size:12px;font-family:monospace;color:var(--accent, #CCFF00);pointer-events:none;';
+  document.body.appendChild(sunCounter);
+
+  const lastUpdated = document.createElement('div');
+  lastUpdated.textContent = 'last updated: 04.01.2026';
+  lastUpdated.style.cssText = 'position:absolute;top:32px;right:12px;z-index:10000;font-size:12px;font-family:monospace;color:var(--accent, #CCFF00);pointer-events:none;';
+  document.body.appendChild(lastUpdated);
+
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('.music-widget, .gallery-widget, .clock-widget, .img-widget, .text-widget, .color-widget, .lightbox, .navBar-new, .mosaic, .accent-strip, .site-footer, model-viewer, a, button, input, .win-dot')) return;
+    const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#CCFF00';
+    const sun = document.createElement('div');
+    sun.style.cssText = 'position:fixed;width:88px;height:88px;pointer-events:none;z-index:9999;left:' + (e.clientX - 29) + 'px;top:' + (e.clientY - 29) + 'px;background-color:' + accent + ';-webkit-mask:url(/assets/sun.png) center/contain no-repeat;mask:url(/assets/sun.png) center/contain no-repeat;filter:drop-shadow(0 0 2px #000) drop-shadow(0 0 1px #fff);';
+    document.body.appendChild(sun);
+    sunCount++;
+    sunCounter.textContent = 'suns: ' + sunCount;
+  });
 </script>
 </body>
 </html>

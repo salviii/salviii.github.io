@@ -23,12 +23,13 @@
         html {
             scrollbar-width: auto;
             scrollbar-color: var(--accent) #f0f0f0;
+            scroll-behavior: smooth;
         }
 
         :root {
             --light: rgb(255, 254, 245);
             --dark: rgb(32, 32, 32);
-            --border: #dce0d3;
+            --border: #e8e9d8;
             --accent: #CCFF00;
         }
 
@@ -72,7 +73,7 @@ height: 100%;
 
         .container {
             overflow: hidden;
-            padding: 5%;
+            padding: 5% 5% 2% 5%;
             margin: 0 auto;
             width: 90vw;
             max-width: 1500px;
@@ -698,6 +699,7 @@ body.night .text-widget {
   border: 2px solid rgba(0,0,0,0.1);
   cursor: pointer;
   flex-shrink: 0;
+  position: relative;
 }
 
 .color-label {
@@ -709,13 +711,15 @@ body.night .text-widget {
 }
 
 .color-input {
-  width: 0;
-  height: 0;
-  padding: 0;
-  border: none;
-  opacity: 0;
   position: absolute;
-  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  border: none;
+  padding: 0;
 }
 
 body.night .color-widget {
@@ -732,7 +736,7 @@ body.night .color-label {
   position: sticky;
   top: 3%;
   width: fit-content;
-  margin: 0 auto;
+  margin: 40px auto 0 auto;
   background-color: white;
   border: solid rgb(210, 206, 206) 4px;
   border-radius: 10px;
@@ -846,13 +850,9 @@ body.night a {
   color: #9b9ff0;
 }
 
-body.night .mosaic-title {
+body.night .mosaic-title,
+body.night .mosaic-type {
   color: #e0e0e0;
-}
-
-body.night .mosaic-date,
-body.night .mosaic-duration {
-  color: #777;
 }
 
 body.night .theme-toggle {
@@ -893,22 +893,73 @@ body.night .bg {
 }
 
 /* Editorial Mosaic */
+.mosaic-wrapper {
+  padding-top: 5%;
+  padding-right: 5%;
+  padding-bottom: 10%;
+  margin: 0 auto;
+}
+
 .mosaic {
-  columns: 3;
-  column-gap: 1.2vw;
-  padding: 6vh 2.5% 0 2.5%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.mosaic-blank {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.85);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #999;
+  text-align: center;
+  padding: 10px;
+  line-height: 1.5;
+  border-radius: 4%;
+  box-sizing: border-box;
+  transition: background-color 0.3s, color 0.3s;
+  cursor: default;
+}
+
+.mosaic-blank:hover {
+  background-color: var(--accent, #CCFF00);
+  color: var(--accent-text, #1a1a1a);
+}
+
+body.night .mosaic-blank {
+  color: #444;
+}
+
+.mosaic-item .mosaic-img {
+  position: relative;
+}
+
+.mosaic-item .mosaic-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--accent, #CCFF00);
+  opacity: 0;
+  mix-blend-mode: color;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.mosaic-item:hover .mosaic-img::after {
+  opacity: 0.7;
 }
 
 .mosaic-item {
-  break-inside: avoid;
-  margin-bottom: 1.5vw;
   cursor: pointer;
-  display: inline-block;
-  width: 100%;
   position: relative;
   z-index: 1;
 }
-
 
 .mosaic-item a {
   text-decoration: none;
@@ -920,11 +971,17 @@ body.night .bg {
   background-color: transparent;
 }
 
+.mosaic-item .mosaic-img {
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
 .mosaic-item img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
-  border-radius: 8px;
   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -935,35 +992,22 @@ body.night .bg {
 .mosaic-meta {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  padding: 6px 0 0 0;
-  flex-wrap: wrap;
+  padding: 4px 0;
 }
 
-.mosaic-date {
-  font-size: 65%;
-  color: #999;
-  letter-spacing: 0.02em;
-  text-align: left;
-}
-
-.mosaic-duration {
-  font-size: 65%;
-  color: #999;
-  text-align: right;
-}
-
+.mosaic-type,
 .mosaic-title {
-  width: 100%;
-  font-size: 85%;
+  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
   color: var(--dark);
-  font-weight: 500;
-  margin-top: 1px;
-  text-align: left;
+  letter-spacing: 0.5px;
+  text-transform: lowercase;
 }
 
 
 @media only screen and (max-width: 800px) {
+  html, body { overscroll-behavior: none; }
   .container { width: 95vw; }
   model-viewer { height: 45vh; }
   .floating-art-1 { left: 85%; width: 20%; }
@@ -973,7 +1017,58 @@ body.night .bg {
   .clock-widget { right: 2%; top: 38%; padding: 8px 12px; }
   .music-widget { width: 220px; left: 2%; top: 8%; }
   .gallery-widget { width: 220px; right: 2%; top: 8%; }
-  .mosaic { columns: 2; column-gap: 2vw; }
+  .mosaic-wrapper { padding: 4vh 4% 10vh 4%; }
+  .mosaic { grid-template-columns: repeat(3, 1fr); gap: 4px; }
+  .mosaic-blank { font-size: 8px; padding: 4px; }
+}
+
+.site-footer {
+  min-height: 15vh;
+  background-color: var(--accent, #CCFF00);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  font-family: monospace;
+  font-size: 11px;
+  font-weight: normal;
+  letter-spacing: 1px;
+  color: #1a1a1a;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.footer-brand {
+  color: inherit;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.footer-links a {
+  color: inherit;
+  text-decoration: none;
+  text-transform: lowercase;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+  background-color: transparent;
+}
+
+.footer-copy {
+  color: inherit;
+  opacity: 0.6;
 }
 
 @media only screen and (max-width: 1024px) {
