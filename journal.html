@@ -390,6 +390,8 @@
     var textColor = lum < 128 ? '#ffffff' : '#1a1a1a';
     document.querySelectorAll('.highlight').forEach(function(el) { el.style.backgroundColor = color; el.style.color = textColor; });
     document.querySelectorAll('.active').forEach(function(el) { el.style.backgroundColor = color + '40'; });
+    document.querySelectorAll('.music-controls').forEach(function(el) { el.style.backgroundColor = color; el.style.color = textColor; });
+    document.querySelectorAll('.mc-btn').forEach(function(el) { el.style.color = textColor; });
     var footer = document.querySelector('.site-footer');
     if (footer) { footer.style.backgroundColor = color; footer.querySelectorAll('.footer-brand, .footer-copy, .footer-links a').forEach(function(el) { el.style.color = textColor; }); }
     var strip = document.querySelector('.accent-strip');
