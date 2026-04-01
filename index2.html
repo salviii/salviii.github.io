@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salva's Art Page</title>
+
+<link rel="stylesheet" href="stylesheet.css">
+<script type="module" src="scripts/model-viewer.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <img class="floating-art-1" src="assets/third eye.gif" alt="">
+        <h1 id="top">salva's world</h1>
+        <br>
+        <style>
+.navBar-new {
+        width: auto;
+    z-index: 10;
+    position: fixed;
+    left: 40%;
+    top: 3%;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: rgb(210, 206, 206);
+  display: flex;
+     padding: 2px;
+    margin: 0 auto;
+
+}
+.highlight {
+    color: rgb(25, 25, 25);
+    background-color: gold;
+padding: 10px;
+border-radius: 10px;
+}
+.menux {
+    padding: 10px;
+    margin: 0 auto;
+}
+        </style>
+       <div class="navBar-new">
+                
+     <span class="highlight">≡</span>
+     <span class="menux">       work  contact  info  personal</span>
+           
+        </div>
+
+        
+    
+    
+     <model-viewer
+            class="mainmodel"
+            poster=""
+            id="reveal"
+            loading="eager"
+            shadow-intensity="0.8"
+            auto-rotate=""
+            src="assets/salva idle tabs.glb"
+            alt="Salvi"
+            disable-zoom=""
+             min-field-of-view='10deg'
+            autoplay=""
+            camera-orbit="0.7869deg 46deg auto"
+            camera-controls=""
+            exposure="1"
+            ar-status="not-presenting">
+        <button class="Hotspot" slot="hotspot-1" data-surface="4 0 1048 1044 1106 0.103 0.197 0.700" data-visibility-attribute="visible">
+        <a href="contact.html"><div class="HotspotAnnotation">🏁 Contact</div></a>
+    </button><button class="Hotspot" slot="hotspot-2" data-surface="6 0 985 980 1042 0.669 0.031 0.299" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">👽 info / CV</div>
+    </button><button class="Hotspot" slot="hotspot-4" data-surface="2 0 933 928 990 0.226 0.084 0.690" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">📐 Design</div>
+    </button><button class="Hotspot" slot="hotspot-5" data-surface="1 0 929 986 991 0.472 0.173 0.356" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">🎛️ Creative Direction</div>
+    </button><button class="Hotspot" slot="hotspot-6" data-surface="5 0 985 980 1042 0.859 0.020 0.121" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">💽 Art</div>
+    </button><button class="Hotspot" slot="hotspot-7" data-surface="3 0 985 1042 1047 0.198 0.549 0.254" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">🌋 Experiments</div>
+    </button></model-viewer>
+        </div>
+        </div>
+    
+
+        <script type="module">
+  import { ghostCursor } from "https://unpkg.com/cursor-effects@latest/dist/esm.js";
+
+  new ghostCursor();
+</script>
+</body>
+</html>
