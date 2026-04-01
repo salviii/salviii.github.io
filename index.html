@@ -38,7 +38,7 @@
           <div class="music-header" onclick="this.closest('.music-widget').classList.toggle('open')">
             <div class="music-info">
               <span class="music-dot"></span>
-              <span class="music-title"><span class="music-marquee">now playing -- liquiidmetal radiio -- audio 3.31.2023-2025 -- now playing -- liquiidmetal radiio -- audio 3.31.2023-2025 -- </span></span>
+              <span class="music-title"><span class="music-marquee">now playing -- liquiid radio session #0010 (spotify playlist) -- now playing -- liquiid radio session #0010 (spotify playlist) --</span></span>
             </div>
             <div class="music-controls">
               <span class="mc-btn" title="Rewind">⏮</span>
@@ -47,8 +47,7 @@
             </div>
           </div>
           <div class="music-body">
-            <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A2029074840&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-            <div class="music-credit"><a href="https://soundcloud.com/sli-songs" title="salvaaaa /-.liquid metal" target="_blank">salvaaaa /-.liquid metal</a> · <a href="https://soundcloud.com/sli-songs/sets/live-die-by-the-metal" title="live/die by the metal" target="_blank">live/die by the metal</a></div>
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0zM4GAv9I4pJJqM5NfUw3C?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
           </div>
         </div>
 
@@ -430,10 +429,18 @@
   updateClock();
   setInterval(updateClock, 1000);
 
+  // Bring-to-front on click
+  let topZ = 20;
+  function bringToFront(el) {
+    topZ++;
+    el.style.zIndex = topZ;
+  }
+
   // Draggable widgets
   function makeDraggable(el) {
     let offsetX, offsetY, startX, startY, dragging = false;
     el.addEventListener('mousedown', function(e) {
+      bringToFront(el);
       if (e.target.closest('.gallery-body') || e.target.closest('.music-body') || e.target.closest('.gallery-grid')) return;
       startX = e.clientX; startY = e.clientY;
       const rect = el.getBoundingClientRect();

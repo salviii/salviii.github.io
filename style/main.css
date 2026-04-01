@@ -202,9 +202,9 @@ body.night .win-title {
 /* Music Widget */
 .music-widget {
   position: fixed;
-  z-index: 9;
-  left: 3%;
-  top: 12%;
+  z-index: 10;
+  left: 2%;
+  top: 7%;
   transition: opacity 0.3s ease;
   width: 280px;
   background-color: white;
@@ -353,8 +353,8 @@ body.night .music-credit a {
 .gallery-widget {
   position: fixed;
   z-index: 9;
-  right: 3%;
-  top: 22%;
+  right: 2%;
+  top: 17%;
   transition: opacity 0.3s ease;
   width: 310px;
   background-color: white;
@@ -577,8 +577,8 @@ body.night .clock-display {
 .img-widget {
   position: fixed;
   z-index: 9;
-  right: 20%;
-  top: 42%;
+  right: 15%;
+  top: 44%;
   width: 290px;
   cursor: grab;
   transition: opacity 0.3s ease;
@@ -633,8 +633,8 @@ body.night .img-widget {
 .text-widget {
   position: fixed;
   z-index: 9;
-  left: 3%;
-  top: 37%;
+  left: 20%;
+  top: 25%;
   width: 300px;
   background-color: white;
   border: solid rgb(210, 206, 206) 4px;
@@ -675,8 +675,8 @@ body.night .text-widget {
 .color-widget {
   position: fixed;
   z-index: 9;
-  left: 23%;
-  top: 37%;
+  left: 32%;
+  top: 66%;
   transition: opacity 0.3s ease;
   display: flex;
   align-items: center;
