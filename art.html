@@ -29,7 +29,7 @@
     <div class="navBar-new">
       <ul class="nav-main">
         <li>👽 <b>salva</b></li>
-        <li class="nav-menu-trigger"><span class="highlight" onclick="this.closest('.navBar-new').classList.toggle('open')">≡</span>
+        <li class="nav-menu-trigger"><span class="highlight" onclick="this.closest('.navBar-new').classList.toggle('open')">menu <small>(5)</small> ☰</span>
           <div class="nav-dropdown">
             <a href="art.html">🎨 art</a>
             <a href="slash.html">✍️ slash</a>
@@ -42,8 +42,6 @@
         <li><a href="work.html">work</a></li>
         <li><a href="contact.html">contact</a></li>
         <li><a href="info.html">info</a></li>
-        <li class="active"><a href="art.html">art</a></li>
-        <li><a href="journal.html">journal</a></li>
       </ul>
     </div>
 
@@ -65,13 +63,30 @@
         <p><b>no artificial intelligence</b> or image generation programs were used for any of these works, ai has its uses but definetly not when it comes to human expression.</p>
       </div>
 
-      <div class="about-section" style="padding: 0;">
-        <img style="width: 100%; border-radius: 4px; margin-bottom: 12px;" src="assets/00POSTluci.jpg" alt="art">
-        <img style="width: 100%; border-radius: 4px; margin-bottom: 12px;" src="assets/free the ruler.png" alt="art">
-        <img style="width: 100%; border-radius: 4px; margin-bottom: 12px;" src="assets/eternal whispers.png" alt="art">
-        <img style="width: 100%; border-radius: 4px; margin-bottom: 12px;" src="assets/king of hearts.png" alt="art">
-        <img style="width: 100%; border-radius: 4px; margin-bottom: 12px;" src="assets/imgi_33_ezgif.com-gif-maker-2.gif" alt="art">
-        <img style="width: 100%; border-radius: 4px;" src="assets/we who wrestle (FINAL).PNG" alt="art">
+    </div>
+
+    <div class="art-masonry">
+      <div class="art-masonry-item"><img loading="lazy" src="assets/00POSTluci.jpg" alt="art"></div>
+      <div class="art-masonry-item"><img loading="lazy" src="assets/free the ruler.png" alt="art"></div>
+      <div class="art-masonry-item"><img loading="lazy" src="assets/eternal whispers.png" alt="art"></div>
+      <div class="art-masonry-item"><img loading="lazy" src="assets/king of hearts.png" alt="art"></div>
+      <div class="art-masonry-item"><img loading="lazy" src="assets/imgi_33_ezgif.com-gif-maker-2.gif" alt="art"></div>
+      <div class="art-masonry-item"><img loading="lazy" src="assets/we who wrestle (FINAL).PNG" alt="art"></div>
+    </div>
+
+    <div class="lightbox" id="artLightbox">
+      <div class="win-titlebar">
+        <span class="win-title">salvi.world/art</span>
+        <div class="win-dots">
+          <span class="win-dot win-close" onclick="document.getElementById('artLightbox').classList.remove('active')">✕</span>
+          <span class="win-dot win-min">−</span>
+          <span class="win-dot win-max">□</span>
+        </div>
+      </div>
+      <div class="lightbox-body">
+        <span class="lb-arrow lb-prev" onclick="artLbNav(-1)">‹</span>
+        <img src="" alt="">
+        <span class="lb-arrow lb-next" onclick="artLbNav(1)">›</span>
       </div>
     </div>
 
@@ -130,6 +145,37 @@
   }
   makeDraggable(document.querySelector('.clock-widget'));
   makeDraggable(document.querySelector('.color-widget'));
+  makeDraggable(document.getElementById('artLightbox'));
+
+  // Art lightbox
+  const artImgs = Array.from(document.querySelectorAll('.art-masonry-item img'));
+  let artLbIndex = 0;
+
+  artImgs.forEach((img, i) => {
+    img.addEventListener('click', () => {
+      artLbIndex = i;
+      artLbShow();
+    });
+  });
+
+  function artLbShow() {
+    const lb = document.getElementById('artLightbox');
+    lb.querySelector('.lightbox-body img').src = artImgs[artLbIndex].src;
+    lb.classList.add('active');
+  }
+
+  window.artLbNav = function(dir) {
+    artLbIndex = (artLbIndex + dir + artImgs.length) % artImgs.length;
+    document.querySelector('#artLightbox .lightbox-body img').src = artImgs[artLbIndex].src;
+  };
+
+  document.addEventListener('keydown', (e) => {
+    const lb = document.getElementById('artLightbox');
+    if (!lb.classList.contains('active')) return;
+    if (e.key === 'ArrowLeft') artLbNav(-1);
+    if (e.key === 'ArrowRight') artLbNav(1);
+    if (e.key === 'Escape') lb.classList.remove('active');
+  });
 
   const picker = document.getElementById('accentPicker');
   const swatch = document.getElementById('colorSwatch');

@@ -6,15 +6,20 @@
     <title>Salva's Journal</title>
     <link rel="stylesheet" href="/style/main.css">
     <style>
-      @media only screen and (min-width: 601px) {
+      @media only screen and (min-width: 1025px) {
         .clock-widget,
-        .color-widget {
+        .color-widget,
+        .archive-widget {
           display: flex !important;
         }
+        .music-widget {
+          display: block !important;
+        }
       }
-      @media only screen and (max-width: 600px) {
+      @media only screen and (max-width: 1024px) {
         .clock-widget,
-        .color-widget {
+        .color-widget,
+        .music-widget {
           display: none !important;
         }
       }
@@ -29,7 +34,7 @@
     <div class="navBar-new">
       <ul class="nav-main">
         <li>👽 <b>salva</b></li>
-        <li class="nav-menu-trigger"><span class="highlight" onclick="this.closest('.navBar-new').classList.toggle('open')">≡</span>
+        <li class="nav-menu-trigger"><span class="highlight" onclick="this.closest('.navBar-new').classList.toggle('open')">menu <small>(5)</small> ☰</span>
           <div class="nav-dropdown">
             <a href="art.html">🎨 art</a>
             <a href="slash.html">✍️ slash</a>
@@ -42,12 +47,10 @@
         <li><a href="work.html">work</a></li>
         <li><a href="contact.html">contact</a></li>
         <li><a href="info.html">info</a></li>
-        <li><a href="art.html">art</a></li>
-        <li class="active"><a href="journal.html">journal</a></li>
       </ul>
     </div>
 
-    <div class="color-widget" style="left:3%;top:12%;right:auto;">
+    <div class="color-widget" style="left:3%;top:85%;right:auto;">
       <div class="color-swatch" id="colorSwatch">
         <input type="color" id="accentPicker" class="color-input" value="#CCFF00">
       </div>
@@ -58,43 +61,66 @@
       <span class="clock-display" id="clockDisplay"></span>
     </div>
 
-    <div class="about-wrapper">
-
-      <article class="journal-post">
-        <div class="journal-date">julii 25th, 2025</div>
-        <h2 class="journal-title">hanging</h2>
-        <div class="journal-body">
-          <p>number 1 step of becoming ingobernable</p>
-          <p>is to be healthy. the healthier the more energy can be divested into pursuing curiosity, into learning, into growing</p>
-          <p>being stronger and more agile. the body is a holistic system of systems all dependent on one another. to be a human in motion. to be a human sourceeee</p>
-          <p>"once you understand the way broadly enough, you see it in all things"</p>
-          <p>reference also sun & steel. search henry rollins "the iron"? essay</p>
-          <p>we are a complex combination and ever changing interaction of chemical compounds</p>
-          <p>we can't control most but we can control what we ingest, what we eat and drink and consume. food and digital diets</p>
-          <p>dead hanging from a bar is so relaxing. doing cardio i learned to repetitive loop meditation. through stretching i learned presence. through moving weight in controlled movements i learned patience and got my ego checked, certainty and measurement. if you care about something you measure it. that is science</p>
-          <p>experience can't be measured but as my consciousness floats like smoke through the 5000* layers of reality i can create. i can turn to mist and crystallize on command. i have free will. i have agency. i can become i or dissolve to nothing and be everything</p>
-          <p>faint whispers of a story in a place. something like florida but in a cyberpunk future. desert jungle beach nomads. digital native, trabalingua, white fur covered apes with the limbs of a serpent, hands many hands, in limbo, in ecstasy, a hurricane of ideas, spiraling spiraling spiraling carving a new reality. rhythmic drum, tribal paint. i am becoming. psilocybin trail runner. i am becoming a rhythmic drum. echoiing exhooing. my soul transcended and became bits and pieces transmitted over bluetooth and wifi</p>
-          <p>as i walked next to the stream today i streamed consciousness through a human body</p>
+    <div class="music-widget" style="right:3%;top:12%;left:auto;">
+      <div class="win-titlebar">
+        <span class="win-title">salvi.world/audio</span>
+        <div class="win-dots">
+          <span class="win-dot win-close" onclick="this.closest('.music-widget').style.display='none'">✕</span>
+          <span class="win-dot win-min" onclick="this.closest('.music-widget').classList.toggle('minimized')">−</span>
+          <span class="win-dot win-max">□</span>
         </div>
-      </article>
-
-      <article class="journal-post">
-        <div class="journal-date">julii 25th, 2025</div>
-        <h2 class="journal-title">incipio</h2>
-        <div class="journal-body">
-          <img class="journal-img" src="assets/bamboo.png" alt="some vines along the bamboo forest july 25 2025">
-          <p>another node in the net. this one is mine. a seed, from a different dimension. i breathe life into you. a folder- a root filesystem a directory cyberSoul catach all. human OS interacting with the digital. 3D printed syllables as i express my soul on liquiid keyboards. from one arragnements of atoms to an arragemnet of pixels. a beginning. a breathe a step.</p>
-          <p>today i did mushrooms and walked through nature. i feel very alone. i thought of steve jobs. i saw the braiding in my hair, i saw the interlaced braiding of the roots and branches, of the waters flow patterns coming together into infinite fractal vertices.</p>
-          <p>a chief without a tribe, i thought about websites and the psychedlic rogue nature of the internet. our attempts at a wood wide web. we have interlinked ourselves through lithium and silicon. our next wars are meant to be fought over these. file tree, root directory, stream some music, branch out, synchronize. green glow and the sound of cicadas</p>
-          <p>lots of thoughts. low energy. do more was the lesson. be an active participant in your own life. do more. do more for others. be useful. first prinicples fundamental understadning and use it to be useful to help others</p>
-          <div class="journal-footer-note">
-            <p>from my apt, somewhere near atlanta</p>
-            <p>10:02pm est time</p>
-            <p>update: today i made this site. it's super basic html i just wanted to build something today. slowly build on it. i doubt i'll buy a house anytime soon but this can be my digital home where i can constantly rennovate and rearragne and destory and rebuild as i please. this is my empty white void which all other one of my creations will spawn from and into. digital sketchbook</p>
-          </div>
+      </div>
+      <div class="music-header" onclick="this.closest('.music-widget').classList.toggle('open')">
+        <div class="music-info">
+          <span class="music-dot"></span>
+          <span class="music-title"><span class="music-marquee">now playing -- liquiid radio session #0010 (spotify playlist) -- now playing -- liquiid radio session #0010 (spotify playlist) --</span></span>
         </div>
-      </article>
+        <div class="music-controls">
+          <span class="mc-btn" title="Rewind">⏮</span>
+          <span class="mc-btn" title="Play/Pause">▶</span>
+          <span class="mc-btn" title="Forward">⏭</span>
+        </div>
+      </div>
+      <div class="music-body">
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0zM4GAv9I4pJJqM5NfUw3C?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </div>
 
+    <!-- Archive Widget — matches home page widget style -->
+    <div class="archive-widget open" id="archiveWidget">
+      <div class="win-titlebar">
+        <span class="win-title">salvi.world/writing</span>
+        <div class="win-dots">
+          <span class="win-dot win-close" onclick="this.closest('.archive-widget').style.display='none'">✕</span>
+          <span class="win-dot win-min" onclick="this.closest('.archive-widget').classList.toggle('minimized')">−</span>
+          <span class="win-dot win-max">□</span>
+        </div>
+      </div>
+      <div class="archive-header">
+        <span class="archive-label">writing archive</span>
+        <span class="archive-count" id="archiveCount"></span>
+      </div>
+      <div class="archive-body" id="archiveBody"></div>
+    </div>
+
+    <!-- Feed -->
+    <div class="journal-feed" id="journalFeed"></div>
+
+    <!-- Lightbox for journal images -->
+    <div class="lightbox" id="journalLightbox">
+      <div class="win-titlebar">
+        <span class="win-title">salvi.world/journal</span>
+        <div class="win-dots">
+          <span class="win-dot win-close" onclick="document.getElementById('journalLightbox').classList.remove('active')">✕</span>
+          <span class="win-dot win-min">−</span>
+          <span class="win-dot win-max">□</span>
+        </div>
+      </div>
+      <div class="lightbox-body">
+        <span class="lb-arrow lb-prev" onclick="journalLbNav(-1)">‹</span>
+        <img src="" alt="">
+        <span class="lb-arrow lb-next" onclick="journalLbNav(1)">›</span>
+      </div>
     </div>
 
     <footer class="site-footer">
@@ -115,24 +141,214 @@
     <script>
   if (localStorage.getItem('night') === 'true') document.body.classList.add('night');
 
+  var WORD_LIMIT = 30;
+
+  function escapeHTML(str) {
+    var d = document.createElement('div');
+    d.textContent = str;
+    return d.innerHTML;
+  }
+
+  fetch('journal.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      var entries = data.entries;
+      var feed = document.getElementById('journalFeed');
+      var archiveBody = document.getElementById('archiveBody');
+
+      document.getElementById('archiveCount').textContent = '(' + entries.length + '+)';
+
+      // Build feed — deduplicate images by page
+      var shownPages = {};
+      entries.forEach(function(entry, i) {
+        var id = 'post-' + i;
+        var bodyText = entry.body;
+        var words = bodyText.split(/\s+/);
+        var truncated = words.length > WORD_LIMIT;
+        var song = entry.songs && entry.songs.length > 0 ? entry.songs[0] : null;
+
+        // Only show images for the first entry on each page
+        var showImages = false;
+        if (entry.images && entry.images.length > 0 && !shownPages[entry.page]) {
+          showImages = true;
+          shownPages[entry.page] = true;
+        }
+
+        var article = document.createElement('article');
+        article.className = 'feed-post';
+        article.id = id;
+
+        var html = '';
+        // Left column: avatar + meta stacked
+        html += '<div class="feed-left">';
+        html += '<div class="feed-avatar">👽</div>';
+        html += '<span class="feed-name">salva</span>';
+        html += '<span class="feed-handle">@salvabikes</span>';
+        html += '<span class="feed-date">' + escapeHTML(entry.date) + '</span>';
+        html += '</div>';
+
+        // Right column: content
+        html += '<div class="feed-right">';
+
+        // Body text with word limit
+        html += '<div class="feed-body">';
+        if (truncated) {
+          var pos = 0;
+          for (var w = 0; w < WORD_LIMIT; w++) {
+            pos = bodyText.indexOf(words[w], pos) + words[w].length;
+          }
+          var previewText = bodyText.substring(0, pos).trimEnd();
+          var restText = bodyText.substring(pos).trimStart();
+          previewText.split('\n').forEach(function(line) {
+            html += '<p>' + escapeHTML(line) + '</p>';
+          });
+          html += '<div class="feed-rest" style="display:none">';
+          restText.split('\n').forEach(function(line) {
+            html += '<p>' + escapeHTML(line) + '</p>';
+          });
+          html += '</div>';
+          html += '<span class="feed-readmore" onclick="var rest=this.previousElementSibling;var open=rest.style.display!==\'none\';rest.style.display=open?\'none\':\'block\';this.querySelector(\'.feed-arrow\').textContent=open?\'▾\':\'▴\'"><span class="feed-arrow">▾</span> read more</span>';
+        } else {
+          bodyText.split('\n').forEach(function(line) {
+            html += '<p>' + escapeHTML(line) + '</p>';
+          });
+        }
+        html += '</div>';
+
+        // Images
+        if (showImages) {
+          html += '<div class="feed-images' + (entry.images.length > 1 ? ' feed-images-grid' : '') + '">';
+          entry.images.forEach(function(src) {
+            html += '<img src="' + escapeHTML(src) + '" alt="" loading="lazy">';
+          });
+          html += '</div>';
+        }
+
+        // Song — under image or under text
+        if (song) {
+          html += '<div class="feed-song"><span class="feed-song-icon">♫</span> ' + escapeHTML(song.title) + ' — ' + escapeHTML(song.artist) + '</div>';
+        }
+
+        html += '</div>'; // close feed-right
+
+        article.innerHTML = html;
+        feed.appendChild(article);
+      });
+
+      // Build archive widget
+      var monthGroups = {};
+      entries.forEach(function(entry, i) {
+        var d = new Date(entry.date);
+        var monthKey = d.getFullYear() + '-' + String(d.getMonth()).padStart(2, '0');
+        var monthNum = String(d.getMonth() + 1).padStart(2, '0');
+        var year = d.getFullYear();
+        var day = d.getDate();
+
+        if (!monthGroups[monthKey]) {
+          monthGroups[monthKey] = { monthNum: monthNum, year: year, days: {} };
+        }
+        if (!monthGroups[monthKey].days[day]) {
+          monthGroups[monthKey].days[day] = [];
+        }
+        monthGroups[monthKey].days[day].push(i);
+      });
+
+      var sortedMonths = Object.keys(monthGroups).sort().reverse();
+
+      sortedMonths.forEach(function(monthKey) {
+        var group = monthGroups[monthKey];
+        var totalPosts = Object.values(group.days).reduce(function(sum, arr) { return sum + arr.length; }, 0);
+
+        var monthDiv = document.createElement('div');
+        monthDiv.className = 'archive-month';
+
+        var header = document.createElement('div');
+        header.className = 'archive-month-header';
+
+        header.innerHTML =
+          '<span class="archive-month-toggle">+</span>' +
+          '<span>' + group.monthNum + '/' + group.year + '</span>' +
+          '<span class="archive-month-count">' + totalPosts + '</span>';
+
+        header.onclick = function() {
+          monthDiv.classList.toggle('open');
+          var toggle = header.querySelector('.archive-month-toggle');
+          toggle.textContent = monthDiv.classList.contains('open') ? '−' : '+';
+        };
+
+        var daysDiv = document.createElement('div');
+        daysDiv.className = 'archive-days';
+
+        var sortedDays = Object.keys(group.days).map(Number).sort(function(a, b) { return b - a; });
+
+        sortedDays.forEach(function(day) {
+          var indices = group.days[day];
+          var dayEl = document.createElement('div');
+          dayEl.className = 'archive-day';
+          var dayNum = String(day).padStart(2, '0');
+          dayEl.innerHTML = group.monthNum + '/' + dayNum + '/' + group.year +
+            '<span class="archive-day-count">(' + indices.length + ')</span>';
+
+          dayEl.onclick = function() {
+            document.getElementById('post-' + indices[0]).scrollIntoView({ behavior: 'smooth', block: 'start' });
+          };
+          daysDiv.appendChild(dayEl);
+        });
+
+        monthDiv.appendChild(header);
+        monthDiv.appendChild(daysDiv);
+        archiveBody.appendChild(monthDiv);
+      });
+    });
+
+  // Journal lightbox
+  var journalLbImgs = [];
+  var journalLbIndex = 0;
+
+  document.getElementById('journalFeed').addEventListener('click', function(e) {
+    var img = e.target.closest('.feed-images img');
+    if (!img) return;
+    journalLbImgs = Array.prototype.slice.call(document.querySelectorAll('.feed-images img'));
+    journalLbIndex = journalLbImgs.indexOf(img);
+    var lb = document.getElementById('journalLightbox');
+    lb.querySelector('.lightbox-body img').src = img.src;
+    lb.classList.add('active');
+  });
+
+  window.journalLbNav = function(dir) {
+    journalLbIndex = (journalLbIndex + dir + journalLbImgs.length) % journalLbImgs.length;
+    document.querySelector('#journalLightbox .lightbox-body img').src = journalLbImgs[journalLbIndex].src;
+  };
+
+  document.addEventListener('keydown', function(e) {
+    var lb = document.getElementById('journalLightbox');
+    if (!lb.classList.contains('active')) return;
+    if (e.key === 'ArrowLeft') journalLbNav(-1);
+    if (e.key === 'ArrowRight') journalLbNav(1);
+    if (e.key === 'Escape') lb.classList.remove('active');
+  });
+
+  // Clock
   function updateClock() {
-    const now = new Date();
-    let h = now.getHours();
-    const ampm = h >= 12 ? 'PM' : 'AM';
+    var now = new Date();
+    var h = now.getHours();
+    var ampm = h >= 12 ? 'PM' : 'AM';
     h = h % 12 || 12;
-    const m = now.getMinutes().toString().padStart(2, '0');
-    const s = now.getSeconds().toString().padStart(2, '0');
+    var m = now.getMinutes().toString().padStart(2, '0');
+    var s = now.getSeconds().toString().padStart(2, '0');
     document.getElementById('clockDisplay').textContent = h + ':' + m + ':' + s + ' ' + ampm;
   }
   updateClock();
   setInterval(updateClock, 1000);
 
+  // Draggable
   function makeDraggable(el) {
     if (!el) return;
-    let offsetX, offsetY, startX, startY;
+    var offsetX, offsetY, startX, startY;
     el.addEventListener('mousedown', function(e) {
+      if (e.target.closest('.archive-day, .archive-month-header, .archive-header, .win-dot, .feed-readmore, .music-body')) return;
       startX = e.clientX; startY = e.clientY;
-      const rect = el.getBoundingClientRect();
+      var rect = el.getBoundingClientRect();
       offsetX = e.clientX - rect.left;
       offsetY = e.clientY - rect.top;
       document.addEventListener('mousemove', onMove);
@@ -143,6 +359,7 @@
         el.style.left = (e.clientX - offsetX) + 'px';
         el.style.top = (e.clientY - offsetY) + 'px';
         el.style.right = 'auto';
+        el.style.bottom = 'auto';
       }
     }
     function onUp() {
@@ -152,43 +369,48 @@
   }
   makeDraggable(document.querySelector('.clock-widget'));
   makeDraggable(document.querySelector('.color-widget'));
+  makeDraggable(document.getElementById('archiveWidget'));
+  makeDraggable(document.getElementById('journalLightbox'));
+  makeDraggable(document.querySelector('.music-widget'));
 
-  const picker = document.getElementById('accentPicker');
-  const swatch = document.getElementById('colorSwatch');
-  const saved = localStorage.getItem('accent');
+  // Color picker
+  var picker = document.getElementById('accentPicker');
+  var swatch = document.getElementById('colorSwatch');
+  var saved = localStorage.getItem('accent');
   if (saved) { applyAccent(saved); picker.value = saved; }
 
-  picker.addEventListener('input', (e) => { applyAccent(e.target.value); localStorage.setItem('accent', e.target.value); });
-  picker.addEventListener('change', (e) => { applyAccent(e.target.value); localStorage.setItem('accent', e.target.value); });
+  picker.addEventListener('input', function(e) { applyAccent(e.target.value); localStorage.setItem('accent', e.target.value); });
+  picker.addEventListener('change', function(e) { applyAccent(e.target.value); localStorage.setItem('accent', e.target.value); });
 
   function applyAccent(color) {
     swatch.style.backgroundColor = color;
     document.documentElement.style.setProperty('--accent', color);
-    const r = parseInt(color.slice(1,3),16), g = parseInt(color.slice(3,5),16), b = parseInt(color.slice(5,7),16);
-    const lum = (r*299 + g*587 + b*114) / 1000;
-    const textColor = lum < 128 ? '#ffffff' : '#1a1a1a';
-    document.querySelectorAll('.highlight').forEach(el => { el.style.backgroundColor = color; el.style.color = textColor; });
-    document.querySelectorAll('.active').forEach(el => { el.style.backgroundColor = color + '40'; });
-    const footer = document.querySelector('.site-footer');
-    if (footer) { footer.style.backgroundColor = color; footer.querySelectorAll('.footer-brand, .footer-copy, .footer-links a').forEach(el => { el.style.color = textColor; }); }
-    const strip = document.querySelector('.accent-strip');
+    var r = parseInt(color.slice(1,3),16), g = parseInt(color.slice(3,5),16), b = parseInt(color.slice(5,7),16);
+    var lum = (r*299 + g*587 + b*114) / 1000;
+    var textColor = lum < 128 ? '#ffffff' : '#1a1a1a';
+    document.querySelectorAll('.highlight').forEach(function(el) { el.style.backgroundColor = color; el.style.color = textColor; });
+    document.querySelectorAll('.active').forEach(function(el) { el.style.backgroundColor = color + '40'; });
+    var footer = document.querySelector('.site-footer');
+    if (footer) { footer.style.backgroundColor = color; footer.querySelectorAll('.footer-brand, .footer-copy, .footer-links a').forEach(function(el) { el.style.color = textColor; }); }
+    var strip = document.querySelector('.accent-strip');
     if (strip) { strip.style.backgroundColor = color; strip.querySelector('.accent-marquee').style.color = textColor; }
     document.documentElement.style.setProperty('--accent-text', textColor);
   }
 
-  let sunCount = 0;
-  const sunCounter = document.createElement('div');
+  // Sun counter
+  var sunCount = 0;
+  var sunCounter = document.createElement('div');
   sunCounter.textContent = 'suns: 0';
   sunCounter.style.cssText = 'position:absolute;top:32px;left:12px;z-index:10000;font-size:12px;font-family:monospace;color:var(--accent, #CCFF00);pointer-events:none;';
   document.body.appendChild(sunCounter);
-  const lastUpdated = document.createElement('div');
+  var lastUpdated = document.createElement('div');
   lastUpdated.textContent = 'last updated: 04.01.2026';
   lastUpdated.style.cssText = 'position:absolute;top:32px;right:12px;z-index:10000;font-size:12px;font-family:monospace;color:var(--accent, #CCFF00);pointer-events:none;';
   document.body.appendChild(lastUpdated);
-  document.addEventListener('click', (e) => {
-    if (e.target.closest('.navBar-new, .clock-widget, .color-widget, .accent-strip, .site-footer, a, button, input, .win-dot')) return;
-    const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#CCFF00';
-    const sun = document.createElement('div');
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('.navBar-new, .clock-widget, .color-widget, .music-widget, .accent-strip, .site-footer, .archive-widget, a, button, input, .win-dot, .feed-post, .feed-readmore')) return;
+    var accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#CCFF00';
+    var sun = document.createElement('div');
     sun.style.cssText = 'position:fixed;width:88px;height:88px;pointer-events:none;z-index:9999;left:' + (e.clientX - 29) + 'px;top:' + (e.clientY - 29) + 'px;background-color:' + accent + ';-webkit-mask:url(/assets/sun.png) center/contain no-repeat;mask:url(/assets/sun.png) center/contain no-repeat;filter:drop-shadow(0 0 2px #000) drop-shadow(0 0 1px #fff);';
     document.body.appendChild(sun);
     sunCount++;
