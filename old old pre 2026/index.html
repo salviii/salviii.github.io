@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Salva's Homepage</title>
+
+    <script type="module" src="scripts/model-viewer.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+ 
+    
+</head>
+<body>
+    <span id="top"></span>
+    <div class="container">
+        <img class="floating-art-1" src="assets/third eye.gif" alt="">
+
+
+       <model-viewer
+            class="mainmodel"
+            poster=""
+            id="reveal"
+            loading="eager"
+            shadow-intensity="0.8"
+            auto-rotate=""
+            src="assets/salva idle tabs.glb"
+            alt="Salvi"
+            disable-zoom=""
+             min-field-of-view='10deg'
+            autoplay=""
+            camera-orbit="0.7869deg 46deg auto"
+            camera-controls=""
+            exposure="1"
+            ar-status="not-presenting">
+        <button class="Hotspot" slot="hotspot-1" data-surface="4 0 1048 1044 1106 0.103 0.197 0.700" data-visibility-attribute="visible">
+        <a href="contact.html"><div class="HotspotAnnotation">🏁 Contact</div></a>
+    </button><button class="Hotspot" slot="hotspot-2" data-surface="6 0 985 980 1042 0.669 0.031 0.299" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">👽 info / CV</div>
+    </button><button class="Hotspot" slot="hotspot-4" data-surface="2 0 933 928 990 0.226 0.084 0.690" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">📐 Design</div>
+    </button><button class="Hotspot" slot="hotspot-5" data-surface="1 0 929 986 991 0.472 0.173 0.356" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">🎛️ Creative Direction</div>
+    </button><button class="Hotspot" slot="hotspot-6" data-surface="5 0 985 980 1042 0.859 0.020 0.121" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">💽 Art</div>
+    </button><button class="Hotspot" slot="hotspot-7" data-surface="3 0 985 1042 1047 0.198 0.549 0.254" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">🌋 Experiments</div>
+    </button></model-viewer>
+            <br>
+              <marquee behavior="" direction="" loop="-1">
+            <span style="color: #e7820a">rust </span>, across the line / the free state of florida / the mantra / never
+            forget the mantra / and it loops / rust / sweat link fence / across the face / high bpm / gear shift /
+            always loops / across the line / free person / in the free state of florida / causing a
+            <span style="color: #a378f4"> superblooom </span> / each step
+            <span style="color: #9cd640"> ((( superblooom ))) </span> / metal face / heartfelt sonic boom / never forget
+            the mantra / and it loops and it loops and it loops / mantra / free person / mantra / water / mantra /
+            spiral / mantra / sun steel cats / mantra...
+        </marquee>
+        <br>
+        <div class="titleBar">
+        <h1>salva's world</h1>
+
+        <br>
+        
+
+        <div class="navBar">
+                
+            <p class="current">💽 home</p>
+ <p><a href="art.html">art 🏛</a></p>
+             <p id="sun-symbol"><img src="assets/sun dark.png" class="floating-art-3"></p>
+            <p><a href="about.html">🃏 iinfo</a></p>
+            <p class="contact"><a href="contact.html">contact 🌎</a></p>
+
+        
+        </div>
+        </div>
+ 
+       
+        <div class="s-box">
+            <br>
+             <h3><a href="animation.html">animation</a></h3>
+             <br>
+            <div class="gallery">
+           <img style="width: 100%; margin: 0 auto; border-radius: 2%;" src="assets/cgi-cover.png" alt="">
+           <img style="width: 100%; margin: 0 auto; border-radius: 2%;" src="assets/syd-cover.png" alt="">
+          
+           <img style="width: 100%; margin: 0 auto; border-radius: 2%;" src="assets/fulton.png" alt="">
+         
+           
+  
+  <img style="width: 100%; margin: 0 auto; border-radius: 2%;" src="assets/imgi_10_ezgif.com-gif-maker-1.gif" alt="">
+  <span> </span>
+  <span> <a href="animation.html">view more animation work -></a></span>
+        </div>
+      
+        <br>
+        <h3><a href="design.html">design</a></h3>
+             <br>
+        <div class="gallery">
+<img style="width: 100%; margin: 0 auto; border-radius: 2%;" src="assets/imgi_10_ezgif.com-gif-maker-1.gif" alt="">
+<span> </span>
+<span></span>
+  <span> <a href="animation.html">view more design work -></a></span>
+        </div>
+        </div>
+        <br>
+        <p> copyright (c) 2001 - 2026 Salva </p>
+        <p>ghost cursor effect script by <a href="https://github.com/tholman/cursor-effects">tholman</a></p>
+        
+<br>
+<br>
+<br>
+<br>
+<br>
+    </div>
+   </div>
+   
+
+      
+
+    <div class="bottom">
+        <p>@salva</p>
+    <span><img src="assets/salva logo.png" alt="" class="floating-art-2"></span>
+        <p class="light"><a href="#top">back to top ^</a></p>
+         <span id="time"> </span>
+           
+        </div>
+
+         <script>
+
+    function getTime() {
+        var today = new Date();
+        var hour = today.getHours();
+        var minutes = today.getMinutes();
+        var seconds = today.getSeconds();
+        var meridian = "AM";
+
+        if (hour > 12) {
+            hour = hour - 12;
+            meridian = "PM";
+        } 
+        
+        var displayTime = hour + ":" + String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0") + " " + meridian;
+        
+        document.getElementById("time").innerHTML = displayTime;
+        
+        
+
+    }
+
+    getTime();
+    setInterval(getTime, 1000);
+
+    </script>
+        <script type="module">
+  import { ghostCursor } from "https://unpkg.com/cursor-effects@latest/dist/esm.js";
+
+  new ghostCursor();
+</script>
+
+</body>
+</html>

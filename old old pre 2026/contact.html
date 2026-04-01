@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Salva's Contact Page</title>
+
+<link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <div class="container">
+        <img class="floating-art-1" src="assets/third eye.gif" alt="">
+        <h1 id="top">salva's world</h1>
+        <br>
+       <div class="navBar">
+                
+            <p> <a href="index.html">💽 home</a></p>
+            <p><a href="about.html">🃏 about</a></p>
+             <p id="sun-symbol"><img src="assets/sun dark.png" class="floating-art-3"></p>
+            <p><a href="journal.html">writing 📝</a></p>
+            <p class="current contact">contact 🌎</p>
+
+        
+        </div>
+        <br>
+  <div class="s-box">
+        <p>@liquiidmetal</p>
+        <p>@salvabikes</p>
+        <p>salviglesias@gmail.com</p>
+    </div>
+
+
+    
+    <br>
+        <p> copyright (c) 2001 - 2026 Salva </p>
+        <p>ghost cursor effect script by <a href="https://github.com/tholman/cursor-effects">tholman</a></p>
+        <br>
+        <br>
+    </div>
+     <div class="bottom">
+        <p>@salva</p>
+    <span><img src="assets/salva logo.png" alt="" class="floating-art-2"></span>
+       <p class="light"><a href="#top">back to top ^</a></p>
+         <span id="time"> </span>
+           
+        </div>
+</div>
+         <script>
+
+    function getTime() {
+        var today = new Date();
+        var hour = today.getHours();
+        var minutes = today.getMinutes();
+        var seconds = today.getSeconds();
+        var meridian = "AM";
+
+        if (hour > 12) {
+            hour = hour - 12;
+            meridian = "PM";
+        } 
+        
+        var displayTime = hour + ":" + String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0") + " " + meridian;
+        
+        document.getElementById("time").innerHTML = displayTime;
+        
+        
+
+    }
+
+    getTime();
+    setInterval(getTime, 1000);
+
+    </script>
+        <script type="module">
+  import { ghostCursor } from "https://unpkg.com/cursor-effects@latest/dist/esm.js";
+
+  new ghostCursor();
+</script>
+</body>
+</html>

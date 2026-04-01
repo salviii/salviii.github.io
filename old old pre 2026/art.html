@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Salva's Art Page</title>
+
+<link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <div class="container">
+        <img class="floating-art-1" src="assets/free" alt="">
+        <h1 id="top">salva's world</h1>
+     
+       <div class="navBar">
+                
+            <p> <a href="index.html">💽 home</a></p>
+               <p class="current">🏛 art</p>
+             <p id="sun-symbol"><img src="assets/sun dark.png" class="floating-art-3"></p>
+
+             <p> <a href="about.html">🃏 about </a></p>
+            <p class="contact"><a href="contact.html">contact 🌎</a></p>
+
+        
+        </div>
+       
+  <div class="s-box">
+    <h4>my art work</h4>
+    <br>
+        <p>art i make for myself, started making these in 2020 mid pandemic and it continues to be my most personal medium of artistic expression. many stages of my life and development as a person are chronicled through these pieces.</p>
+        <p>everything is made with blender (3D modeling and sculpting program) which i use to make a sort of "digital still life" and scenes, then i composite different pieces of my 3D scenes in photoshop (image editing), and then i use procreate (digital drawing and painting) to paint and sketch over each image.</p>
+            <p>(⚠️) <b>no artificial intelligence </b> or image generation programs were used for any of these works, ai has its uses but definetly not when it comes to human expression.</p>
+    </div>
+<br>
+   <div class="gallery s-box">
+    
+            <img style="width: 100%; margin: 0 auto; border-radius: 2%;" src="assets/00POSTluci.jpg" alt="art i made with slash the writing system i created for myself">
+
+            <img style="width: 100%; margin: 0 auto; border-radius: 2%;" src="assets/free the ruler.png" alt="art i made with slash the writing system i created for myself">
+
+             <img style="width: 100%; margin: 0 auto; border-radius: 2%;" src="assets/eternal whispers.png" alt="art i made with slash the writing system i created for myself">
+
+              <img style="width: 100%; margin: 0 auto; border-radius: 2%;" src="assets/king of hearts.png" alt="art i made with slash the writing system i created for myself">
+
+              <img style="width: 100%; margin: 0 auto; border-radius: 2%;" src="assets/imgi_33_ezgif.com-gif-maker-2.gif" alt="art i made with slash the writing system i created for myself">
+
+ <img style="width: 100%; margin: 0 auto; border-radius: 2%;" src="assets/we who wrestle (FINAL).PNG" alt="art i made with slash the writing system i created for myself">
+    
+   </div>
+<br>
+<br>
+    </div>
+    <br>
+        <p> copyright (c) 2001 - 2026 Salva </p>
+        <p>ghost cursor effect script by <a href="https://github.com/tholman/cursor-effects">tholman</a></p>
+        
+<br>
+<br>
+<br>
+<br>
+<br>
+    </div>
+   </div>
+   
+
+      
+
+    <div class="bottom">
+        <p>@salva</p>
+    <span><img src="assets/salva logo.png" alt="" class="floating-art-2"></span>
+        <p class="light"><a href="#top">back to top ^</a></p>
+         <span id="time"> </span>
+           
+        </div>
+
+         <script>
+
+    function getTime() {
+        var today = new Date();
+        var hour = today.getHours();
+        var minutes = today.getMinutes();
+        var seconds = today.getSeconds();
+        var meridian = "AM";
+
+        if (hour > 12) {
+            hour = hour - 12;
+            meridian = "PM";
+        } 
+        
+        var displayTime = hour + ":" + String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0") + " " + meridian;
+        
+        document.getElementById("time").innerHTML = displayTime;
+        
+        
+
+    }
+
+    getTime();
+    setInterval(getTime, 1000);
+
+    </script>
+        <script type="module">
+  import { ghostCursor } from "https://unpkg.com/cursor-effects@latest/dist/esm.js";
+
+  new ghostCursor();
+</script>
+</body>
+</html>
