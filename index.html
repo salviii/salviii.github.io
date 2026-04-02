@@ -204,9 +204,6 @@
           </div>
         </div>
 
-        <br>
-
-
 
      <model-viewer
             class="mainmodel"
@@ -421,7 +418,6 @@
   makeDraggable(document.querySelector('.color-widget'));
   makeDraggable(document.querySelector('.text-widget'));
   makeDraggable(document.querySelector('.img-widget'));
-
   // Hide widgets when scrolled to project grid
   var widgets = document.querySelectorAll('.music-widget, .gallery-widget, .color-widget, .clock-widget, .img-widget, .text-widget, .lightbox, .floating-art-left');
   var mosaicEl = document.querySelector('.mosaic');
@@ -436,6 +432,7 @@
       w.style.pointerEvents = t < 0.1 ? 'none' : 'auto';
     });
   });
+
 </script>
 <script data-goatcounter="https://salvasalva.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>

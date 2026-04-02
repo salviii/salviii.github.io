@@ -154,6 +154,15 @@
       </div>
     </div>
 
+    <div class="paint-widget" id="paintWidget">
+      <button id="paintToggle">🖍️</button>
+      <button id="paintEraser">🧽</button>
+      <input type="color" id="paintColor" value="#000000" class="paint-color-input">
+      <button id="paintExit" class="paint-exit">✕</button>
+      <button id="paintClear">🗑️</button>
+    </div>
+    <canvas id="paintCanvas"></canvas>
+
     <a href="#" class="back-to-top journal-btt" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">&#x2191;</a>
     <footer class="site-footer">
       <div class="footer-inner">
@@ -420,6 +429,66 @@
     if (e.key === 'ArrowRight') journalLbNav(1);
     if (e.key === 'Escape') lb.classList.remove('active');
   });
+
+  // Paint
+  (function() {
+    var c = document.getElementById('paintCanvas'), ctx = c.getContext('2d');
+    var tog = document.getElementById('paintToggle'), col = document.getElementById('paintColor');
+    var era = document.getElementById('paintEraser'), clr = document.getElementById('paintClear');
+    var on = false, dr = false, er = false, lx, ly;
+    var bSize = 8, eSize = 46;
+    var accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#97c3a0';
+    var color = accent; col.value = color;
+
+    function fit() {
+      var w = window.innerWidth, h = window.innerHeight;
+      if (c.width !== w || c.height !== h) {
+        var img = null;
+        if (c.width && c.height) try { img = ctx.getImageData(0, 0, c.width, c.height); } catch(e) {}
+        c.width = w; c.height = h;
+        if (img) ctx.putImageData(img, 0, 0);
+      }
+    }
+    fit(); window.addEventListener('resize', fit);
+
+    function off() { on = false; c.classList.remove('active'); tog.classList.remove('active'); tog.textContent = '🖍️'; }
+    tog.addEventListener('click', function() { on = !on; c.classList.toggle('active', on); this.classList.toggle('active', on); this.textContent = on ? '✋' : '🖍️'; });
+    col.addEventListener('input', function() { color = this.value; er = false; era.classList.remove('active'); });
+    era.addEventListener('click', function() { er = !er; this.classList.toggle('active', er); });
+    clr.addEventListener('click', function() { ctx.clearRect(0, 0, c.width, c.height); });
+    document.getElementById('paintExit').addEventListener('click', function() { off(); });
+
+    function draw(x, y) {
+      ctx.beginPath(); ctx.moveTo(lx, ly); ctx.lineTo(x, y);
+      ctx.lineWidth = er ? eSize : bSize; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+      ctx.globalCompositeOperation = er ? 'destination-out' : 'source-over';
+      ctx.strokeStyle = er ? 'rgba(0,0,0,1)' : color; ctx.stroke(); lx = x; ly = y;
+    }
+
+    document.addEventListener('mousedown', function(e) {
+      if (!on || e.target.closest('.paint-widget, .navBar-new, .nav-dropdown, .search-widget, .color-widget, .clock-widget, .music-widget, .archive-widget, .accent-strip, .site-footer, .lightbox, button, input, select, textarea, iframe')) return;
+      dr = true; lx = e.clientX; ly = e.clientY;
+    });
+    document.addEventListener('mousemove', function(e) { if (dr) draw(e.clientX, e.clientY); });
+    document.addEventListener('mouseup', function() { dr = false; });
+
+    document.addEventListener('touchstart', function(e) {
+      if (!on || e.target.closest('.paint-widget, .navBar-new, .nav-dropdown, .search-widget, .color-widget, .clock-widget, .music-widget, .archive-widget, .accent-strip, .site-footer, .lightbox, button, input, select, textarea, iframe')) return;
+      e.preventDefault(); dr = true; var t = e.touches[0]; lx = t.clientX; ly = t.clientY;
+    }, {passive: false});
+    document.addEventListener('touchmove', function(e) { if (!dr) return; e.preventDefault(); var t = e.touches[0]; draw(t.clientX, t.clientY); }, {passive: false});
+    document.addEventListener('touchend', function() { dr = false; });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && on) off(); });
+
+    // Flipbook wiggle
+    setInterval(function() {
+      var r = (Math.random() - 0.5) * 0.15;
+      var tx = (Math.random() - 0.5) * 0.8;
+      var ty = (Math.random() - 0.5) * 0.8;
+      var sx = 1 + (Math.random() - 0.5) * 0.003;
+      c.style.transform = 'translate(' + tx + 'px,' + ty + 'px) rotate(' + r + 'deg) scaleX(' + sx + ')';
+    }, 100);
+  })();
 </script>
 <script data-goatcounter="https://salvasalva.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>

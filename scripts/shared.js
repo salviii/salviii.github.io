@@ -147,7 +147,9 @@ lastUpdated.style.cssText = 'position:absolute;top:32px;right:12px;z-index:10000
 document.body.appendChild(lastUpdated);
 
 document.addEventListener('click', function(e) {
-  if (e.target.closest('.music-widget, .gallery-widget, .clock-widget, .img-widget, .text-widget, .color-widget, .lightbox, .navBar-new, .mosaic, .accent-strip, .site-footer, .archive-widget, .work-filters, model-viewer, a, button, input, img, .win-dot, .feed-post, .feed-readmore, .filter-bubble, .about-photo-widget')) return;
+  var pc = document.getElementById('paintCanvas');
+  if (pc && pc.classList.contains('active')) return;
+  if (e.target.closest('.music-widget, .gallery-widget, .clock-widget, .img-widget, .text-widget, .color-widget, .paint-widget, .lightbox, .navBar-new, .mosaic, .accent-strip, .site-footer, .archive-widget, .work-filters, .search-widget, .back-to-top, .mobile-sun-logo, model-viewer, a, button, input, select, textarea, label, img, .win-dot, .feed-post, .feed-readmore, .filter-bubble, .about-photo-widget, #paintCanvas')) return;
   var accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#97c3a0';
   var sun = document.createElement('div');
   sun.style.cssText = 'position:fixed;width:88px;height:88px;pointer-events:none;z-index:9999;left:' + (e.clientX - 29) + 'px;top:' + (e.clientY - 29) + 'px;background-color:' + accent + ';-webkit-mask:url(/assets/sun.png) center/contain no-repeat;mask:url(/assets/sun.png) center/contain no-repeat;filter:drop-shadow(0 0 2px #000) drop-shadow(0 0 1px #fff);';
