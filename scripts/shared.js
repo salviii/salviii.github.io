@@ -550,13 +550,13 @@ function initFlipbook(canvas) {
 
   var container = document.createElement('div');
   container.id = 'widgetSummoner';
-  container.style.cssText = 'position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:100000;';
+  container.style.cssText = 'position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:999999;';
   document.body.appendChild(container);
 
   var btn = document.createElement('div');
   btn.id = 'summonerBtn';
   btn.innerHTML = '+';
-  btn.style.cssText = 'width:36px;height:36px;background:white;border:3px solid rgb(210,206,206);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,0.06);transition:transform 0.2s,background 0.2s;user-select:none;color:#333;margin:0 auto;';
+  btn.style.cssText = 'width:36px;height:36px;background:white;border:3px solid rgb(210,206,206);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,0.15);transition:transform 0.2s,background 0.2s;user-select:none;color:#333;margin:0 auto;';
   container.appendChild(btn);
 
   var menu = document.createElement('div');
