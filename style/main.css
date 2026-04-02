@@ -1489,16 +1489,14 @@ body.night .mosaic-blank {
 @media only screen and (max-width: 800px) {
   html, body { overscroll-behavior-x: none; font-size: 100%; }
   .container { width: 95vw; }
-  .nav-main li { font-size: 95%; }
-  .nav-main li:nth-child(n+3):not(:last-child) { display: none; }
-  .nav-dropdown .nav-drop-page { display: block; }
-  .navBar-new { width: auto; max-width: 90vw; }
+  .nav-main li { font-size: 75%; }
   model-viewer { height: 45vh; width: 280px; padding: 10px; }
   .floating-art-1 { left: 85%; width: 20%; }
-  .navBar-new { padding: 4px 6px; margin-top: 20%; width: 90vw; box-sizing: border-box; }
-  .nav-main { gap: 2px; justify-content: center; }
-  .nav-main li a { padding: 6px 8px; }
-  .nav-logo { height: 18px; }
+  .navBar-new { padding: 4px 6px; margin-top: 20%; width: fit-content; max-width: 95vw; box-sizing: border-box; }
+  .nav-main { gap: 4px; justify-content: center; flex-wrap: nowrap; }
+  .nav-main li a { padding: 5px 7px; }
+  .nav-logo { height: 16px; }
+  .highlight { padding: 5px 7px; font-size: inherit; }
   .about-wrapper { width: 90vw; padding: 8% 2% 4%; box-sizing: border-box; }
   .mosaic { grid-template-columns: 1fr; gap: 16px; }
   .mosaic-wrapper { padding: 3vh 5% 10vh 5%; }
@@ -1587,6 +1585,13 @@ body.night .mosaic-blank {
 }
 
 @media only screen and (max-width: 600px) {
+  .nav-main li { font-size: 65%; }
+  .nav-main { gap: 2px; }
+  .nav-main li a { padding: 4px 5px; }
+  .nav-logo { height: 14px; }
+  .highlight { padding: 4px 5px; }
+  .active { padding: 4px 5px; }
+  .nav-contact { padding: 4px 5px; }
   .music-widget { width: 115px; font-size: 60%; }
   .music-body iframe { height: 120px; }
   .gallery-widget { width: 115px; font-size: 60%; }
@@ -1605,6 +1610,11 @@ body.night .mosaic-blank {
 }
 
 @media only screen and (max-width: 400px) {
+  .nav-main li { font-size: 55%; }
+  .nav-main { gap: 1px; }
+  .nav-main li a { padding: 3px 4px; }
+  .nav-logo { height: 12px; }
+  .highlight { padding: 3px 4px; }
   .music-widget { width: 100px; }
   .music-body iframe { height: 90px; }
   .gallery-widget { width: 100px; }

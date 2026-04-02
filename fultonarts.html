@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fulton County Arts — salvi.world</title>
+    <link rel="stylesheet" href="/style/main.css">
+    <style>
+      .project-wrapper {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 8% 5% 4%;
+      }
+      .project-header {
+        text-align: center;
+        margin-bottom: 32px;
+      }
+      .project-header h1 {
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+      .project-header p {
+        font-size: 90%;
+        color: #666;
+        text-align: center;
+      }
+      .project-iframe-wrap {
+        border: solid rgb(210,206,206) 4px;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        margin-bottom: 32px;
+      }
+      .project-iframe-wrap iframe {
+        display: block;
+        width: 100%;
+        height: 70vh;
+        min-height: 400px;
+        border: none;
+      }
+      .project-text {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .project-text p {
+        padding: 4px 0;
+      }
+      @media only screen and (max-width: 600px) {
+        .project-iframe-wrap iframe { height: 50vh; min-height: 300px; }
+      }
+      body.night .project-header p { color: #999; }
+      body.night .project-iframe-wrap { border-color: #444; }
+    </style>
+</head>
+<body>
+
+    <div class="search-widget">
+      <span class="search-icon">&#x1F50D;</span>
+      <input type="text" placeholder="search site..." id="siteSearch" autocomplete="off">
+      <div class="search-results" id="searchResults">
+        <a href="index.html">home</a>
+        <a href="work.html">work</a>
+        <a href="art.html">art</a>
+        <a href="info.html">info</a>
+        <a href="contact.html">contact</a>
+        <a href="journal.html">journal</a>
+        <a href="slash.html">slash</a>
+      </div>
+    </div>
+    <div class="mobile-sun-logo"></div>
+    <div class="accent-strip">
+      <div class="accent-marquee"><span>episode — my blonde hair — la boca del lobo — cut away — perceived identity — genome shotgun sequencing — the smarter the mind the better the traps — a door ajar — twisted and slipped into a 5th dimension — scattered — fell asleep there — in between words — reductio ad absurdum — episode — my blonde hair — la boca del lobo — cut away — perceived identity — genome shotgun sequencing — the smarter the mind the better the traps — a door ajar — twisted and slipped into a 5th dimension — scattered — fell asleep there — in between words — reductio ad absurdum — </span></div>
+    </div>
+
+    <div class="nav-fade"></div>
+    <div class="navBar-new">
+      <ul class="nav-main">
+        <li><a href="index.html"><img class="nav-logo" src="/assets/salva logo.png" alt="salva"></a></li>
+        <li class="nav-menu-trigger"><span class="highlight" onclick="this.closest('.navBar-new').classList.toggle('open')">menu <small>(5)</small> ☰</span>
+          <div class="nav-dropdown">
+            <a href="index.html" class="nav-drop-page">🏠 home</a>
+            <a href="work.html" class="nav-drop-page">💼 work</a>
+            <a href="info.html" class="nav-drop-page">ℹ️ info</a>
+            <a href="art.html">🎨 art</a>
+            <a href="slash.html">✍️ slash</a>
+            <a href="journal.html">📝 journal</a>
+            <a href="https://instagram.com/liquiidmetal" target="_blank">@liquiidmetal</a>
+            <span class="theme-toggle" onclick="document.body.classList.toggle('night'); localStorage.setItem('night', document.body.classList.contains('night'))">day / night</span>
+          </div>
+        </li>
+        <li><a href="index.html">home</a></li>
+        <li><a href="work.html">work</a></li>
+        <li><a href="info.html">info</a></li>
+        <li><a href="contact.html" class="nav-contact">contact</a></li>
+      </ul>
+    </div>
+
+    <div class="project-wrapper">
+      <div class="project-header">
+        <h1>Fulton County Arts & Culture</h1>
+        <p>Branding / Web Design / Digital Marketing</p>
+      </div>
+
+      <a href="https://www.fultonarts.org/" target="_blank" class="project-iframe-wrap" style="display:block;text-decoration:none;">
+        <div class="win-titlebar">
+          <span class="win-title">fultonarts.org — click to visit ↗</span>
+          <div class="win-dots">
+            <span class="win-dot win-max">□</span>
+          </div>
+        </div>
+        <img src="/assets/fulton-grid.png" alt="Fulton County Arts & Culture" style="width:100%;display:block;">
+      </a>
+
+      <div class="project-text">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+    </div>
+
+    <a href="#" class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">&#x2191;</a>
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">salva / liquiidmetal</div>
+        <nav class="footer-links">
+          <a href="index.html">home</a>
+          <a href="work.html">work</a>
+          <a href="art.html">art</a>
+          <a href="contact.html">contact</a>
+          <a href="info.html">info</a>
+          <a href="https://instagram.com/liquiidmetal" target="_blank">@liquiidmetal</a>
+        </nav>
+        <div class="footer-copy">&copy; 2026 salva. all rights reserved.</div>
+      </div>
+    </footer>
+
+    <script src="/scripts/shared.js"></script>
+<script data-goatcounter="https://salvasalva.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
