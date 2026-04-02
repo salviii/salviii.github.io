@@ -1,6 +1,10 @@
 // Night mode
 if (localStorage.getItem('night') === 'true') document.body.classList.add('night');
 
+// Marquee click → journal
+var marqueeStrip = document.querySelector('.accent-strip');
+if (marqueeStrip) marqueeStrip.addEventListener('click', function() { window.location.href = 'journal.html'; });
+
 // Dropdown direction — pop up if dropdown would overflow viewport bottom
 (function() {
   var nav = document.querySelector('.navBar-new');

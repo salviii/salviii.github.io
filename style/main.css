@@ -151,12 +151,12 @@
 }
 
 .floating-art-left {
-    width: 22%;
-    max-width: 250px;
+    width: 38%;
+    max-width: 450px;
     z-index: 2;
     position: fixed;
-    left: 2%;
-    bottom: 5%;
+    left: -5%;
+    bottom: -8%;
     top: auto;
 }
 
@@ -172,6 +172,7 @@
   overflow: hidden;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .accent-marquee {
@@ -1159,6 +1160,10 @@ body.night {
 body.night .navBar-new {
   background-color: #2a2a2a;
   border-color: #444;
+}
+
+body.night .nav-logo {
+  filter: invert(1);
 }
 
 body.night .highlight {
