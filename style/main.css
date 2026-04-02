@@ -62,6 +62,13 @@
             100% { transform: translate(0, 0); }
         }
 
+        mark.search-highlight {
+            background-color: var(--accent, #97c3a0);
+            color: var(--accent-text, #1a1a1a);
+            padding: 1px 3px;
+            border-radius: 3px;
+        }
+
         ::selection {
             background-color: var(--accent, #97c3a0);
             color: var(--accent-text, #ffffff);
@@ -392,7 +399,7 @@ body.night .music-credit a {
 /* Gallery Widget */
 .gallery-widget {
   position: fixed;
-  z-index: 9;
+  z-index: 11;
   right: 6%;
   top: 14%;
   transition: opacity 0.3s ease;
@@ -485,7 +492,7 @@ body.night .music-credit a {
 .lightbox {
   display: none;
   position: fixed;
-  z-index: 100;
+  z-index: 10001;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -975,6 +982,7 @@ body.night .nav-fade {
   z-index: 9999;
   position: sticky;
   top: calc(2vh + 10px);
+  text-align: center;
   width: fit-content;
   margin: 40px auto 0 auto;
   background-color: white;
@@ -994,6 +1002,7 @@ body.night .nav-fade {
 
 .nav-main li {
   position: relative;
+  margin: 0;
   font-size: 90%;
 }
 
@@ -1021,8 +1030,11 @@ body.night .nav-fade {
 
 .nav-logo {
   height: 22px;
+  max-height: 22px;
   width: auto;
+  max-width: 80px;
   vertical-align: middle;
+  display: inline-block;
 }
 
 .highlight {
@@ -1315,9 +1327,6 @@ body.night .mosaic-blank {
   aspect-ratio: 4 / 3;
   overflow: hidden;
   border-radius: 8px;
-}
-
-.mosaic-item .mosaic-img {
   border: 3px solid transparent;
   transition: border-color 0.3s;
 }
