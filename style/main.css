@@ -1063,11 +1063,15 @@ body.night .nav-fade {
 }
 
 .nav-dropdown {
-  display: none;
+  display: flex;
   position: absolute;
   left: 0;
   top: 100%;
   margin-top: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
   white-space: nowrap;
   background-color: white;
   border: solid rgb(210, 206, 206) 4px;
@@ -1082,8 +1086,24 @@ body.night .nav-fade {
   font-size: 80%;
 }
 
+.nav-menu-trigger:hover .nav-dropdown,
 .navBar-new.open .nav-dropdown {
-  display: flex;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.navBar-new.drop-up .nav-dropdown {
+  top: auto;
+  bottom: 100%;
+  margin-top: 0;
+  margin-bottom: 8px;
+  transform: translateY(8px);
+}
+
+.navBar-new.open.drop-up .nav-dropdown,
+.navBar-new.drop-up .nav-menu-trigger:hover .nav-dropdown {
+  transform: translateY(0);
 }
 
 .nav-dropdown a {

@@ -1,6 +1,36 @@
 // Night mode
 if (localStorage.getItem('night') === 'true') document.body.classList.add('night');
 
+// Dropdown direction — pop up if dropdown would overflow viewport bottom
+(function() {
+  var nav = document.querySelector('.navBar-new');
+  var dropdown = nav ? nav.querySelector('.nav-dropdown') : null;
+  if (!nav || !dropdown) return;
+
+  // Measure dropdown height once by briefly making it visible offscreen
+  var dropHeight = 200;
+  dropdown.style.visibility = 'hidden';
+  dropdown.style.opacity = '0';
+  dropdown.style.display = 'flex';
+  dropdown.style.position = 'absolute';
+  dropdown.style.left = '-9999px';
+  dropHeight = dropdown.offsetHeight || 200;
+  dropdown.style.left = '';
+  dropdown.style.display = '';
+  dropdown.style.visibility = '';
+  dropdown.style.opacity = '';
+
+  function checkDropDir() {
+    var navRect = nav.getBoundingClientRect();
+    var spaceBelow = window.innerHeight - navRect.bottom;
+    var spaceAbove = navRect.top;
+    nav.classList.toggle('drop-up', spaceBelow < dropHeight + 30 && spaceAbove > dropHeight + 30);
+  }
+  window.addEventListener('scroll', checkDropDir);
+  window.addEventListener('resize', checkDropDir);
+  checkDropDir();
+})();
+
 // Clock
 function updateClock() {
   var now = new Date();
