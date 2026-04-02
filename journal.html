@@ -191,7 +191,7 @@
     if (target) {
       var check = setInterval(function() {
         var el = document.getElementById(target);
-        if (el) { clearInterval(check); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+        if (el) { clearInterval(check); var y = el.getBoundingClientRect().top + window.scrollY - window.innerHeight * 0.5; window.scrollTo({ top: y, behavior: 'smooth' }); }
       }, 300);
       setTimeout(function() { clearInterval(check); }, 10000);
     }
