@@ -173,6 +173,11 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  transition: filter 0.2s;
+}
+
+.accent-strip:hover {
+  filter: invert(1);
 }
 
 .accent-marquee {
@@ -777,7 +782,7 @@ body.night .img-widget {
   width: 100vw;
   height: 100vh;
   background: none;
-  z-index: 3;
+  z-index: 99990;
   pointer-events: none;
 }
 
