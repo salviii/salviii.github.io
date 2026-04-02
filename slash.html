@@ -1,32 +1,307 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Salva's Homepage</title>
-
-    <script type="module" src="scripts/model-viewer.min.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
- 
-    
+    <title>slash — salvi.world</title>
+    <link rel="stylesheet" href="/style/main.css">
+    <style>
+      .project-wrapper {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 8% 5% 4%;
+      }
+      .project-header {
+        text-align: center;
+        margin-bottom: 32px;
+      }
+      .project-header h1 {
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+      .project-header p {
+        font-size: 90%;
+        color: #666;
+        text-align: center;
+      }
+      .project-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        align-items: start;
+        margin-bottom: 32px;
+      }
+      .project-text p {
+        padding: 4px 0;
+      }
+      .slash-art {
+        width: 100%;
+        max-width: 500px;
+        display: block;
+        margin: 24px auto;
+        border-radius: 8px;
+      }
+      .slash-sample {
+        font-family: monospace;
+        font-size: 110%;
+        letter-spacing: 0.1em;
+        color: var(--accent, #97c3a0);
+        padding: 8px 0;
+      }
+      .slash-translator {
+        border: solid rgb(210,206,206) 4px;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        margin-bottom: 32px;
+      }
+      .slash-translator-body {
+        padding: 16px;
+      }
+      .slash-translator-body input {
+        width: 100%;
+        padding: 10px 12px;
+        border: 2px solid rgb(210,206,206);
+        border-radius: 8px;
+        font-size: 100%;
+        font-family: inherit;
+        box-sizing: border-box;
+        outline: none;
+        margin-bottom: 10px;
+      }
+      .slash-translator-body input:focus {
+        border-color: var(--accent, #97c3a0);
+      }
+      .slash-translator-body button {
+        padding: 8px 20px;
+        background: var(--accent, #97c3a0);
+        color: var(--accent-text, #1a1a1a);
+        border: none;
+        border-radius: 8px;
+        font-size: 90%;
+        font-weight: 700;
+        cursor: pointer;
+        letter-spacing: 0.03em;
+      }
+      .slash-translator-body button:hover {
+        filter: brightness(0.9);
+      }
+      .slash-output {
+        font-family: monospace;
+        font-size: 120%;
+        letter-spacing: 0.08em;
+        color: var(--accent, #97c3a0);
+        padding: 16px 0 0;
+        min-height: 24px;
+        word-break: break-all;
+      }
+      @media only screen and (max-width: 800px) {
+        .project-row { grid-template-columns: 1fr; }
+      }
+      body.night .project-header p { color: #999; }
+      body.night .slash-translator { border-color: #444; }
+      body.night .slash-translator-body input { border-color: #444; background: #1a1a1a; color: #e0e0e0; }
+      .slash-mode-active .project-wrapper { font-family: monospace; letter-spacing: 0.08em; color: var(--accent, #97c3a0); }
+    </style>
 </head>
 <body>
-    <div class="s-box select-projects">
-            <p><b>slash</b> - a writing system (.)--Oo(.)][</p>
-            <p>growing up bilingual (spanish/english) i always had a particular interest in language and how living things communicate. i mainly attribute this to my need to really study both instead of just being able to absorb them. i love etymology, and where linguistics intersects with neuroscience and anthropology. about 2 years ago i started developing my own writing system, i had been obssessed with ancient writing and the history of written language and the purpose it served as the basis of governement, religion, and the basis for extended human collaboration and coexistence (culuture) if we are the hardware language is software that runs on our operating system (conscious/unconcious). the writing system consists of a decontructed latin alphabet. i wanted it to look like how whispers sound when you are just far away enough to hear it as just air and vibrations shaped by the speakers lips.
-            </p>
-            <p>][(-----o OOo//--))</p>
-            <img style="width: 60%; margin: 0 auto;" src="assets/slash-art.jpg" alt="art i made with slash the writing system i created for myself">
-<p>how long would it take me to learn to write it fluently? how long before i could look at a page with my name on it would my brain register it as my name with as much ease as it does: " salva " ?</p>
-<p>ii OO//o+(- --ii<<(- +][ii(.) (=o// ))Oox_(.)</p>
 
-<p>after about two years, it still takes me a bit more time than writing regularly but i can read it pretty quickly. almost as if i blur my eyes i see it for what it is. "art is a transmission device for feelings" - (quote) so what is language? transmission of thoughts and i can write it in my own way now. has anyb9dy ever told you: ii --o\./(- x_ou ?
-</p>
+    <div class="search-widget">
+      <span class="search-icon">&#x1F50D;</span>
+      <input type="text" placeholder="search site..." id="siteSearch" autocomplete="off">
+      <div class="search-results" id="searchResults">
+        <a href="index.html">home</a>
+        <a href="work.html">work</a>
+        <a href="art.html">art</a>
+        <a href="info.html">info</a>
+        <a href="contact.html">contact</a>
+        <a href="journal.html">journal</a>
+        <a href="slash.html">slash</a>
+      </div>
+    </div>
+    <div class="mobile-sun-logo"></div>
+    <div class="accent-strip">
+      <div class="accent-marquee"><span>episode — my blonde hair — la boca del lobo — cut away — perceived identity — genome shotgun sequencing — the smarter the mind the better the traps — a door ajar — twisted and slipped into a 5th dimension — scattered — fell asleep there — in between words — reductio ad absurdum — episode — my blonde hair — la boca del lobo — cut away — perceived identity — genome shotgun sequencing — the smarter the mind the better the traps — a door ajar — twisted and slipped into a 5th dimension — scattered — fell asleep there — in between words — reductio ad absurdum — </span></div>
+    </div>
 
+    <div class="nav-fade"></div>
+    <div class="navBar-new">
+      <ul class="nav-main">
+        <li><a href="index.html"><img class="nav-logo" src="/assets/salva logo.png" alt="salva"></a></li>
+        <li class="nav-menu-trigger"><span class="highlight" onclick="this.closest('.navBar-new').classList.toggle('open')">menu <small>(5)</small> ☰</span>
+          <div class="nav-dropdown">
+            <a href="index.html" class="nav-drop-page">🏠 home</a>
+            <a href="work.html" class="nav-drop-page">💼 work</a>
+            <a href="info.html" class="nav-drop-page">ℹ️ info</a>
+            <a href="art.html">🎨 art</a>
+            <a href="slash.html">✍️ slash</a>
+            <a href="journal.html">📝 journal</a>
+            <a href="https://instagram.com/liquiidmetal" target="_blank">@liquiidmetal</a>
+            <span class="theme-toggle" onclick="document.body.classList.toggle('night'); localStorage.setItem('night', document.body.classList.contains('night'))">day / night</span>
+          </div>
+        </li>
+        <li><a href="index.html">home</a></li>
+        <li><a href="work.html">work</a></li>
+        <li><a href="info.html">info</a></li>
+        <li><a href="contact.html" class="nav-contact">contact</a></li>
+      </ul>
+    </div>
+
+    <div class="project-wrapper">
+      <div class="project-header" style="display:flex;align-items:center;justify-content:space-between;">
+        <div>
+          <h1 style="text-align:left;">slash</h1>
+          <p style="text-align:left;">a writing system — (.)--Oo(.)][</p>
         </div>
+        <span id="slashPageToggle" style="cursor:pointer;border:2px solid rgb(210,206,206);border-radius:8px;padding:6px 14px;font-size:12px;font-weight:700;letter-spacing:0.03em;user-select:none;white-space:nowrap;">slash mode</span>
+      </div>
+
+      <div class="slash-translator">
+        <div class="win-titlebar">
+          <span class="win-title">salvi.world/slash — translator</span>
+          <div class="win-dots">
+            <span class="win-dot win-close">✕</span>
+            <span class="win-dot win-min">−</span>
+            <span class="win-dot win-max">□</span>
+          </div>
+        </div>
+        <div class="slash-translator-body">
+          <input type="text" id="slashInput" placeholder="type something to translate..." autocomplete="off">
+          <div class="slash-output" id="slashOutput"></div>
+        </div>
+      </div>
+
+      <div class="project-row">
+        <div class="project-text">
+          <p>growing up bilingual (spanish/english) i always had a particular interest in language and how living things communicate. i mainly attribute this to my need to really study both instead of just being able to absorb them. i love etymology, and where linguistics intersects with neuroscience and anthropology.</p>
+          <p>about 2 years ago i started developing my own writing system, i had been obsessed with ancient writing and the history of written language and the purpose it served as the basis of government, religion, and the basis for extended human collaboration and coexistence (culture). if we are the hardware, language is the software that runs on our operating system (conscious/unconscious).</p>
+        </div>
+        <div class="project-text">
+          <p>the writing system consists of a deconstructed latin alphabet. i wanted it to look like how whispers sound when you are just far away enough to hear it as just air and vibrations shaped by the speakers lips.</p>
+          <p class="slash-sample">][(-----o&nbsp;&nbsp;OOo//--))</p>
+          <p>how long would it take me to learn to write it fluently? how long before i could look at a page with my name on it and my brain would register it as my name with as much ease as it does: "salva"?</p>
+          <p class="slash-sample">ii OO//o+(- --ii&lt;&lt;(- +][ii(.) (=o// ))Oox_(.)</p>
+        </div>
+      </div>
+
+      <img class="slash-art" src="assets/slash-art.jpg" alt="art made with slash writing system">
+
+      <div class="project-text" style="max-width:800px;margin:24px auto;">
+        <p>after about two years, it still takes me a bit more time than writing regularly but i can read it pretty quickly. almost as if i blur my eyes i see it for what it is. "art is a transmission device for feelings" so what is language? transmission of thoughts and i can write it in my own way now.</p>
+        <p>has anybody ever told you: <span class="slash-sample">ii --o\./(- x_ou</span> ?</p>
+      </div>
+    </div>
+
+    <a href="#" class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">&#x2191;</a>
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">salva / liquiidmetal</div>
+        <nav class="footer-links">
+          <a href="index.html">home</a>
+          <a href="work.html">work</a>
+          <a href="art.html">art</a>
+          <a href="contact.html">contact</a>
+          <a href="info.html">info</a>
+          <a href="https://instagram.com/liquiidmetal" target="_blank">@liquiidmetal</a>
+        </nav>
+        <div class="footer-copy">&copy; 2026 salva. all rights reserved.</div>
+      </div>
+    </footer>
+
+    <script src="/scripts/shared.js"></script>
+<script>
+  var toSlash = {
+    a:'Oo', b:'((', c:'[[', d:'))', e:'(-', f:'(=', g:'O)', h:'][',
+    i:'ii', j:'-i', k:'<<', l:'--', m:'^^', n:'^', o:'\u2299',
+    p:'o_', q:')O', r:'//', s:'(\u22C5)', t:'+', u:'u', v:' \u2216./ ',
+    w:'OO', x:'x', y:'x_', z:')(', ' ':'\u00A0\u00A0\u00A0\u00A0'
+  };
+  // Build reverse map — longest slash symbols first for greedy matching
+  var fromSlash = {};
+  for (var k in toSlash) fromSlash[toSlash[k]] = k;
+  var slashSymbols = Object.keys(fromSlash).sort(function(a,b) { return b.length - a.length; });
+
+  function isSlashInput(str) {
+    // Only detect as slash if it contains distinctive multi-char symbols
+    var distinctSlash = ['Oo','((','[[','))','(-','(=','O)','][','ii','-i','<<','--','^^','\u2299','o_',')O','(\u22C5)','\u2216./','OO','x_',')('];
+    var count = 0;
+    for (var i = 0; i < distinctSlash.length; i++) {
+      if (str.indexOf(distinctSlash[i]) !== -1) count++;
+    }
+    return count >= 2;
+  }
+
+  function slashTranslate() {
+    var raw = document.getElementById('slashInput').value;
+    var out = '';
+    if (isSlashInput(raw)) {
+      // Reverse: slash → english
+      var s = raw;
+      while (s.length > 0) {
+        var matched = false;
+        for (var i = 0; i < slashSymbols.length; i++) {
+          if (s.indexOf(slashSymbols[i]) === 0) {
+            out += fromSlash[slashSymbols[i]];
+            s = s.substring(slashSymbols[i].length);
+            matched = true;
+            break;
+          }
+        }
+        if (!matched) { out += s[0]; s = s.substring(1); }
+      }
+    } else {
+      // Forward: english → slash
+      var x = raw.toLowerCase();
+      for (var i = 0; i < x.length; i++) {
+        out += toSlash[x[i]] || x[i];
+      }
+    }
+    document.getElementById('slashOutput').textContent = out;
+  }
+  document.getElementById('slashInput').addEventListener('input', slashTranslate);
+
+  // Slash mode — translate whole page
+  var slashMode = false;
+  var originalTexts = [];
+  var slashToggle = document.getElementById('slashPageToggle');
+
+  slashToggle.addEventListener('click', function() {
+    slashMode = !slashMode;
+    this.style.backgroundColor = slashMode ? 'var(--accent, #97c3a0)' : '';
+    this.style.color = slashMode ? 'var(--accent-text, #1a1a1a)' : '';
+    this.textContent = slashMode ? 'english mode' : 'slash mode';
+    document.body.classList.toggle('slash-mode-active', slashMode);
+
+    if (slashMode) {
+      originalTexts = [];
+      var walker = document.createTreeWalker(document.querySelector('.project-wrapper'), NodeFilter.SHOW_TEXT, {
+        acceptNode: function(node) {
+          var p = node.parentElement;
+          if (!p) return NodeFilter.FILTER_REJECT;
+          if (p.closest('script,style,input,.slash-output,.win-titlebar,#slashPageToggle')) return NodeFilter.FILTER_REJECT;
+          if (node.textContent.trim().length === 0) return NodeFilter.FILTER_REJECT;
+          return NodeFilter.FILTER_ACCEPT;
+        }
+      });
+      var nodes = [];
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+      nodes.forEach(function(n) {
+        originalTexts.push({ node: n, text: n.textContent });
+        var translated = '';
+        var lower = n.textContent.toLowerCase();
+        for (var i = 0; i < lower.length; i++) {
+          translated += toSlash[lower[i]] || lower[i];
+        }
+        n.textContent = translated;
+      });
+    } else {
+      originalTexts.forEach(function(o) { o.node.textContent = o.text; });
+      originalTexts = [];
+    }
+  });
+</script>
 <script data-goatcounter="https://salvasalva.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
-        </body>
-        </html>
+</body>
+</html>

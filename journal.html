@@ -88,7 +88,7 @@
       <div class="color-swatch" id="colorSwatch">
         <input type="color" id="accentPicker" class="color-input" value="#97c3a0">
       </div>
-      <label class="color-label" for="accentPicker">color picker</label>
+      <label class="color-label" for="accentPicker">color</label>
     </div>
 
     <div class="clock-widget" style="right:3%;bottom:8%;left:auto;top:auto;">
@@ -484,33 +484,6 @@
     document.addEventListener('touchend', function() { dr = false; });
     document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && on) off(); });
 
-    // Flipbook wiggle
-    // Flipbook ghost layer
-    var ghost = document.getElementById('paintGhost');
-    var gctx = ghost.getContext('2d');
-    var showGhost = false;
-    setInterval(function() {
-      if (!c.width || !c.height) return;
-      if (ghost.width !== c.width || ghost.height !== c.height) {
-        ghost.width = c.width; ghost.height = c.height;
-      }
-      gctx.clearRect(0, 0, ghost.width, ghost.height);
-      gctx.save();
-      var strips = 80;
-      var stripH = Math.ceil(ghost.height / strips);
-      var seed = Math.random() * 1000;
-      for (var i = 0; i < strips; i++) {
-        var y = i * stripH;
-        var sx = 1 + Math.sin(i * 7.3 + seed) * 0.002;
-        gctx.save();
-        gctx.setTransform(sx, 0, 0, 1, 0, 0);
-        gctx.drawImage(c, 0, y, c.width, stripH, 0, y, c.width, stripH);
-        gctx.restore();
-      }
-      gctx.restore();
-      c.style.opacity = '0';
-      ghost.style.opacity = '1';
-    }, 100);
   })();
 </script>
 <script data-goatcounter="https://salvasalva.goatcounter.com/count"
