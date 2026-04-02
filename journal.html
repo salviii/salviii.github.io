@@ -74,7 +74,6 @@
             <a href="slash.html">✍️ slash</a>
             <a href="journal.html">📝 journal</a>
             <a href="https://instagram.com/liquiidmetal" target="_blank">@liquiidmetal</a>
-            <span class="theme-toggle" onclick="document.body.classList.toggle('night'); localStorage.setItem('night', document.body.classList.contains('night'))">day / night</span>
           </div>
         </li>
         <li><a href="index.html">home</a></li>
@@ -185,6 +184,19 @@
 
     <script src="/scripts/shared.js"></script>
 <script>
+  // Scroll to entry from archive link
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var target = params.get('scrollTo');
+    if (target) {
+      var check = setInterval(function() {
+        var el = document.getElementById(target);
+        if (el) { clearInterval(check); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      }, 300);
+      setTimeout(function() { clearInterval(check); }, 10000);
+    }
+  })();
+
   // Fixed back-to-top after 200px scroll, draggable, arrow points at cursor
   var btt = document.querySelector('.journal-btt');
   window.addEventListener('scroll', function() {

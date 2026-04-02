@@ -159,7 +159,7 @@
             </div>
           </div>
           <div class="img-widget-body">
-            <img src="/assets/art-grid.PNG" alt="Metal" style="cursor:pointer" onclick="document.querySelector('#lightbox .lightbox-body img').src=this.src;document.getElementById('lightbox').classList.add('active')">
+            <img src="/assets/art/art-grid.PNG" alt="Metal" style="cursor:pointer" onclick="document.querySelector('#lightbox .lightbox-body img').src=this.src;document.getElementById('lightbox').classList.add('active')">
             <div class="img-widget-meta">
               <span>latest artwork...</span>
               <a href="art.html">view more</a>
@@ -236,7 +236,6 @@
             <a href="slash.html">✍️ slash</a>
             <a href="journal.html">📝 journal</a>
             <a href="https://instagram.com/liquiidmetal" target="_blank">@liquiidmetal</a>
-            <span class="theme-toggle" onclick="document.body.classList.toggle('night'); localStorage.setItem('night', document.body.classList.contains('night'))">day / night</span>
           </div>
         </li>
         <li class="active">home</li>
@@ -251,7 +250,7 @@
 
           <div class="mosaic-item">
             <a href="art.html">
-              <div class="mosaic-img"><img src="/assets/art-grid.PNG" alt="Art"></div>
+              <div class="mosaic-img"><img id="artCycleImg" src="/assets/art/art-grid.PNG" alt="Art"></div>
               <div class="mosaic-meta">
                 <span class="mosaic-type">Personal Work</span>
                 <span class="mosaic-title">Digital Art</span>
@@ -271,7 +270,7 @@
 
           <div class="mosaic-item">
             <a href="cgi.html">
-              <div class="mosaic-img"><img src="/assets/cgi/cgi-cover.png" alt="CGI Packaging"></div>
+              <div class="mosaic-img"><img id="cgiCycleImg" src="/assets/cgi/cgi-cover.png" alt="CGI Packaging"></div>
               <div class="mosaic-meta">
                 <span class="mosaic-type">CGI / Product Design</span>
                 <span class="mosaic-title">Packaging Design</span>
@@ -320,21 +319,69 @@
           </div>
 
           <div class="mosaic-item">
-            <a href="#">
+            <a href="animation.html">
               <div class="mosaic-img"><img src="/assets/animation-grid.gif" alt="Animation"></div>
               <div class="mosaic-meta">
-                <span class="mosaic-type">Motion</span>
-                <span class="mosaic-title">Animation</span>
+                <span class="mosaic-type">Animation / Direction</span>
+                <span class="mosaic-title">Music Video</span>
               </div>
             </a>
           </div>
 
-
-          <!-- blank slots (hidden by default, uncomment to use)
-          <div class="mosaic-blank">creative direction and visual identity</div>
-          -->
+          <div class="mosaic-item">
+            <a href="work.html">
+              <div class="mosaic-img"><img src="/assets/viewmore.png" alt="View More"></div>
+            </a>
+          </div>
 
         </div>
+        </div>
+
+        <div style="max-width:1100px;margin:0 auto;padding:2% 5% 5%;">
+          <div id="tvWidget" style="border:solid rgb(210,206,206) 4px;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.06);cursor:grab;">
+            <div class="win-titlebar">
+              <span class="win-title">liquiidmetal tv</span>
+              <div class="win-dots">
+                <span class="win-dot win-close">✕</span>
+                <span class="win-dot win-min">−</span>
+                <span class="win-dot win-max">□</span>
+              </div>
+            </div>
+            <iframe src="https://www.youtube.com/embed/ts0YmAyfRQ8?si=E91OGs3FTbV_QTmA" width="100%" style="aspect-ratio:16/9;display:block;border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+
+        <div style="max-width:1100px;margin:0 auto;padding:0 5% 5%;display:grid;grid-template-columns:3fr 5fr;gap:24px;" class="home-bottom-row">
+          <div class="archive-widget open" id="homeArchiveWidget" style="position:static;width:100%;cursor:default;">
+            <div class="win-titlebar">
+              <span class="win-title">salvi.world/writing</span>
+              <div class="win-dots">
+                <span class="win-dot win-close">✕</span>
+                <span class="win-dot win-min">−</span>
+                <span class="win-dot win-max">□</span>
+              </div>
+            </div>
+            <div class="archive-header">
+              <span class="archive-label">writing archive</span>
+              <span class="archive-count" id="homeArchiveCount"></span>
+            </div>
+            <div class="archive-body" id="homeArchiveBody" style="max-height:400px;overflow-y:auto;overflow-x:hidden;"></div>
+          </div>
+          <div id="contactWidget" style="border:solid rgb(210,206,206) 4px;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.06);background:white;min-width:500px;cursor:grab;">
+            <div class="win-titlebar">
+              <span class="win-title">salvi.world/contact</span>
+              <div class="win-dots">
+                <span class="win-dot win-close">✕</span>
+                <span class="win-dot win-min">−</span>
+                <span class="win-dot win-max">□</span>
+              </div>
+            </div>
+            <div style="padding:12px;font-size:90%;">
+              <p style="text-align:center;padding:4px 0;">get in touch</p>
+              <p style="text-align:center;padding:4px 0;"><a href="mailto:salvi.works@gmail.com">salvi.works@gmail.com</a></p>
+              <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeOBB_uYC3aZ7CLxqqPRGRWjv2VggBm2UzRewGmtmUp-wcNLg/viewform?embedded=true" width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0" style="border:none;display:block;">Loading…</iframe>
+            </div>
+          </div>
         </div>
 
     <a href="#" class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">&#x2191;</a>
@@ -432,6 +479,9 @@
   makeDraggable(document.querySelector('.color-widget'));
   makeDraggable(document.querySelector('.text-widget'));
   makeDraggable(document.querySelector('.img-widget'));
+  makeDraggable(document.getElementById('tvWidget'));
+  makeDraggable(document.getElementById('homeArchiveWidget'));
+  makeDraggable(document.getElementById('contactWidget'));
   // Hide widgets when scrolled to project grid
   var widgets = document.querySelectorAll('.music-widget, .gallery-widget, .color-widget, .clock-widget, .img-widget, .text-widget, .lightbox, .floating-art-left');
   var mosaicEl = document.querySelector('.mosaic');
@@ -447,6 +497,96 @@
     });
   });
 
+  // Hover-to-cycle grid covers at 2fps
+  (function() {
+    var cycles = {
+      artCycleImg: [
+        '/assets/art/00POSTluci.jpg','/assets/art/free the ruler.png','/assets/art/eternal whispers.png',
+        '/assets/art/king of hearts.png','/assets/art/we who wrestle (FINAL).PNG','/assets/art/art-grid.PNG',
+        '/assets/art/imgi_25_IMG_0315-1.png','/assets/art/imgi_11_ver2.png','/assets/art/imgi_8_paradise-lost-large.png',
+        '/assets/art/imgi_13_POSTER8k.jpg','/assets/art/imgi_18_RIBCAGE-final.png','/assets/art/imgi_16_apoetnamedrevolver.png',
+        '/assets/art/imgi_7_judas-sky-final-Edit.png','/assets/art/imgi_15_mirrorv4-Edit.png',
+        '/assets/art/imgi_24_earthling-forpaint-Edit.png','/assets/art/imgi_12_handofgod-FINAL.png',
+        '/assets/art/imgi_10_flesh2-Edit.png'
+      ],
+      cgiCycleImg: [
+        '/assets/cgi/cgi-cover.png','/assets/cgi/cg-landscape-cover.png','/assets/cgi/cgi-disc.png',
+        '/assets/cgi/CGI-3D-Scanning-Deck.png','/assets/cgi/2.png','/assets/cgi/3.png',
+        '/assets/cgi/4.png','/assets/cgi/5.png','/assets/cgi/6.png','/assets/cgi/7.png',
+        '/assets/cgi/8.png','/assets/cgi/9.png'
+      ],
+      fotoCycleImg: [
+        '/foto work/IMG_0209.JPG','/foto work/IMG_0255.JPG','/foto work/IMG_2196.PNG',
+        '/foto work/IMG_0207.JPG','/foto work/IMG_0220.JPG','/foto work/IMG_0230.JPG',
+        '/foto work/IMG_0250.jpg','/foto work/IMG_4198.jpg','/foto work/IMG_9633_SnapseedCopy.jpg'
+      ]
+    };
+    for (var id in cycles) {
+      (function(imgId, imgs) {
+        var el = document.getElementById(imgId);
+        if (!el) return;
+        var orig = el.src;
+        var idx = 0, timer = null;
+        var item = el.closest('.mosaic-item');
+        if (!item) return;
+        item.addEventListener('mouseenter', function() {
+          idx = 0;
+          timer = setInterval(function() {
+            idx = (idx + 1) % imgs.length;
+            el.src = imgs[idx];
+          }, 500);
+        });
+        item.addEventListener('mouseleave', function() {
+          clearInterval(timer);
+          el.src = orig;
+        });
+      })(id, cycles[id]);
+    }
+  })();
+
+  // Journal archive on home page — same structure as journal page
+  fetch('journal.json').then(function(r){return r.json();}).then(function(data) {
+    var archiveBody = document.getElementById('homeArchiveBody');
+    if (!archiveBody || !data.entries) return;
+    document.getElementById('homeArchiveCount').textContent = '(' + data.entries.length + '+)';
+    var monthGroups = {};
+    data.entries.forEach(function(entry, i) {
+      var d = new Date(entry.date);
+      var key = d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0');
+      if (!monthGroups[key]) monthGroups[key] = { year: d.getFullYear(), monthNum: String(d.getMonth()+1).padStart(2,'0'), days: {} };
+      var day = d.getDate();
+      if (!monthGroups[key].days[day]) monthGroups[key].days[day] = [];
+      monthGroups[key].days[day].push(i);
+    });
+    Object.keys(monthGroups).sort().reverse().forEach(function(monthKey) {
+      var group = monthGroups[monthKey];
+      var totalPosts = Object.values(group.days).reduce(function(s,a){return s+a.length;},0);
+      var monthDiv = document.createElement('div');
+      monthDiv.className = 'archive-month open';
+      var header = document.createElement('div');
+      header.className = 'archive-month-header';
+      header.innerHTML = '<span class="archive-month-toggle">−</span><span>' + group.monthNum + '/' + group.year + '</span><span class="archive-month-count">' + totalPosts + '</span>';
+      header.onclick = function() {
+        monthDiv.classList.toggle('open');
+        header.querySelector('.archive-month-toggle').textContent = monthDiv.classList.contains('open') ? '−' : '+';
+      };
+      var daysDiv = document.createElement('div');
+      daysDiv.className = 'archive-days';
+      Object.keys(group.days).map(Number).sort(function(a,b){return b-a;}).forEach(function(day) {
+        var indices = group.days[day];
+        var entry = data.entries[indices[0]];
+        var preview = entry.body.split('\n')[0].substring(0, 50);
+        var dayEl = document.createElement('div');
+        dayEl.className = 'archive-day';
+        dayEl.innerHTML = group.monthNum + '/' + String(day).padStart(2,'0') + ' <span style="font-weight:400;color:#999;font-size:10px;">' + preview + '...</span>';
+        dayEl.onclick = function() { window.location.href = 'journal.html?scrollTo=post-' + indices[0]; };
+        daysDiv.appendChild(dayEl);
+      });
+      monthDiv.appendChild(header);
+      monthDiv.appendChild(daysDiv);
+      archiveBody.appendChild(monthDiv);
+    });
+  }).catch(function(){});
 </script>
 <script data-goatcounter="https://salvasalva.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>

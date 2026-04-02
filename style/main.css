@@ -1443,6 +1443,33 @@ body.night .mosaic-blank {
   display: block;
 }
 
+.mosaic-viewmore {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 3;
+  border: 3px solid rgb(210,206,206);
+  border-radius: 8px;
+  text-decoration: none;
+  color: #888;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: border-color 0.3s, color 0.3s;
+}
+
+@media only screen and (max-width: 800px) {
+  .home-bottom-row { grid-template-columns: 1fr !important; }
+}
+
+.mosaic-viewmore:hover {
+  border-color: var(--accent, #97c3a0);
+  color: var(--dark);
+  background: transparent;
+  text-decoration: none;
+  filter: none;
+}
+
 .mosaic-item:hover .mosaic-img {
   border-color: var(--accent, #97c3a0);
 }

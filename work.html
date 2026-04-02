@@ -45,7 +45,6 @@
             <a href="slash.html">✍️ slash</a>
             <a href="journal.html">📝 journal</a>
             <a href="https://instagram.com/liquiidmetal" target="_blank">@liquiidmetal</a>
-            <span class="theme-toggle" onclick="document.body.classList.toggle('night'); localStorage.setItem('night', document.body.classList.contains('night'))">day / night</span>
           </div>
         </li>
         <li><a href="index.html">home</a></li>
@@ -81,7 +80,7 @@
 
         <div class="mosaic-item" data-category="digital-art">
           <a href="art.html">
-            <div class="mosaic-img"><img src="/assets/art-grid.PNG" alt="Art"></div>
+            <div class="mosaic-img"><img id="artCycleImg" src="/assets/art/art-grid.PNG" alt="Art"></div>
             <div class="mosaic-meta">
               <span class="mosaic-type">Personal Work</span>
               <span class="mosaic-title">Digital Art</span>
@@ -101,7 +100,7 @@
 
         <div class="mosaic-item" data-category="product-design">
           <a href="cgi.html">
-            <div class="mosaic-img"><img src="/assets/cgi/cgi-cover.png" alt="CGI Packaging"></div>
+            <div class="mosaic-img"><img id="cgiCycleImg" src="/assets/cgi/cgi-cover.png" alt="CGI Packaging"></div>
             <div class="mosaic-meta">
               <span class="mosaic-type">CGI / Product Design</span>
               <span class="mosaic-title">Packaging Design</span>
@@ -150,11 +149,11 @@
         </div>
 
         <div class="mosaic-item" data-category="motion">
-          <a href="#">
+          <a href="animation.html">
             <div class="mosaic-img"><img src="/assets/animation-grid.gif" alt="Animation"></div>
             <div class="mosaic-meta">
-              <span class="mosaic-type">Motion</span>
-              <span class="mosaic-title">Animation</span>
+              <span class="mosaic-type">Animation / Direction</span>
+              <span class="mosaic-title">Music Video</span>
             </div>
           </a>
         </div>
@@ -214,6 +213,47 @@
       }
     });
   });
+  // Hover-to-cycle grid covers at 2fps
+  (function() {
+    var cycles = {
+      artCycleImg: [
+        '/assets/art/00POSTluci.jpg','/assets/art/free the ruler.png','/assets/art/eternal whispers.png',
+        '/assets/art/king of hearts.png','/assets/art/we who wrestle (FINAL).PNG','/assets/art/art-grid.PNG',
+        '/assets/art/imgi_25_IMG_0315-1.png','/assets/art/imgi_11_ver2.png','/assets/art/imgi_8_paradise-lost-large.png',
+        '/assets/art/imgi_13_POSTER8k.jpg','/assets/art/imgi_18_RIBCAGE-final.png','/assets/art/imgi_16_apoetnamedrevolver.png',
+        '/assets/art/imgi_7_judas-sky-final-Edit.png','/assets/art/imgi_15_mirrorv4-Edit.png',
+        '/assets/art/imgi_24_earthling-forpaint-Edit.png','/assets/art/imgi_12_handofgod-FINAL.png',
+        '/assets/art/imgi_10_flesh2-Edit.png'
+      ],
+      cgiCycleImg: [
+        '/assets/cgi/cgi-cover.png','/assets/cgi/cg-landscape-cover.png','/assets/cgi/cgi-disc.png',
+        '/assets/cgi/CGI-3D-Scanning-Deck.png','/assets/cgi/2.png','/assets/cgi/3.png',
+        '/assets/cgi/4.png','/assets/cgi/5.png','/assets/cgi/6.png','/assets/cgi/7.png',
+        '/assets/cgi/8.png','/assets/cgi/9.png'
+      ]
+    };
+    for (var id in cycles) {
+      (function(imgId, imgs) {
+        var el = document.getElementById(imgId);
+        if (!el) return;
+        var orig = el.src;
+        var idx = 0, timer = null;
+        var item = el.closest('.mosaic-item');
+        if (!item) return;
+        item.addEventListener('mouseenter', function() {
+          idx = 0;
+          timer = setInterval(function() {
+            idx = (idx + 1) % imgs.length;
+            el.src = imgs[idx];
+          }, 500);
+        });
+        item.addEventListener('mouseleave', function() {
+          clearInterval(timer);
+          el.src = orig;
+        });
+      })(id, cycles[id]);
+    }
+  })();
 </script>
 <script data-goatcounter="https://salvasalva.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
