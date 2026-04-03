@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CGI Packaging Design — salvi.world</title>
+    <meta name="description" content="CGI and 3D packaging design by Salva — product visualization, renders, and motion graphics.">
+    <link rel="canonical" href="https://salvi.world/cgi.html">
+    <link rel="icon" href="/assets/salva logo.png" type="image/png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://salvi.world/cgi.html">
+    <meta property="og:title" content="CGI Packaging Design — salvi.world">
+    <meta property="og:description" content="CGI and 3D packaging design by Salva — product visualization, renders, and motion graphics.">
+    <meta property="og:image" content="https://salvi.world/assets/cgi/cgi-cover.png">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="/style/main.css">
     <script type="module" src="/scripts/model-viewer.min.js"></script>
     <style>
@@ -32,9 +41,7 @@
         border-radius: 12px;
         overflow: hidden;
         box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-        cursor: grab;
       }
-      .model-wrap:active { cursor: grabbing; }
       .model-wrap model-viewer {
         width: 100%;
         height: 100%;
@@ -224,7 +231,7 @@
       <div class="win-titlebar">
         <span class="win-title">salvi.world/cgi</span>
         <div class="win-dots">
-          <span class="win-dot win-close" onclick="document.getElementById('cgiLightbox').classList.remove('active')">✕</span>
+          <span class="win-dot win-close" onclick="var lb=document.getElementById('cgiLightbox');lb.style.display='';lb.classList.remove('active');event.stopPropagation();">✕</span>
           <span class="win-dot win-min">−</span>
           <span class="win-dot win-max">□</span>
         </div>
@@ -254,8 +261,6 @@
 
     <script src="/scripts/shared.js"></script>
 <script>
-  makeDraggable(document.getElementById('cgiModel'));
-
   // Image lightbox
   var cgiImgs = Array.from(document.querySelectorAll('.cgi-mini-grid img'));
   var cgiIdx = 0;
@@ -264,6 +269,7 @@
     img.addEventListener('click', function() {
       cgiIdx = i;
       var lb = document.getElementById('cgiLightbox');
+      lb.style.display = '';
       lb.querySelector('.lightbox-body img').src = img.src;
       lb.classList.add('active');
     });
@@ -279,7 +285,7 @@
     if (!lb.classList.contains('active')) return;
     if (e.key === 'ArrowLeft') cgiLbNav(-1);
     if (e.key === 'ArrowRight') cgiLbNav(1);
-    if (e.key === 'Escape') lb.classList.remove('active');
+    if (e.key === 'Escape') { lb.style.display = ''; lb.classList.remove('active'); }
   });
 </script>
 <script data-goatcounter="https://salvasalva.goatcounter.com/count"
