@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Music Videos — salvi.world</title>
+    <link rel="stylesheet" href="/style/main.css">
+    <style>
+      .project-wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 8% 5% 6%;
+      }
+      .project-header {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px 48px;
+        align-items: start;
+        margin-bottom: 48px;
+      }
+      .project-header-left h1 {
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        margin: 0 0 6px;
+      }
+      .project-header-left p {
+        font-size: 90%;
+        color: #666;
+        margin: 0;
+      }
+      .project-header-right {
+        font-size: 85%;
+        color: #666;
+        line-height: 1.65;
+        padding-top: 4px;
+      }
+      body.night .project-header-left p,
+      body.night .project-header-right { color: #999; }
+      @media only screen and (max-width: 700px) {
+        .project-header { grid-template-columns: 1fr; gap: 12px; }
+      }
+
+      /* Video grid */
+      .video-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px 24px;
+      }
+
+      .vg-card {
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Click-to-play embed wrapper */
+      .vg-embed {
+        position: relative;
+        aspect-ratio: 16 / 9;
+        background: #111;
+        border-radius: 10px;
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      .vg-embed img.vg-thumb {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s ease, filter 0.3s;
+      }
+      .vg-card:hover .vg-embed img.vg-thumb {
+        transform: scale(1.03);
+        filter: saturate(1.6);
+      }
+
+
+      .vg-embed iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+      }
+
+      /* Local video */
+      .vg-embed video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* Placeholder for local / no-thumbnail videos */
+      .vg-placeholder {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+        color: #666;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        text-align: center;
+        padding: 12px;
+        box-sizing: border-box;
+        letter-spacing: 0.04em;
+        text-transform: lowercase;
+        pointer-events: none;
+      }
+
+      /* Card info */
+      .vg-info {
+        padding: 8px 0 0;
+        text-align: left;
+      }
+      .vg-title {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        color: var(--dark);
+        margin-bottom: 3px;
+        line-height: 1.3;
+      }
+      .vg-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+        text-align: left;
+      }
+      .vg-role {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        color: #888;
+        text-transform: lowercase;
+        letter-spacing: 0.03em;
+        flex: 1;
+      }
+      .vg-year {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        color: #aaa;
+        letter-spacing: 0.04em;
+        white-space: nowrap;
+      }
+      .vg-ytlink {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        color: #888;
+        text-decoration: none;
+        letter-spacing: 0.03em;
+        transition: color 0.2s;
+        white-space: nowrap;
+      }
+      .vg-ytlink:hover {
+        color: var(--accent, #97c3a0);
+      }
+
+      /* AI disclaimer badge */
+      .vg-ai-note {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 9px;
+        color: #7a6a2a;
+        background: #fefce8;
+        border: 1px solid #f0d96a;
+        border-radius: 6px;
+        padding: 5px 8px;
+        margin-top: 6px;
+        letter-spacing: 0.02em;
+        line-height: 1.5;
+      }
+      body.night .vg-ai-note {
+        background: #2a2410;
+        border-color: #5a4e10;
+        color: #c9a830;
+      }
+
+      /* Modal — window widget style */
+      .vid-modal-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 9000;
+        background: rgba(0,0,0,0.78);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+      }
+      .vid-modal-overlay.open {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .vid-modal-box {
+        width: min(860px, 92vw);
+        background: var(--bg, #fff);
+        border: 1.5px solid rgba(0,0,0,0.12);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+      }
+      /* Reuse existing win-titlebar classes */
+      .vid-modal-box .win-titlebar {
+        cursor: default;
+      }
+      .vid-modal-inner {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background: #000;
+      }
+      .vid-modal-inner iframe,
+      .vid-modal-inner video {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+      }
+      .vid-modal-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        margin: 0 14px;
+        border-top: 1px solid rgba(0,0,0,0.07);
+        text-align: left;
+      }
+      .vid-modal-title {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--dark);
+        letter-spacing: 0.02em;
+        text-align: left;
+      }
+      .vid-modal-role {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        color: #888;
+        text-transform: lowercase;
+        margin-top: 2px;
+        text-align: left;
+      }
+      .vid-modal-ytlink {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        color: #888;
+        text-decoration: none;
+        letter-spacing: 0.03em;
+        transition: color 0.2s;
+        white-space: nowrap;
+      }
+      .vid-modal-ytlink:hover { color: var(--accent, #97c3a0); }
+      body.night .vid-modal-box {
+        background: #1e1e1e;
+        border-color: #444;
+      }
+      body.night .vid-modal-footer {
+        border-top-color: #333;
+      }
+      body.night .vid-modal-title { color: #e0e0e0; }
+
+      body.night .project-header p { color: #999; }
+      body.night .vg-title { color: #e0e0e0; }
+      body.night .vg-embed { background: #0a0a0a; }
+      body.night .vg-placeholder { color: #444; }
+
+      @media only screen and (max-width: 900px) {
+        .video-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 16px; }
+      }
+      @media only screen and (max-width: 600px) {
+        .video-grid { grid-template-columns: 1fr; gap: 28px; }
+        .project-wrapper { padding: 20% 5% 8%; }
+      }
+    </style>
+</head>
+<body>
+
+    <div class="search-widget">
+      <span class="search-icon">&#x1F50D;</span>
+      <input type="text" placeholder="search site..." id="siteSearch" autocomplete="off">
+      <div class="search-results" id="searchResults">
+        <a href="index.html">home</a>
+        <a href="work.html">work</a>
+        <a href="art.html">art</a>
+        <a href="info.html">info</a>
+        <a href="contact.html">contact</a>
+        <a href="journal.html">journal</a>
+        <a href="slash.html">slash</a>
+      </div>
+    </div>
+    <div class="mobile-sun-logo"></div>
+    <div class="accent-strip">
+      <div class="accent-marquee"><span>episode — my blonde hair — la boca del lobo — cut away — perceived identity — genome shotgun sequencing — the smarter the mind the better the traps — a door ajar — twisted and slipped into a 5th dimension — scattered — fell asleep there — in between words — reductio ad absurdum — episode — my blonde hair — la boca del lobo — cut away — perceived identity — genome shotgun sequencing — the smarter the mind the better the traps — a door ajar — twisted and slipped into a 5th dimension — scattered — fell asleep there — in between words — reductio ad absurdum — </span></div>
+    </div>
+
+    <div class="nav-fade"></div>
+    <div class="navBar-new">
+      <ul class="nav-main">
+        <li><a href="index.html"><img class="nav-logo" src="/assets/salva logo.png" alt="salva"></a></li>
+        <li class="nav-menu-trigger"><span class="highlight" onclick="this.closest('.navBar-new').classList.toggle('open')">menu <small>(5)</small> ☰</span>
+          <div class="nav-dropdown">
+            <a href="index.html" class="nav-drop-page">🏠 home</a>
+            <a href="work.html" class="nav-drop-page">💼 work</a>
+            <a href="info.html" class="nav-drop-page">ℹ️ info</a>
+            <a href="art.html">🎨 art</a>
+            <a href="slash.html">✍️ slash</a>
+            <a href="journal.html">📝 journal</a>
+            <a href="https://instagram.com/liquiidmetal" target="_blank">@liquiidmetal</a>
+          </div>
+        </li>
+        <li><a href="index.html">home</a></li>
+        <li><a href="work.html">work</a></li>
+        <li><a href="info.html">info</a></li>
+        <li><a href="contact.html" class="nav-contact">contact</a></li>
+      </ul>
+    </div>
+
+    <div class="project-wrapper">
+      <div class="project-header">
+        <div class="project-header-left">
+          <h1>Music Videos</h1>
+          <p>Direction &amp; Animation</p>
+        </div>
+        <div class="project-header-right">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </div>
+      </div>
+
+      <div class="video-grid">
+
+        <!-- Imagine Dragons / J Balvin — Eyes Closed -->
+        <div class="vg-card" id="imagine-dragons-jbalvin">
+          <div class="vg-embed" data-ytid="2DGrMQzWTes">
+            <img class="vg-thumb" src="https://img.youtube.com/vi/2DGrMQzWTes/maxresdefault.jpg" alt="Imagine Dragons / J Balvin — Eyes Closed">
+          </div>
+          <div class="vg-info">
+            <div class="vg-title">Imagine Dragons / J Balvin — Eyes Closed</div>
+            <div class="vg-meta">
+              <span class="vg-role">lyric video / animation</span>
+              <span class="vg-year">2023</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Em Beihold -->
+        <div class="vg-card" id="em-beihold">
+          <div class="vg-embed" data-ytid="JFIC0s3lcUg">
+            <img class="vg-thumb" src="https://img.youtube.com/vi/JFIC0s3lcUg/maxresdefault.jpg" alt="Em Beihold">
+          </div>
+          <div class="vg-info">
+            <div class="vg-title">Em Beihold</div>
+            <div class="vg-meta">
+              <span class="vg-role">lyric video / animation</span>
+              <span class="vg-year">2023</span>
+              <a href="https://www.youtube.com/watch?v=JFIC0s3lcUg" target="_blank" class="vg-ytlink">↗ youtube</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kings of Leon — Split Screen -->
+        <div class="vg-card" id="kings-of-leon">
+          <div class="vg-embed" data-ytid="dub4vob1qrE">
+            <img class="vg-thumb" src="https://img.youtube.com/vi/dub4vob1qrE/maxresdefault.jpg" alt="Kings of Leon — Split Screen">
+          </div>
+          <div class="vg-info">
+            <div class="vg-title">Kings of Leon — Split Screen</div>
+            <div class="vg-meta">
+              <span class="vg-role">lyric video / animation</span>
+              <span class="vg-year">2023</span>
+              <a href="https://www.youtube.com/watch?v=dub4vob1qrE" target="_blank" class="vg-ytlink">↗ youtube</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- J Balvin — Europe Tour Recap -->
+        <div class="vg-card" id="jbalvin-recap">
+          <div class="vg-embed" data-ytid="EWud5YxjV1c">
+            <img class="vg-thumb" src="https://img.youtube.com/vi/EWud5YxjV1c/maxresdefault.jpg" alt="J Balvin — Europe Tour Recap">
+          </div>
+          <div class="vg-info">
+            <div class="vg-title">J Balvin — Europe Tour Recap</div>
+            <div class="vg-meta">
+              <span class="vg-role">direction / editing</span>
+              <span class="vg-year">2023</span>
+              <a href="https://youtu.be/EWud5YxjV1c" target="_blank" class="vg-ytlink">↗ youtube</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Brenn! — Rearview -->
+        <div class="vg-card" id="breen-rearview">
+          <div class="vg-embed" data-ytid="DXIydv0Wt5o">
+            <img class="vg-thumb" src="https://img.youtube.com/vi/DXIydv0Wt5o/maxresdefault.jpg" alt="Brenn! — Rearview">
+          </div>
+          <div class="vg-info">
+            <div class="vg-title">Brenn! — Rearview</div>
+            <div class="vg-meta">
+              <span class="vg-role">lyric video / animation</span>
+              <span class="vg-year">2022</span>
+              <a href="https://www.youtube.com/watch?v=DXIydv0Wt5o" target="_blank" class="vg-ytlink">↗ youtube</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Prentiss — Sky Is Falling -->
+        <div class="vg-card" id="prentiss-sky-is-falling">
+          <div class="vg-embed" data-ytid="Ld4U9gnUugc">
+            <img class="vg-thumb" src="https://img.youtube.com/vi/Ld4U9gnUugc/maxresdefault.jpg" alt="Prentiss — Sky Is Falling">
+          </div>
+          <div class="vg-info">
+            <div class="vg-title">Prentiss — Sky Is Falling</div>
+            <div class="vg-meta">
+              <span class="vg-role">visualizer / animation</span>
+              <span class="vg-year">2023</span>
+              <a href="https://www.youtube.com/watch?v=Ld4U9gnUugc" target="_blank" class="vg-ytlink">↗ youtube</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- DACEY — My Baby -->
+        <div class="vg-card" id="dacey-my-baby">
+          <div class="vg-embed" data-ytid="v5eA4LOa0Z4">
+            <img class="vg-thumb" src="https://img.youtube.com/vi/v5eA4LOa0Z4/maxresdefault.jpg" alt="DACEY — My Baby">
+          </div>
+          <div class="vg-info">
+            <div class="vg-title">DACEY — My Baby</div>
+            <div class="vg-meta">
+              <span class="vg-role">music video / direction</span>
+              <span class="vg-year">2023</span>
+              <a href="https://youtu.be/v5eA4LOa0Z4" target="_blank" class="vg-ytlink">↗ youtube</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Allen Haley — Rearview -->
+        <div class="vg-card" id="allen-haley-rearview">
+          <div class="vg-embed" data-ytid="IBvaVFWyI_g">
+            <img class="vg-thumb" src="https://img.youtube.com/vi/IBvaVFWyI_g/maxresdefault.jpg" alt="Allen Haley — Rearview">
+          </div>
+          <div class="vg-info">
+            <div class="vg-title">Allen Haley — Rearview</div>
+            <div class="vg-meta">
+              <span class="vg-role">lyric video / animation</span>
+              <span class="vg-year">2023</span>
+              <a href="https://www.youtube.com/watch?v=IBvaVFWyI_g" target="_blank" class="vg-ytlink">↗ youtube</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- HOKO — Hazy (AI) -->
+        <div class="vg-card" id="hoko-hazy">
+          <div class="vg-embed" data-ytid="c4X7AgUZap8">
+            <img class="vg-thumb" src="https://img.youtube.com/vi/c4X7AgUZap8/maxresdefault.jpg" alt="HOKO — Hazy">
+          </div>
+          <div class="vg-info">
+            <div class="vg-title">HOKO — Hazy</div>
+            <div class="vg-meta">
+              <span class="vg-role">visualizer / ai direction</span>
+              <span class="vg-year">2023</span>
+              <a href="https://youtu.be/c4X7AgUZap8" target="_blank" class="vg-ytlink">↗ youtube</a>
+            </div>
+            <div class="vg-ai-note">⚠️ Made in 2023 using AI-generated imagery — an experimental project from early in the generative AI era, before the tooling had fully matured.</div>
+          </div>
+        </div>
+
+        <!-- Norah Jones — Staring at the Wall -->
+        <div class="vg-card" id="norah-jones">
+          <div class="vg-embed" data-ytid="LTptGqn53VE">
+            <img class="vg-thumb" src="https://img.youtube.com/vi/LTptGqn53VE/maxresdefault.jpg" alt="Norah Jones — Staring at the Wall">
+          </div>
+          <div class="vg-info">
+            <div class="vg-title">Norah Jones — Staring at the Wall</div>
+            <div class="vg-meta">
+              <span class="vg-role">lyric video / animation</span>
+              <span class="vg-year">2024</span>
+              <a href="https://youtu.be/LTptGqn53VE" target="_blank" class="vg-ytlink">↗ youtube</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Shotgun Willy — Winnebago -->
+        <div class="vg-card" id="shotgun-willy">
+          <div class="vg-embed" data-ytid="UDHNJnAJXw8">
+            <img class="vg-thumb" src="https://img.youtube.com/vi/UDHNJnAJXw8/maxresdefault.jpg" alt="Shotgun Willy — Winnebago">
+          </div>
+          <div class="vg-info">
+            <div class="vg-title">Shotgun Willy — Winnebago</div>
+            <div class="vg-meta">
+              <span class="vg-role">lyric video / animation</span>
+              <span class="vg-year">2022</span>
+              <a href="https://youtu.be/UDHNJnAJXw8" target="_blank" class="vg-ytlink">↗ youtube</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frex — Hoodie Back -->
+        <div class="vg-card" id="frex-hoodie-back">
+          <div class="vg-embed" data-ytid="iSCrHkdkJxg">
+            <img class="vg-thumb" src="https://img.youtube.com/vi/iSCrHkdkJxg/maxresdefault.jpg" alt="Frex — Hoodie Back">
+          </div>
+          <div class="vg-info">
+            <div class="vg-title">Frex — Hoodie Back</div>
+            <div class="vg-meta">
+              <span class="vg-role">lyric video / animation</span>
+              <span class="vg-year">2022</span>
+              <a href="https://www.youtube.com/watch?v=iSCrHkdkJxg" target="_blank" class="vg-ytlink">↗ youtube</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 41 — Fetty -->
+        <div class="vg-card" id="41-fetty">
+          <div class="vg-embed" data-ytid="tDEtbBaBxnE">
+            <img class="vg-thumb" src="https://img.youtube.com/vi/tDEtbBaBxnE/maxresdefault.jpg" alt="41 — Fetty">
+          </div>
+          <div class="vg-info">
+            <div class="vg-title">41 — Fetty</div>
+            <div class="vg-meta">
+              <span class="vg-role">visualizer / animation</span>
+              <span class="vg-year">2023</span>
+              <a href="https://www.youtube.com/watch?v=tDEtbBaBxnE" target="_blank" class="vg-ytlink">↗ youtube</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 41 — Split -->
+        <div class="vg-card" id="41-split">
+          <div class="vg-embed" data-ytid="7RcWoKe6lNY">
+            <img class="vg-thumb" src="https://img.youtube.com/vi/7RcWoKe6lNY/maxresdefault.jpg" alt="41 — Split">
+          </div>
+          <div class="vg-info">
+            <div class="vg-title">41 — Split</div>
+            <div class="vg-meta">
+              <span class="vg-role">visualizer / animation</span>
+              <span class="vg-year">2023</span>
+              <a href="https://www.youtube.com/watch?v=7RcWoKe6lNY" target="_blank" class="vg-ytlink">↗ youtube</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Renee Rapp — Tattoos -->
+        <div class="vg-card" id="renee-rapp-tattoos">
+          <div class="vg-embed" data-ytid="QVPZ_WwD3Pg">
+            <img class="vg-thumb" src="https://img.youtube.com/vi/QVPZ_WwD3Pg/maxresdefault.jpg" alt="Renee Rapp — Tattoos">
+          </div>
+          <div class="vg-info">
+            <div class="vg-title">Renee Rapp — Tattoos</div>
+            <div class="vg-meta">
+              <span class="vg-role">lyric video / animation</span>
+              <span class="vg-year">2023</span>
+              <a href="https://www.youtube.com/watch?v=QVPZ_WwD3Pg" target="_blank" class="vg-ytlink">↗ youtube</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div class="vid-modal-overlay" id="vidModal">
+      <div class="vid-modal-box">
+        <div class="win-titlebar">
+          <div class="win-dots">
+            <span class="win-dot win-close" id="vidModalClose">✕</span>
+            <span class="win-dot win-min">−</span>
+            <span class="win-dot win-max">□</span>
+          </div>
+          <span class="win-title" id="vidModalWinTitle">salvi.world/video</span>
+        </div>
+        <div class="vid-modal-inner" id="vidModalInner"></div>
+        <div class="vid-modal-footer">
+          <div>
+            <div class="vid-modal-title" id="vidModalTitle"></div>
+            <div class="vid-modal-role" id="vidModalRole"></div>
+          </div>
+          <a href="#" target="_blank" class="vid-modal-ytlink" id="vidModalYTLink" style="display:none;">View on YouTube ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <a href="#" class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">&#x2191;</a>
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">salva / liquiidmetal</div>
+        <nav class="footer-links">
+          <a href="index.html">home</a>
+          <a href="work.html">work</a>
+          <a href="art.html">art</a>
+          <a href="contact.html">contact</a>
+          <a href="info.html">info</a>
+          <a href="https://instagram.com/liquiidmetal" target="_blank">@liquiidmetal</a>
+        </nav>
+        <div class="footer-copy">&copy; 2026 salva. all rights reserved.</div>
+      </div>
+    </footer>
+
+    <script src="/scripts/shared.js"></script>
+    <script>
+      var modal = document.getElementById('vidModal');
+      var modalInner = document.getElementById('vidModalInner');
+      var modalTitle = document.getElementById('vidModalTitle');
+      var modalRole = document.getElementById('vidModalRole');
+      var modalYTLink = document.getElementById('vidModalYTLink');
+
+      function openModal(ytid, localSrc, title, role, ytUrl) {
+        modalInner.innerHTML = '';
+        if (localSrc) {
+          var vid = document.createElement('video');
+          vid.controls = true;
+          vid.autoplay = true;
+          vid.style.width = '100%';
+          vid.style.height = '100%';
+          var src = document.createElement('source');
+          src.src = localSrc;
+          vid.appendChild(src);
+          modalInner.appendChild(vid);
+        } else if (ytid) {
+          var iframe = document.createElement('iframe');
+          iframe.src = 'https://www.youtube-nocookie.com/embed/' + ytid + '?autoplay=1';
+          iframe.allow = 'autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+          iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+          iframe.allowFullscreen = true;
+          modalInner.appendChild(iframe);
+        }
+        modalTitle.textContent = title;
+        modalRole.textContent = role;
+        if (ytUrl) {
+          modalYTLink.href = ytUrl;
+          modalYTLink.style.display = '';
+        } else {
+          modalYTLink.style.display = 'none';
+        }
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.classList.remove('open');
+        modal.style.display = 'none';
+        modalInner.innerHTML = '';
+        document.body.style.overflow = '';
+      }
+
+      function reopenIfNeeded() {
+        modal.style.display = '';
+      }
+
+      document.getElementById('vidModalClose').addEventListener('click', function(e) {
+        e.stopPropagation();
+        closeModal();
+      });
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) closeModal();
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeModal();
+      });
+
+      // Wire up all cards — read data at click time so nothing is stale
+      document.querySelectorAll('.vg-card').forEach(function(card) {
+        var embed = card.querySelector('.vg-embed');
+        var ytid = embed.dataset.ytid || null;
+        var localSrc = embed.dataset.local || null;
+        // skip pure placeholder cards
+        if (!ytid && !localSrc) return;
+
+        embed.style.cursor = 'pointer';
+        embed.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          var title = card.querySelector('.vg-title').textContent;
+          var role = card.querySelector('.vg-role').textContent;
+          var ytLinkEl = card.querySelector('.vg-ytlink');
+          var ytUrl = ytLinkEl ? ytLinkEl.href : null;
+          modal.style.display = ''; // ensure no leftover inline none
+          openModal(ytid, localSrc, title, role, ytUrl);
+        });
+      });
+
+      // Fallback: maxresdefault → mqdefault for thumbnails that 404
+      document.querySelectorAll('.vg-thumb').forEach(function(img) {
+        img.addEventListener('error', function() {
+          if (img.src.indexOf('maxresdefault') !== -1) {
+            img.src = img.src.replace('maxresdefault', 'mqdefault');
+          }
+        });
+      });
+
+      // Scroll to anchor on load (from work.html links)
+      if (window.location.hash) {
+        var target = document.querySelector(window.location.hash);
+        if (target) {
+          setTimeout(function() {
+            target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }, 300);
+        }
+      }
+    </script>
+    <script data-goatcounter="https://salvasalva.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
