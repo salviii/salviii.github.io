@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flighthouse — salvi.world</title>
+    <meta name="description" content="Flighthouse — branding and visual identity work by Salva for the music marketing company.">
+    <link rel="canonical" href="https://salvi.world/flighthouse.html">
+    <link rel="icon" href="/assets/salva logo.png" type="image/png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://salvi.world/flighthouse.html">
+    <meta property="og:title" content="Flighthouse — salvi.world">
+    <meta property="og:description" content="Flighthouse — branding and visual identity work by Salva for the music marketing company.">
+    <meta property="og:image" content="https://salvi.world/assets/flighthouse/fh-branding1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="/style/main.css">
+    <style>
+      .project-wrapper {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 8% 5% 4%;
+      }
+      .project-header {
+        text-align: center;
+        margin-bottom: 32px;
+      }
+      .project-header h1 {
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+      .project-header p {
+        font-size: 90%;
+        color: #666;
+        text-align: center;
+      }
+      .project-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        align-items: start;
+        margin-bottom: 32px;
+      }
+      .project-text p {
+        padding: 4px 0;
+      }
+      .fh-section-label {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #888;
+        margin: 40px 0 14px;
+        border-bottom: 1px solid rgb(230,230,230);
+        padding-bottom: 8px;
+      }
+
+      /* Hero */
+      .fh-hero-wrap {
+        border: solid rgb(210,206,206) 4px;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      }
+      .fh-hero-wrap img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Deck preview */
+      .fh-deck-wrap {
+        border: solid rgb(210,206,206) 4px;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      }
+      .fh-deck-wrap img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Slides grid */
+      .fh-slides-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-bottom: 32px;
+      }
+      .fh-slides-grid img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 8px;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: border-color 0.2s;
+      }
+      .fh-slides-grid img:hover {
+        border-color: var(--accent, #97c3a0);
+      }
+
+      /* Identity grid */
+      .fh-id-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-bottom: 32px;
+      }
+      .fh-id-grid img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 8px;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: border-color 0.2s;
+      }
+      .fh-id-grid img:hover {
+        border-color: var(--accent, #97c3a0);
+      }
+
+
+      @media only screen and (max-width: 800px) {
+        .project-row { grid-template-columns: 1fr; }
+        .fh-slides-grid { grid-template-columns: repeat(2, 1fr); }
+        .fh-modal-window { width: 98vw; height: 80vh; }
+      }
+      @media only screen and (max-width: 500px) {
+        .fh-slides-grid { grid-template-columns: 1fr 1fr; }
+        .fh-id-grid { grid-template-columns: 1fr; }
+      }
+      body.night .project-header p { color: #999; }
+      body.night .fh-hero-wrap { border-color: #444; }
+      body.night .fh-deck-wrap { border-color: #444; }
+      body.night .fh-section-label { color: #666; border-color: #333; }
+      body.night .fh-modal-window { background: #1a1a1a; }
+    </style>
+</head>
+<body>
+
+    <div class="search-widget">
+      <span class="search-icon">&#x1F50D;</span>
+      <input type="text" placeholder="search site..." id="siteSearch" autocomplete="off">
+      <div class="search-results" id="searchResults">
+        <a href="index.html">home</a>
+        <a href="work.html">work</a>
+        <a href="art.html">art</a>
+        <a href="info.html">info</a>
+        <a href="contact.html">contact</a>
+        <a href="journal.html">journal</a>
+        <a href="slash.html">slash</a>
+      </div>
+    </div>
+    <div class="mobile-sun-logo"></div>
+    <div class="accent-strip">
+      <div class="accent-marquee"><span>episode — my blonde hair — la boca del lobo — cut away — perceived identity — genome shotgun sequencing — the smarter the mind the better the traps — a door ajar — twisted and slipped into a 5th dimension — scattered — fell asleep there — in between words — reductio ad absurdum — episode — my blonde hair — la boca del lobo — cut away — perceived identity — genome shotgun sequencing — the smarter the mind the better the traps — a door ajar — twisted and slipped into a 5th dimension — scattered — fell asleep there — in between words — reductio ad absurdum — </span></div>
+    </div>
+
+    <div class="nav-fade"></div>
+    <div class="navBar-new">
+      <ul class="nav-main">
+        <li><a href="index.html"><img class="nav-logo" src="/assets/salva logo.png" alt="salva"></a></li>
+        <li class="nav-menu-trigger"><span class="highlight" onclick="this.closest('.navBar-new').classList.toggle('open')">menu <small>(5)</small> ☰</span>
+          <div class="nav-dropdown">
+            <a href="index.html" class="nav-drop-page">🏠 home</a>
+            <a href="work.html" class="nav-drop-page">💼 work</a>
+            <a href="info.html" class="nav-drop-page">ℹ️ info</a>
+            <a href="art.html">🎨 art</a>
+            <a href="slash.html">✍️ slash</a>
+            <a href="journal.html">📝 journal</a>
+            <a href="https://instagram.com/liquiidmetal" target="_blank">@liquiidmetal</a>
+          </div>
+        </li>
+        <li><a href="index.html">home</a></li>
+        <li><a href="work.html">work</a></li>
+        <li><a href="info.html">info</a></li>
+        <li><a href="contact.html" class="nav-contact">contact</a></li>
+      </ul>
+    </div>
+
+    <div class="project-wrapper">
+      <div class="project-header">
+        <h1>Flighthouse</h1>
+        <p>Branding / Visual Identity / Marketing</p>
+      </div>
+
+      <!-- Intro row: brand identity + text/deck -->
+      <div class="project-row">
+        <div class="fh-hero-wrap">
+          <div class="win-titlebar">
+            <span class="win-title">salvi.world/flighthouse</span>
+            <div class="win-dots">
+              <span class="win-dot win-close" onclick="this.closest('.fh-hero-wrap').style.display='none'">✕</span>
+              <span class="win-dot win-min">−</span>
+              <span class="win-dot win-max">□</span>
+            </div>
+          </div>
+          <img src="assets/flighthouse/fh-branding1.png" alt="Flighthouse Branding">
+        </div>
+        <div>
+          <div class="project-text">
+            <p>Branding and visual identity work for Flighthouse — one of the leading music marketing companies in the industry. The work spans brand identity systems, pitch decks, one-sheets, and marketing materials built to live across digital and print.</p>
+            <p>The visual language balances high-energy music culture with the credibility and polish of a company operating at the major label level.</p>
+          </div>
+          <br>
+          <!-- Deck cover -->
+          <div class="fh-deck-wrap">
+            <div class="win-titlebar">
+              <span class="win-title">music marketing deck — 2023</span>
+              <div class="win-dots">
+                <span class="win-dot win-close">✕</span>
+                <span class="win-dot win-min">−</span>
+                <span class="win-dot win-max">□</span>
+              </div>
+            </div>
+            <img src="assets/flighthouse/Copy-of-Flighthouse-Music-Marketing-Deck-2023.pptx.png" alt="Flighthouse Marketing Deck 2023">
+          </div>
+        </div>
+      </div>
+
+      <div class="project-row">
+        <div class="project-text">
+          <p>The marketing deck was built to communicate Flighthouse's reach and capabilities to labels, managers, and artists — combining data, culture, and design into a single cohesive document.</p>
+        </div>
+        <div class="project-text">
+          <p>One-sheets and supporting materials were designed with the same system — keeping brand consistency across every touchpoint while adapting for different audiences and contexts.</p>
+        </div>
+      </div>
+
+      <!-- Deck slides -->
+      <div class="fh-section-label">deck slides</div>
+      <div class="fh-slides-grid">
+        <img loading="lazy" src="assets/flighthouse/1.png" alt="Flighthouse Deck">
+        <img loading="lazy" src="assets/flighthouse/2-1.png" alt="Flighthouse Deck">
+        <img loading="lazy" src="assets/flighthouse/2-2.png" alt="Flighthouse Deck">
+        <img loading="lazy" src="assets/flighthouse/3-1.png" alt="Flighthouse Deck">
+        <img loading="lazy" src="assets/flighthouse/3-2.png" alt="Flighthouse Deck">
+        <img loading="lazy" src="assets/flighthouse/4-1.png" alt="Flighthouse Deck">
+        <img loading="lazy" src="assets/flighthouse/4-2.png" alt="Flighthouse Deck">
+      </div>
+
+      <!-- Identity materials -->
+      <div class="fh-section-label">identity & one-sheets</div>
+      <div class="fh-id-grid">
+        <img loading="lazy" src="assets/flighthouse/fh---branding-one-page-2.png" alt="Flighthouse Branding One Page">
+        <img loading="lazy" src="assets/flighthouse/FLIGHTCREW-ONE-SHEET.png" alt="Flightcrew One Sheet">
+      </div>
+
+    </div>
+
+    <!-- Image lightbox -->
+    <div class="lightbox" id="fhLightbox">
+      <div class="win-titlebar">
+        <span class="win-title">salvi.world/flighthouse</span>
+        <div class="win-dots">
+          <span class="win-dot win-close" onclick="var lb=document.getElementById('fhLightbox');lb.style.display='';lb.classList.remove('active');event.stopPropagation();">✕</span>
+          <span class="win-dot win-min">−</span>
+          <span class="win-dot win-max">□</span>
+        </div>
+      </div>
+      <div class="lightbox-body">
+        <span class="lb-arrow lb-prev" onclick="fhLbNav(-1)">‹</span>
+        <img src="" alt="">
+        <span class="lb-arrow lb-next" onclick="fhLbNav(1)">›</span>
+      </div>
+    </div>
+
+    <a href="#" class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">&#x2191;</a>
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">salva / liquiidmetal</div>
+        <nav class="footer-links">
+          <a href="index.html">home</a>
+          <a href="work.html">work</a>
+          <a href="art.html">art</a>
+          <a href="contact.html">contact</a>
+          <a href="info.html">info</a>
+          <a href="https://instagram.com/liquiidmetal" target="_blank">@liquiidmetal</a>
+        </nav>
+        <div class="footer-copy">&copy; 2026 salva. all rights reserved.</div>
+      </div>
+    </footer>
+
+    <script src="/scripts/shared.js"></script>
+<script>
+  // Image lightbox
+  var fhImgs = Array.from(document.querySelectorAll('.fh-slides-grid img, .fh-id-grid img'));
+  var fhIdx = 0;
+
+  fhImgs.forEach(function(img, i) {
+    img.addEventListener('click', function() {
+      fhIdx = i;
+      var lb = document.getElementById('fhLightbox');
+      lb.style.display = '';
+      lb.querySelector('.lightbox-body img').src = img.src;
+      lb.classList.add('active');
+    });
+  });
+
+  window.fhLbNav = function(dir) {
+    fhIdx = (fhIdx + dir + fhImgs.length) % fhImgs.length;
+    document.querySelector('#fhLightbox .lightbox-body img').src = fhImgs[fhIdx].src;
+  };
+
+  document.addEventListener('keydown', function(e) {
+    var lb = document.getElementById('fhLightbox');
+    if (!lb.classList.contains('active')) return;
+    if (e.key === 'ArrowLeft') fhLbNav(-1);
+    if (e.key === 'ArrowRight') fhLbNav(1);
+    if (e.key === 'Escape') { lb.style.display = ''; lb.classList.remove('active'); }
+  });
+</script>
+<script data-goatcounter="https://salvasalva.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

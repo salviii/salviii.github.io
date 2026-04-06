@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SODACAN Typeface — salvi.world</title>
+    <meta name="description" content="SODACAN — an original typeface designed by Salva.">
+    <link rel="canonical" href="https://salvi.world/sodacan.html">
+    <link rel="icon" href="/assets/salva logo.png" type="image/png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://salvi.world/sodacan.html">
+    <meta property="og:title" content="SODACAN Typeface — salvi.world">
+    <meta property="og:description" content="SODACAN — an original typeface designed by Salva.">
+    <meta property="og:image" content="https://salvi.world/assets/sodacan-grid.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="/style/main.css">
+    <style>
+      @font-face {
+        font-family: 'SodaCan';
+        src: url('assets/soda can/Sodacan-Regular.otf') format('opentype');
+        font-weight: normal;
+        font-style: normal;
+      }
+      .project-wrapper {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 8% 5% 4%;
+      }
+      .project-header {
+        text-align: center;
+        margin-bottom: 32px;
+      }
+      .project-header h1 {
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+      .project-header p {
+        font-size: 90%;
+        color: #666;
+        text-align: center;
+      }
+      .project-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        align-items: start;
+        margin-bottom: 32px;
+      }
+      .project-text p {
+        padding: 4px 0;
+      }
+      .sc-specimen {
+        border: solid rgb(210,206,206) 4px;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        margin-bottom: 32px;
+      }
+      .sc-specimen-body {
+        padding: 24px 20px;
+        background: #fff;
+      }
+      .sc-display {
+        font-family: 'SodaCan', monospace;
+        font-size: 52px;
+        line-height: 1.1;
+        letter-spacing: 0.04em;
+        color: #111;
+        word-break: break-all;
+      }
+      .sc-tester-label {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        color: #888;
+        margin-bottom: 8px;
+      }
+      .sc-tester {
+        width: 100%;
+        padding: 10px 12px;
+        border: 2px solid rgb(210,206,206);
+        border-radius: 8px;
+        font-size: 100%;
+        font-family: 'SodaCan', monospace;
+        box-sizing: border-box;
+        outline: none;
+        margin-top: 14px;
+        letter-spacing: 0.04em;
+      }
+      .sc-tester:focus {
+        border-color: var(--accent, #97c3a0);
+      }
+      .sc-download-btn {
+        display: inline-block;
+        padding: 8px 20px;
+        background: var(--accent, #97c3a0);
+        color: var(--accent-text, #1a1a1a);
+        border-radius: 8px;
+        font-size: 90%;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        text-decoration: none;
+        transition: filter 0.2s;
+      }
+      .sc-download-btn:hover {
+        filter: brightness(0.9);
+      }
+      .sc-hero {
+        width: 100%;
+        border-radius: 10px;
+        display: block;
+        margin-bottom: 32px;
+        object-fit: cover;
+        max-height: 480px;
+      }
+      .sc-gif {
+        width: 100%;
+        border-radius: 8px;
+        display: block;
+      }
+      .sc-mini-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 6px;
+        align-content: start;
+      }
+      .sc-mini-grid img {
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        display: block;
+        border-radius: 6px;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: border-color 0.2s;
+      }
+      .sc-mini-grid img:hover {
+        border-color: var(--accent, #97c3a0);
+      }
+      .sc-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 32px;
+      }
+      .sc-grid img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 8px;
+        cursor: pointer;
+        border: 3px solid transparent;
+        transition: border-color 0.3s;
+      }
+      .sc-grid img:hover {
+        border-color: var(--accent, #97c3a0);
+      }
+      .sc-media-pair {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        align-items: start;
+      }
+      .sc-inspo-img {
+        width: 100%;
+        border-radius: 8px;
+        display: block;
+        object-fit: cover;
+      }
+      .sc-char-section {
+        margin: 0 0 32px;
+      }
+      .sc-char-section-label {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        color: #888;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+      }
+      .sc-char-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+        gap: 8px;
+      }
+      .sc-char-cell {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid rgb(210,206,206);
+        border-radius: 8px;
+        padding: 10px 4px 6px;
+        transition: border-color 0.2s, background 0.2s;
+        cursor: default;
+      }
+      .sc-char-cell:hover {
+        border-color: var(--accent, #97c3a0);
+        background: rgba(151,195,160,0.07);
+      }
+      .sc-char-glyph {
+        font-family: 'SodaCan', monospace;
+        font-size: 32px;
+        line-height: 1;
+        color: #111;
+      }
+      .sc-char-label {
+        font-size: 9px;
+        letter-spacing: 0.06em;
+        color: #aaa;
+        margin-top: 5px;
+        font-weight: 600;
+      }
+      @media only screen and (max-width: 800px) {
+        .project-row { grid-template-columns: 1fr; }
+        .sc-display { font-size: 36px; }
+        .sc-grid { grid-template-columns: repeat(2, 1fr); }
+        .sc-char-grid { grid-template-columns: repeat(auto-fill, minmax(52px, 1fr)); }
+      }
+      @media only screen and (max-width: 500px) {
+        .sc-display { font-size: 26px; }
+        .sc-grid { grid-template-columns: 1fr; }
+        .sc-char-grid { grid-template-columns: repeat(auto-fill, minmax(44px, 1fr)); }
+        .sc-char-glyph { font-size: 24px; }
+      }
+      body.night .project-header p { color: #999; }
+      body.night .sc-specimen { border-color: #444; }
+      body.night .sc-specimen-body { background: #111; }
+      body.night .sc-display { color: #e0e0e0; }
+      body.night .sc-tester { border-color: #444; background: #1a1a1a; color: #e0e0e0; }
+      body.night .sc-char-cell { border-color: #333; }
+      body.night .sc-char-cell:hover { border-color: var(--accent, #97c3a0); background: rgba(151,195,160,0.07); }
+      body.night .sc-char-glyph { color: #e0e0e0; }
+    </style>
+</head>
+<body>
+
+    <div class="search-widget">
+      <span class="search-icon">&#x1F50D;</span>
+      <input type="text" placeholder="search site..." id="siteSearch" autocomplete="off">
+      <div class="search-results" id="searchResults">
+        <a href="index.html">home</a>
+        <a href="work.html">work</a>
+        <a href="art.html">art</a>
+        <a href="info.html">info</a>
+        <a href="contact.html">contact</a>
+        <a href="journal.html">journal</a>
+        <a href="slash.html">slash</a>
+      </div>
+    </div>
+    <div class="mobile-sun-logo"></div>
+    <div class="accent-strip">
+      <div class="accent-marquee"><span>episode — my blonde hair — la boca del lobo — cut away — perceived identity — genome shotgun sequencing — the smarter the mind the better the traps — a door ajar — twisted and slipped into a 5th dimension — scattered — fell asleep there — in between words — reductio ad absurdum — episode — my blonde hair — la boca del lobo — cut away — perceived identity — genome shotgun sequencing — the smarter the mind the better the traps — a door ajar — twisted and slipped into a 5th dimension — scattered — fell asleep there — in between words — reductio ad absurdum — </span></div>
+    </div>
+
+    <div class="nav-fade"></div>
+    <div class="navBar-new">
+      <ul class="nav-main">
+        <li><a href="index.html"><img class="nav-logo" src="/assets/salva logo.png" alt="salva"></a></li>
+        <li class="nav-menu-trigger"><span class="highlight" onclick="this.closest('.navBar-new').classList.toggle('open')">menu <small>(5)</small> ☰</span>
+          <div class="nav-dropdown">
+            <a href="index.html" class="nav-drop-page">🏠 home</a>
+            <a href="work.html" class="nav-drop-page">💼 work</a>
+            <a href="info.html" class="nav-drop-page">ℹ️ info</a>
+            <a href="art.html">🎨 art</a>
+            <a href="slash.html">✍️ slash</a>
+            <a href="journal.html">📝 journal</a>
+            <a href="https://instagram.com/liquiidmetal" target="_blank">@liquiidmetal</a>
+          </div>
+        </li>
+        <li><a href="index.html">home</a></li>
+        <li><a href="work.html">work</a></li>
+        <li><a href="info.html">info</a></li>
+        <li><a href="contact.html" class="nav-contact">contact</a></li>
+      </ul>
+    </div>
+
+    <div class="project-wrapper">
+      <div class="project-header">
+        <h1>SODACAN</h1>
+        <p>Typeface Design / Typography</p>
+      </div>
+
+      <div class="sc-char-section">
+        <div class="sc-char-section-label">full character set</div>
+        <div class="sc-char-grid" id="scCharGrid"></div>
+      </div>
+
+      <div class="sc-specimen">
+        <div class="win-titlebar">
+          <span class="win-title">salvi.world/SODACAN — type tester</span>
+          <div class="win-dots">
+            <span class="win-dot win-close" onclick="this.closest('.sc-specimen').style.display='none'">✕</span>
+            <span class="win-dot win-min">−</span>
+            <span class="win-dot win-max">□</span>
+          </div>
+        </div>
+        <div class="sc-specimen-body">
+          <div class="sc-tester-label">specimen</div>
+          <div class="sc-display" id="scDisplay">ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
+          <input class="sc-tester" id="scTester" type="text" placeholder="type to preview..." autocomplete="off">
+          <div style="margin-top:16px;">
+            <a class="sc-download-btn" href="assets/soda can/Sodacan-Regular.otf" download="Sodacan-Regular.otf">download SODACAN.otf</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-row">
+        <div class="project-text">
+          <p>SODACAN is an original typeface designed and built entirely from scratch. The letterforms draw from bold display type, graffiti energy, and industrial aesthetics — thick, chunky, and unapologetically heavy.</p>
+          <p>Designed to hold its own on posters, apparel, and anything that needs to hit hard. Each glyph was crafted to feel consistent as a family while still having its own personality.</p>
+          <p>The name draws from the aluminum soda can tab — that stamped piece of industrial type nobody notices but everybody has touched. Punched-out, thick, manufactured. A font pressed out of metal, not drawn on paper.</p>
+        </div>
+        <div class="sc-media-pair">
+          <img class="sc-gif" src="assets/soda can/sodacan-letters-red_1-ezgif.com-video-to-gif-converter.gif" alt="SODACAN typeface animated">
+          <img class="sc-inspo-img" src="assets/soda can/inspo.jpg" alt="Real soda can tab — inspiration for SODACAN typeface">
+        </div>
+      </div>
+
+      <div class="project-row">
+        <div class="project-text">
+          <p>The color variant of the alphabet explores how the typeface holds up in a full palette — each letter treated as its own object, proving the design works as much in isolation as it does in motion.</p>
+        </div>
+        <div class="project-text">
+          <p>The final poster and metal render demonstrate the typeface in applied use — showing SODACAN as more than just letters, but a full visual identity system in itself.</p>
+        </div>
+      </div>
+
+      <div class="sc-grid">
+       
+        <img loading="lazy" src="assets/soda can/sodacan-letters-colors.png" alt="SODACAN color alphabet">
+        <img loading="lazy" src="assets/soda can/sodacan-poster-final-1.png" alt="SODACAN poster">
+        <img loading="lazy" src="assets/soda can/metalsoda.png" alt="SODACAN metal render">
+        <img loading="lazy" src="assets/soda can/dunvev3.png" alt="SODACAN">
+      </div>
+
+    </div>
+
+    <div class="lightbox" id="scLightbox">
+      <div class="win-titlebar">
+        <span class="win-title">salvi.world/SODACAN</span>
+        <div class="win-dots">
+          <span class="win-dot win-close" onclick="var lb=document.getElementById('scLightbox');lb.style.display='';lb.classList.remove('active');event.stopPropagation();">✕</span>
+          <span class="win-dot win-min">−</span>
+          <span class="win-dot win-max">□</span>
+        </div>
+      </div>
+      <div class="lightbox-body">
+        <span class="lb-arrow lb-prev" onclick="scLbNav(-1)">‹</span>
+        <img src="" alt="">
+        <span class="lb-arrow lb-next" onclick="scLbNav(1)">›</span>
+      </div>
+    </div>
+
+    <a href="#" class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">&#x2191;</a>
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">salva / liquiidmetal</div>
+        <nav class="footer-links">
+          <a href="index.html">home</a>
+          <a href="work.html">work</a>
+          <a href="art.html">art</a>
+          <a href="contact.html">contact</a>
+          <a href="info.html">info</a>
+          <a href="https://instagram.com/liquiidmetal" target="_blank">@liquiidmetal</a>
+        </nav>
+        <div class="footer-copy">&copy; 2026 salva. all rights reserved.</div>
+      </div>
+    </footer>
+
+    <script src="/scripts/shared.js"></script>
+<script>
+  // Character grid
+  (function() {
+    var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+    var grid = document.getElementById('scCharGrid');
+    chars.forEach(function(ch) {
+      var cell = document.createElement('div');
+      cell.className = 'sc-char-cell';
+      cell.innerHTML = '<span class="sc-char-glyph">' + ch + '</span><span class="sc-char-label">' + ch + '</span>';
+      grid.appendChild(cell);
+    });
+  })();
+
+  // Live type tester
+  var scTester = document.getElementById('scTester');
+  var scDisplay = document.getElementById('scDisplay');
+  scTester.addEventListener('input', function() {
+    scDisplay.textContent = scTester.value || 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  });
+
+  // Image lightbox
+  var scImgs = Array.from(document.querySelectorAll('.sc-mini-grid img, .sc-grid img'));
+  var scIdx = 0;
+
+  scImgs.forEach(function(img, i) {
+    img.addEventListener('click', function() {
+      scIdx = i;
+      var lb = document.getElementById('scLightbox');
+      lb.style.display = '';
+      lb.querySelector('.lightbox-body img').src = img.src;
+      lb.classList.add('active');
+    });
+  });
+
+  window.scLbNav = function(dir) {
+    scIdx = (scIdx + dir + scImgs.length) % scImgs.length;
+    document.querySelector('#scLightbox .lightbox-body img').src = scImgs[scIdx].src;
+  };
+
+  document.addEventListener('keydown', function(e) {
+    var lb = document.getElementById('scLightbox');
+    if (!lb.classList.contains('active')) return;
+    if (e.key === 'ArrowLeft') scLbNav(-1);
+    if (e.key === 'ArrowRight') scLbNav(1);
+    if (e.key === 'Escape') { lb.style.display = ''; lb.classList.remove('active'); }
+  });
+</script>
+<script data-goatcounter="https://salvasalva.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

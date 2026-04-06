@@ -975,18 +975,7 @@ body.night .search-results a {
 
 @media only screen and (max-width: 800px) {
   .mobile-sun-logo {
-    display: block;
-    position: absolute;
-    top: calc(2vh + 44px);
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10000;
-    width: 44px;
-    height: 44px;
-    background-color: var(--accent, #97c3a0);
-    -webkit-mask: url(/assets/sun.png) center/contain no-repeat;
-    mask: url(/assets/sun.png) center/contain no-repeat;
-    pointer-events: none;
+    display: none;
   }
   .color-widget {
     position: absolute !important;
@@ -1370,6 +1359,19 @@ body.night .filter-bubble.active {
   border-color: var(--accent, #97c3a0);
 }
 
+@media only screen and (max-width: 600px) {
+  .work-filters {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    justify-items: stretch;
+  }
+  .filter-bubble {
+    text-align: center;
+    padding: 7px 4px;
+  }
+}
+
 .mosaic-wrapper {
   width: 85%;
   margin: 0 auto;
@@ -1516,23 +1518,25 @@ body.night .mosaic-blank {
 
 @media only screen and (max-width: 800px) {
   html, body { overscroll-behavior-x: none; font-size: 100%; }
-  .container { width: 95vw; }
-  .nav-main li { font-size: 75%; }
+  .container { width: 90vw; }
+  .nav-main li { font-size: 88%; }
   model-viewer { height: 45vh; width: 280px; padding: 10px; }
   .floating-art-1 { left: 85%; width: 20%; }
-  .navBar-new { padding: 4px 6px; margin-top: 20%; width: fit-content; max-width: 95vw; box-sizing: border-box; }
-  .nav-main { gap: 4px; justify-content: center; flex-wrap: nowrap; }
-  .nav-main li a { padding: 5px 7px; }
-  .nav-logo { height: 16px; }
-  .highlight { padding: 5px 7px; font-size: inherit; }
+  .navBar-new { padding: 6px 10px; margin-top: 20%; width: fit-content; max-width: 95vw; box-sizing: border-box; }
+  .nav-main { gap: 6px; justify-content: center; flex-wrap: nowrap; }
+  .nav-main li a { padding: 7px 10px; }
+  .nav-logo { height: 18px; }
+  .highlight { padding: 7px 10px; font-size: inherit; }
   .about-wrapper { width: 90vw; padding: 8% 2% 4%; box-sizing: border-box; }
   .mosaic { grid-template-columns: 1fr; gap: 16px; }
-  .mosaic-wrapper { padding: 3vh 5% 10vh 5%; }
+  .mosaic-wrapper { width: 90vw; margin-left: auto; margin-right: auto; padding: 3vh 0 10vh; box-sizing: border-box; }
+  .project-wrapper { width: 90vw !important; max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; box-sizing: border-box; }
   .music-widget { width: 200px; }
   .gallery-widget { width: 200px; }
   .text-widget { width: 200px; }
   .img-widget { width: 200px; }
   .mosaic-blank { font-size: 10px; padding: 6px; }
+  .color-widget { display: none !important; }
 }
 
 .site-footer {
@@ -1613,11 +1617,11 @@ body.night .mosaic-blank {
 }
 
 @media only screen and (max-width: 600px) {
-  .nav-main li { font-size: 65%; }
-  .nav-main { gap: 2px; }
-  .nav-main li a { padding: 4px 5px; }
-  .nav-logo { height: 14px; }
-  .highlight { padding: 4px 5px; }
+  .nav-main li { font-size: 82%; }
+  .nav-main { gap: 4px; }
+  .nav-main li a { padding: 6px 8px; }
+  .nav-logo { height: 16px; }
+  .highlight { padding: 6px 8px; }
   .active { padding: 4px 5px; }
   .nav-contact { padding: 4px 5px; }
   .music-widget { width: 115px; font-size: 60%; }
@@ -1638,11 +1642,11 @@ body.night .mosaic-blank {
 }
 
 @media only screen and (max-width: 400px) {
-  .nav-main li { font-size: 55%; }
-  .nav-main { gap: 1px; }
-  .nav-main li a { padding: 3px 4px; }
-  .nav-logo { height: 12px; }
-  .highlight { padding: 3px 4px; }
+  .nav-main li { font-size: 75%; }
+  .nav-main { gap: 3px; }
+  .nav-main li a { padding: 5px 7px; }
+  .nav-logo { height: 15px; }
+  .highlight { padding: 5px 7px; }
   .music-widget { width: 100px; }
   .music-body iframe { height: 90px; }
   .gallery-widget { width: 100px; }
@@ -1651,6 +1655,18 @@ body.night .mosaic-blank {
   .text-widget-body iframe { height: 40px; }
   .img-widget { width: 100px; }
   .img-widget-body img { max-height: 55px; }
+}
+
+@media only screen and (max-width: 800px) {
+  #widgetSummoner {
+    left: 16px !important;
+    right: auto !important;
+    transform: none !important;
+    bottom: 16px !important;
+  }
+  .nav-menu-trigger .highlight small {
+    display: none;
+  }
 }
 
 /* About Page */
