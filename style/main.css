@@ -1529,14 +1529,17 @@ body.night .mosaic-blank {
   .highlight { padding: 7px 10px; font-size: inherit; }
   .about-wrapper { width: 90vw; padding: 8% 2% 4%; box-sizing: border-box; }
   .mosaic { grid-template-columns: 1fr; gap: 16px; }
-  .mosaic-wrapper { width: 90vw; margin-left: auto; margin-right: auto; padding: 3vh 0 10vh; box-sizing: border-box; }
-  .project-wrapper { width: 90vw !important; max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; box-sizing: border-box; }
+  .mosaic-wrapper { width: 84vw; margin-left: auto; margin-right: auto; padding: 3vh 0 10vh; box-sizing: border-box; }
+  .project-wrapper { width: 84vw !important; max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; box-sizing: border-box; }
   .music-widget { width: 200px; }
   .gallery-widget { width: 200px; }
   .text-widget { width: 200px; }
   .img-widget { width: 200px; }
   .mosaic-blank { font-size: 10px; padding: 6px; }
   .color-widget { display: none !important; }
+  .text-widget { display: none !important; }
+  .home-bottom-row { grid-template-columns: 1fr !important; padding: 0 0 5% !important; }
+  #contactWidget { min-width: 0 !important; width: 100% !important; box-sizing: border-box; }
 }
 
 .site-footer {

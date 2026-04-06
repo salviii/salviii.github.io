@@ -490,6 +490,23 @@
   makeDraggable(document.querySelector('.color-widget'));
   makeDraggable(document.querySelector('.text-widget'));
   makeDraggable(document.querySelector('.img-widget'));
+
+  // On mobile, position art widget 30px below the music widget
+  if (window.innerWidth <= 800) {
+    var musicEl = document.querySelector('.music-widget');
+    var artEl = document.querySelector('.img-widget');
+    if (musicEl && artEl) {
+      var setArtPos = function() {
+        var rect = musicEl.getBoundingClientRect();
+        artEl.style.top = (rect.bottom + 30) + 'px';
+        artEl.style.left = '12px';
+        artEl.style.right = 'auto';
+        artEl.style.bottom = 'auto';
+      };
+      setArtPos();
+      window.addEventListener('resize', setArtPos);
+    }
+  }
   makeDraggable(document.getElementById('tvWidget'));
   makeDraggable(document.getElementById('homeArchiveWidget'));
   makeDraggable(document.getElementById('contactWidget'));
