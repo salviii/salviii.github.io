@@ -1667,6 +1667,10 @@ body.night .mosaic-blank {
     transform: none !important;
     bottom: 16px !important;
   }
+  #summonerMenu {
+    left: 0 !important;
+    transform: none !important;
+  }
   .nav-menu-trigger .highlight small {
     display: none;
   }
