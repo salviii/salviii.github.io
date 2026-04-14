@@ -43,10 +43,10 @@
         .clock-widget { font-size: 75%; }
       }
       @media only screen and (max-width: 600px) {
-        .music-widget { width: 140px !important; top: 25% !important; right: 2% !important; font-size: 65%; }
-        .archive-widget { width: 140px !important; font-size: 65%; }
-        .color-widget { font-size: 65%; padding: 3px 6px; top: auto !important; bottom: 6% !important; left: 2% !important; }
-        .clock-widget { padding: 4px 8px; font-size: 65%; right: 2% !important; bottom: 6% !important; }
+        .music-widget,
+        .archive-widget,
+        .color-widget,
+        .clock-widget { display: none !important; }
       }
     </style>
 </head>
@@ -193,10 +193,10 @@
 
     <script src="/scripts/shared.js"></script>
 <script>
-  // Scroll to entry from archive link
+  // Scroll to entry from archive link or URL hash
   (function() {
     var params = new URLSearchParams(window.location.search);
-    var target = params.get('scrollTo');
+    var target = params.get('scrollTo') || (window.location.hash ? window.location.hash.slice(1) : null);
     if (target) {
       var check = setInterval(function() {
         var el = document.getElementById(target);
@@ -205,6 +205,22 @@
       setTimeout(function() { clearInterval(check); }, 10000);
     }
   })();
+
+  // Share button — copy direct link to post
+  document.addEventListener('click', function(e) {
+    var btn = e.target.closest('.feed-share-btn');
+    if (!btn) return;
+    var postId = btn.getAttribute('data-post-id');
+    var url = window.location.origin + '/journal.html#' + postId;
+    navigator.clipboard.writeText(url).then(function() {
+      btn.textContent = '✓ copied';
+      btn.classList.add('copied');
+      setTimeout(function() {
+        btn.innerHTML = '&#x2197; share';
+        btn.classList.remove('copied');
+      }, 1800);
+    });
+  });
 
   // Fixed back-to-top after 200px scroll, draggable, arrow points at cursor
   var btt = document.querySelector('.journal-btt');
@@ -312,6 +328,7 @@
         html += '<span class="feed-name">salva</span>';
         html += '<span class="feed-handle">@salvabikes</span>';
         html += '<span class="feed-date">' + escapeHTML(entry.date) + '</span>';
+        html += '<button class="feed-share-btn" data-post-id="' + id + '" title="copy link to this post">&#x2197; share</button>';
         html += '</div>';
 
         // Right column: content
@@ -351,15 +368,26 @@
           html += '</div>';
         }
 
-        // Song — under image or under text
+        // Song
         if (song) {
-          html += '<div class="feed-song"><span class="feed-song-icon">♫</span> ' + escapeHTML(song.title) + ' — ' + escapeHTML(song.artist) + '</div>';
+          html += '<div class="feed-actions"><div class="feed-song"><span class="feed-song-icon">♫</span><span class="feed-song-text"> ' + escapeHTML(song.title) + ' — ' + escapeHTML(song.artist) + '</span></div></div>';
         }
 
         html += '</div>'; // close feed-right
 
         article.innerHTML = html;
         feed.appendChild(article);
+      });
+
+      // Marquee song text that overflows its container
+      requestAnimationFrame(function() {
+        document.querySelectorAll('.feed-song-text').forEach(function(el) {
+          var overflow = el.scrollWidth - el.parentElement.clientWidth;
+          if (overflow > 0) {
+            el.classList.add('overflows');
+            el.style.setProperty('--overflow-px', '-' + overflow + 'px');
+          }
+        });
       });
 
       // Build archive widget
