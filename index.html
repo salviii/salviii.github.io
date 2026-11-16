@@ -607,7 +607,7 @@
         var dayEl = document.createElement('div');
         dayEl.className = 'archive-day';
         dayEl.innerHTML = group.monthNum + '/' + String(day).padStart(2,'0') + ' <span style="font-weight:400;color:#999;font-size:10px;">' + preview + '...</span>';
-        dayEl.onclick = function() { window.location.href = 'journal.html?scrollTo=post-' + indices[0]; };
+        dayEl.onclick = function() { var index = indices[0]; window.location.href = 'journal.html?scrollTo=' + encodeURIComponent(data.entries[index].id || 'post-' + index); };
         daysDiv.appendChild(dayEl);
       });
       monthDiv.appendChild(header);

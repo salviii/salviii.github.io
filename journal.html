@@ -36,6 +36,36 @@
         opacity: 1;
         pointer-events: auto;
       }
+      .feed-carousel { margin-top: 14px; max-width: 100%; }
+      .feed-carousel-track {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        border: 1px solid rgba(128,128,128,.2);
+        border-radius: 12px;
+        background: rgba(128,128,128,.05);
+        scrollbar-width: thin;
+      }
+      .feed-slide {
+        flex: 0 0 100%;
+        min-width: 0;
+        scroll-snap-align: start;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .feed-slide img, .feed-slide video {
+        display: block;
+        width: 100%;
+        height: 480px;
+        object-fit: contain;
+      }
+      .feed-slide img { cursor: zoom-in; }
+      .feed-video-link { min-height: 300px; padding: 28px; text-align: center; }
+      .feed-carousel-controls { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding-top: 8px; font-size: 12px; }
+      .feed-carousel-controls button { font: inherit; color: inherit; background: transparent; border: 1px solid rgba(128,128,128,.35); border-radius: 20px; padding: 5px 12px; cursor: pointer; }
+      .feed-carousel-controls button:disabled { opacity: .3; cursor: default; }
+      .feed-source { display: inline-block; margin-top: 10px; font-size: 11px; opacity: .65; }
       @media only screen and (max-width: 1024px) {
         .music-widget { width: 180px !important; top: 28% !important; font-size: 75%; }
         .archive-widget { width: 180px !important; font-size: 75%; }
@@ -43,6 +73,7 @@
         .clock-widget { font-size: 75%; }
       }
       @media only screen and (max-width: 600px) {
+        .feed-slide img, .feed-slide video { height: 390px; }
         .music-widget,
         .archive-widget,
         .color-widget,
@@ -301,10 +332,10 @@
 
       document.getElementById('archiveCount').textContent = '(' + entries.length + '+)';
 
-      // Build feed — deduplicate images by page
+      // Legacy document imports share images by page; Instagram imports own theirs.
       var shownPages = {};
       entries.forEach(function(entry, i) {
-        var id = 'post-' + i;
+        var id = entry.id || 'post-' + i;
         var bodyText = entry.body;
         var words = bodyText.split(/\s+/);
         var truncated = words.length > WORD_LIMIT;
@@ -312,9 +343,9 @@
 
         // Only show images for the first entry on each page
         var showImages = false;
-        if (entry.images && entry.images.length > 0 && !shownPages[entry.page]) {
+        if (entry.images && entry.images.length > 0 && (entry.page == null || !shownPages[entry.page])) {
           showImages = true;
-          shownPages[entry.page] = true;
+          if (entry.page != null) shownPages[entry.page] = true;
         }
 
         var article = document.createElement('article');
@@ -360,7 +391,25 @@
         html += '</div>';
 
         // Images
-        if (showImages) {
+        if (entry.media && entry.media.length) {
+          html += '<div class="feed-carousel"><div class="feed-carousel-track" tabindex="0" role="region" aria-label="Post media">';
+          entry.media.forEach(function(media, slideIndex) {
+            html += '<div class="feed-slide" role="group" aria-label="Slide ' + (slideIndex + 1) + ' of ' + entry.media.length + '">';
+            if (media.type === 'image') {
+              html += '<img src="' + escapeHTML(media.src) + '" alt="Journal photo ' + (slideIndex + 1) + ' of ' + entry.media.length + ' — ' + escapeHTML(entry.date) + '" loading="lazy" decoding="async">';
+            } else if (media.src) {
+              html += '<video src="' + escapeHTML(media.src) + '" controls playsinline preload="none"></video>';
+            } else {
+              html += '<a class="feed-video-link" href="' + escapeHTML(media.source_url) + '?img_index=' + (slideIndex + 1) + '" target="_blank" rel="noopener noreferrer">▶ Video slide<br>Watch on Instagram ↗</a>';
+            }
+            html += '</div>';
+          });
+          html += '</div>';
+          if (entry.media.length > 1) {
+            html += '<div class="feed-carousel-controls"><button type="button" class="feed-carousel-prev" aria-label="Previous slide" disabled>←</button><span class="feed-carousel-count" aria-live="polite">1 / ' + entry.media.length + '</span><button type="button" class="feed-carousel-next" aria-label="Next slide">→</button></div>';
+          }
+          html += '</div>';
+        } else if (showImages) {
           html += '<div class="feed-images' + (entry.images.length > 1 ? ' feed-images-grid' : '') + '">';
           entry.images.forEach(function(src) {
             html += '<img src="' + escapeHTML(src) + '" alt="" loading="lazy">';
@@ -372,11 +421,40 @@
         if (song) {
           html += '<div class="feed-actions"><div class="feed-song"><span class="feed-song-icon">♫</span><span class="feed-song-text"> ' + escapeHTML(song.title) + ' — ' + escapeHTML(song.artist) + '</span></div></div>';
         }
+        if (entry.source_url) {
+          html += '<a class="feed-source" href="' + escapeHTML(entry.source_url) + '" target="_blank" rel="noopener noreferrer">Instagram ↗</a>';
+        }
 
         html += '</div>'; // close feed-right
 
         article.innerHTML = html;
         feed.appendChild(article);
+      });
+
+      feed.querySelectorAll('.feed-carousel').forEach(function(carousel) {
+        var track = carousel.querySelector('.feed-carousel-track');
+        var previous = carousel.querySelector('.feed-carousel-prev');
+        var next = carousel.querySelector('.feed-carousel-next');
+        if (!next) return;
+        var total = track.children.length;
+        function update() {
+          var index = Math.round(track.scrollLeft / track.clientWidth);
+          carousel.querySelector('.feed-carousel-count').textContent = (index + 1) + ' / ' + total;
+          previous.disabled = index === 0;
+          next.disabled = index === total - 1;
+          track.querySelectorAll('video').forEach(function(video) { if (!track.children[index].contains(video)) video.pause(); });
+        }
+        function move(direction) {
+          var index = Math.round(track.scrollLeft / track.clientWidth);
+          track.scrollTo({ left: (index + direction) * track.clientWidth, behavior: 'smooth' });
+        }
+        previous.addEventListener('click', function() { move(-1); });
+        next.addEventListener('click', function() { move(1); });
+        track.addEventListener('scroll', update, { passive: true });
+        track.addEventListener('keydown', function(e) {
+          if (e.target !== track) return;
+          if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.preventDefault(); move(e.key === 'ArrowLeft' ? -1 : 1); }
+        });
       });
 
       // Marquee song text that overflows its container
@@ -445,7 +523,8 @@
             '<span class="archive-day-count">(' + indices.length + ')</span>';
 
           dayEl.onclick = function() {
-            document.getElementById('post-' + indices[0]).scrollIntoView({ behavior: 'smooth', block: 'start' });
+            var index = indices[0];
+            document.getElementById(entries[index].id || 'post-' + index).scrollIntoView({ behavior: 'smooth', block: 'start' });
           };
           daysDiv.appendChild(dayEl);
         });
@@ -461,9 +540,9 @@
   var journalLbIndex = 0;
 
   document.getElementById('journalFeed').addEventListener('click', function(e) {
-    var img = e.target.closest('.feed-images img');
+    var img = e.target.closest('.feed-images img, .feed-slide img');
     if (!img) return;
-    journalLbImgs = Array.prototype.slice.call(document.querySelectorAll('.feed-images img'));
+    journalLbImgs = Array.prototype.slice.call(img.closest('.feed-carousel, .feed-images').querySelectorAll('img'));
     journalLbIndex = journalLbImgs.indexOf(img);
     var lb = document.getElementById('journalLightbox');
     lb.querySelector('.lightbox-body img').src = img.src;
